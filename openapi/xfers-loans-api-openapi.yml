@@ -1,0 +1,1232 @@
+openapi: 3.0.0
+info:
+  description: Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.
+  version: '3'
+  title: Xfers Bank Account Loans API
+  contact:
+    name: Contact us through our help desk
+    url: https://bit.ly/XfersSupport
+servers:
+- description: Indonesia Production
+  url: https://id.xfers.com/api
+- description: Indonesia Sandbox for testing
+  url: https://sandbox-id.xfers.com/api
+tags:
+- name: Loans
+  description: Loans Management
+paths:
+  /v3/loans:
+    post:
+      operationId: createLoan
+      tags:
+      - Loans
+      summary: Create Loan
+      description: Creating a Loan. We will pass this loan asynchronously and give callback after complete.
+      x-code-samples:
+      - lang: Shell
+        source: "curl --location --request POST \"{base_url}/loans\" \\\r\n  --header \"X-XFERS-USER-API-KEY: {{user-api-key}}\" \\\r\n  --header \"Content-Type: application/json\" \\\r\n  --data \"{\r\n\t\\\"customer_data\\\": {\r\n\t\t\\\"refnocustid\\\": \\\"refnocustid2\\\",\r\n\t\t\\\"din\\\": \\\"string content\\\",\r\n\t\t\\\"custtype\\\": 1,\r\n\t\t\\\"fullname\\\": \\\"name01\\\",\r\n\t\t\\\"custname\\\": \\\"name01\\\",\r\n\t\t\\\"title\\\": \\\"sh\\\",\r\n\t\t\\\"custaddress\\\": \\\"string content\\\",\r\n\t\t\\\"custrt\\\": \\\"string content\\\",\r\n\t\t\\\"custrw\\\": \\\"string content\\\",\r\n\t\t\\\"custkel\\\": \\\"string content\\\",\r\n\t\t\\\"custkec\\\": \\\"string content\\\",\r\n\t\t\\\"custcity\\\": \\\"string content\\\",\r\n\t\t\\\"custprov\\\": \\\"string content\\\",\r\n\t\t\\\"custzip\\\": \\\"string content\\\",\r\n\t\t\\\"custdati\\\": \\\"0102\\\",\r\n\t\t\\\"idtype\\\": 1,\r\n\t\t\\\"idnumber\\\": \\\"idnumber\\\",\r\n\t\t\\\"idexpired\\\": \\\"2019-01-01\\\",\r\n\t\t\\\"gender\\\": 1,\r\n\t\t\\\"maritalstatus\\\": 2,\r\n\t\t\\\"birthdate\\\": \\\"1980-01-04\\\",\r\n\t\t\\\"birthplace\\\": \\\"bekasi\\\",\r\n\t\t\\\"birthdati\\\": \\\"0102\\\",\r\n\t\t\\\"worksince\\\": \\\"2014-01-01\\\",\r\n\t\t\\\"employeests\\\": 1,\r\n\t\t\\\"contractend\\\": \\\"2014-01-01\\\",\r\n\t\t\\\"lasteducation\\\": \\\"0100\\\",\r\n\t\t\\\"economycode\\\": \\\"011110\\\",\r\n\t\t\\\"debiturcode\\\": \\\"907\\\",\r\n\t\t\\\"mmn\\\": \\\"ibu kandung\\\",\r\n\t\t\\\"npwp\\\": \\\"no npwp\\\",\r\n\t\t\\\"homestatus\\\": 1,\r\n\t\t\\\"livedsince\\\": \\\"2000-01-01\\\",\r\n\t\t\\\"phonearea\\\": \\\"area\\\",\r\n\t\t\\\"phoneno\\\": \\\"12323535\\\",\r\n\t\t\\\"mobileno\\\": \\\"0878978979\\\",\r\n\t\t\\\"dependent\\\": 0,\r\n\t\t\\\"grossincome\\\": 5000000,\r\n\t\t\\\"expenses\\\": 1000000,\r\n\t\t\\\"sameidhomeaddr\\\": 1,\r\n\t\t\\\"custaddresshome\\\": \\\"string content\\\",\r\n\t\t\\\"custrthome\\\": \\\"string content\\\",\r\n\t\t\\\"custrwhome\\\": \\\"string content\\\",\r\n\t\t\\\"custkelhome\\\": \\\"string content\\\",\r\n\t\t\\\"custkechome\\\": \\\"string content\\\",\r\n\t\t\\\"custcityhome\\\": \\\"string content\\\",\r\n\t\t\\\"custprovhome\\\": \\\"string content\\\",\r\n\t\t\\\"custziphome\\\": \\\"string content\\\",\r\n\t\t\\\"custdatihome\\\": \\\"0102\\\",\r\n\t\t\\\"spousename\\\": \\\"string content\\\",\r\n\t\t\\\"spousebirthdate\\\": \\\"1980-01-01\\\",\r\n\t\t\\\"spousebirthplace\\\": \\\"string content\\\",\r\n\t\t\\\"spouseidtype\\\": 1,\r\n\t\t\\\"spouseidnumber\\\": \\\"string content\\\",\r\n\t\t\\\"spousephoneno\\\": \\\"string content\\\",\r\n\t\t\\\"spousemobileno\\\": \\\"string content\\\",\r\n\t\t\\\"spouseoffice\\\": \\\"string content\\\",\r\n\t\t\\\"spouseoffinephone\\\": \\\"string content\\\",\r\n\t\t\\\"relativestype\\\": 1,\r\n\t\t\\\"relativesname\\\": \\\"string content\\\",\r\n\t\t\\\"custaddressrel\\\": \\\"string content\\\",\r\n\t\t\\\"custrtrel\\\": \\\"string content\\\",\r\n\t\t\\\"custrwrel\\\": \\\"string content\\\",\r\n\t\t\\\"custkelrel\\\": \\\"string content\\\",\r\n\t\t\\\"custkecrel\\\": \\\"string content\\\",\r\n\t\t\\\"custcityrel\\\": \\\"string content\\\",\r\n\t\t\\\"custprovrel\\\": \\\"string content\\\",\r\n\t\t\\\"custziprel\\\": \\\"string content\\\",\r\n\t\t\\\"phonenorel\\\": \\\"string content\\\",\r\n\t\t\\\"companyname\\\": \\\"string content\\\",\r\n\t\t\\\"companyaddr\\\": \\\"string content\\\",\r\n\t\t\\\"companycity\\\": \\\"string content\\\",\r\n\t\t\\\"companyzip\\\": \\\"string content\\\",\r\n\t\t\\\"companyphone\\\": \\\"string content\\\",\r\n\t\t\\\"deedno\\\": \\\"string content\\\",\r\n\t\t\\\"deeddate\\\": \\\"2019-01-01\\\",\r\n\t\t\\\"corporatetype\\\": \\\"string content\\\",\r\n\t\t\\\"jobid\\\": \\\"002\\\",\r\n\t\t\\\"jobtitleid\\\": \\\"50\\\",\r\n\t\t\\\"countryid\\\": \\\"id\\\",\r\n\t\t\\\"branchcode\\\": \\\"000\\\"\r\n\t},\r\n\t\\\"loan_data\\\": {\r\n\t\t\\\"refno\\\": \\\"ref05\\\",\r\n\t\t\\\"objectvalue\\\": \\\"100000000.0\\\",\r\n\t\t\\\"principaltotal\\\": \\\"80000000.0\\\",\r\n\t\t\\\"tenor\\\": \\\"1.0\\\",\r\n\t\t\\\"loantype\\\": 0,\r\n\t\t\\\"effectiverate\\\": \\\"12.0\\\",\r\n\t\t\\\"installment\\\": \\\"1000000.0\\\",\r\n\t\t\\\"firstinstdate\\\": \\\"2018-11-01\\\",\r\n\t\t\\\"admfee\\\": \\\"0.0\\\",\r\n\t\t\\\"inscode\\\": \\\"001\\\",\r\n\t\t\\\"inspremi\\\": \\\"0.0\\\",\r\n\t\t\\\"insonloan\\\": \\\"0.0\\\",\r\n\t\t\\\"installmenttype\\\": 1,\r\n\t\t\\\"branchcode\\\": \\\"000\\\",\r\n\t\t\\\"typeofuseid\\\": \\\"string content\\\",\r\n\t\t\\\"orientationofuseid\\\": \\\"string content\\\",\r\n\t\t\\\"debiturcatid\\\": \\\"string content\\\",\r\n\t\t\\\"portfoliocatid\\\": \\\"string content\\\",\r\n\t\t\\\"credittypeid\\\": \\\"string content\\\",\r\n\t\t\\\"creditattributeid\\\": \\\"string content\\\",\r\n\t\t\\\"creditcategoryid\\\": \\\"string content\\\",\r\n\t\t\\\"fincat\\\": \\\"gen\\\",\r\n\t\t\\\"refnocustid\\\": \\\"\\\",\r\n\t\t\\\"installfeeaccount\\\": \\\"50000.0\\\"\r\n\t},\r\n\t\\\"collateral_data\\\": {\r\n\t\t\\\"productcode\\\": \\\"000\\\",\r\n\t\t\\\"merkcode\\\": \\\"mrk\\\",\r\n\t\t\\\"modelcode\\\": \\\"mdl\\\",\r\n\t\t\\\"collateralno\\\": \\\"collno939854\\\",\r\n\t\t\\\"collateraldate\\\": \\\"2018-01-01\\\",\r\n\t\t\\\"collateraladdress\\\": \\\"string content\\\",\r\n\t\t\\\"collateralcityid\\\": \\\"0102\\\",\r\n\t\t\\\"collateralname\\\": \\\"collname\\\",\r\n\t\t\\\"collateralownerid\\\": \\\"collid935790\\\",\r\n\t\t\\\"collateraldesctype\\\": \\\"string content\\\",\r\n\t\t\\\"engineno\\\": \\\"string content\\\",\r\n\t\t\\\"chassisno\\\": \\\"string content\\\",\r\n\t\t\\\"collateralyear\\\": 2018,\r\n\t\t\\\"buildyear\\\": 2018,\r\n\t\t\\\"condition\\\": 1,\r\n\t\t\\\"color\\\": \\\"string content\\\",\r\n\t\t\\\"collateralkind\\\": \\\"string content\\\",\r\n\t\t\\\"collateralpurpose\\\": \\\"string content\\\",\r\n\t\t\\\"policeno\\\": \\\"string\\\",\r\n\t\t\\\"stnkexpired\\\": \\\"2018-01-01\\\",\r\n\t\t\\\"surveydate\\\": \\\"2018-01-01\\\",\r\n\t\t\\\"bindtypecode\\\": \\\"2018-01-01\\\",\r\n\t\t\\\"collateraltypecode\\\": \\\"string content\\\",\r\n\t\t\\\"sbrankcode\\\": \\\"string content\\\",\r\n\t\t\\\"collateralvalue\\\": 100000000,\r\n\t\t\\\"refno\\\": \\\"\\\",\r\n\t\t\\\"dealercode\\\": \\\"\\\"\r\n\t},\r\n\t\\\"installment_data\\\": {\r\n\t\t\\\"period\\\": \\\"1.0\\\",\r\n\t\t\\\"duedate\\\": \\\"2018-12-12\\\",\r\n\t\t\\\"principal\\\": \\\"10000000.0\\\",\r\n\t\t\\\"interest\\\": \\\"10000000.0\\\",\r\n\t\t\\\"installfee\\\": \\\"50000.0\\\",\r\n\t\t\\\"interestpaid\\\": \\\"1.0\\\",\r\n\t\t\\\"paiddate\\\": \\\"2019-01-01\\\",\r\n\t\t\\\"paidsts\\\": \\\"1.0\\\",\r\n\t\t\\\"paidtxndate\\\": \\\"2019-01-01\\\",\r\n\t\t\\\"penaltypaid\\\": \\\"1.0\\\",\r\n\t\t\\\"principalpaid\\\": \\\"1.0\\\",\r\n\t\t\\\"refno\\\": \\\"\\\"\r\n\t}\r\n}\""
+      security:
+      - user-api-token: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - customer_data
+              - loan_data
+              - collateral_data
+              - installment_data
+              properties:
+                customer_data:
+                  $ref: '#/components/schemas/customer_data'
+                loan_data:
+                  $ref: '#/components/schemas/loan_data'
+                collateral_data:
+                  $ref: '#/components/schemas/collateral_data'
+                installment_data:
+                  $ref: '#/components/schemas/installment_data'
+            examples:
+              Request Body Example:
+                $ref: '#/components/examples/create_loan'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                succeess:
+                  $ref: '#/components/examples/create_loan'
+        4XX:
+          $ref: '#/components/responses/v3Error:4XX'
+  /v3/notify_loan_callback:
+    post:
+      operationId: loanNotification
+      description: After you set up your callback url in {{base-api-url}}/merchant_settings/callback_settings (loan_request_approved), we will send you the callback with the following parameters
+      summary: Loan Notification Callback
+      tags:
+      - Loans
+      security: []
+      servers:
+      - url: https://yourserver.com
+        description: This is your endpoint you set in the dashboard or notify_url
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  description: the loan id as provided
+                  type: string
+                  format: loan_XXX
+                  example: loan_dfghjkiuyfdcbnmjhgfc
+                status:
+                  description: the latest status after callback
+                  type: string
+                  enum:
+                  - loan_request_approved
+                  - loan_request_rejected
+                  example: loan_request_approved
+                failure_reason:
+                  description: failure reason as given from the bank , only exist on `loan_request_rejected`
+                  type: string
+                  example: '[{"REASONCODE":"REQ","REMARK":"[JENIS OBJECT/KENDARAAN] IS NOT REGISTERED"},{"REASONCODE":"MAXTENOR","REMARK":"MINIMUM TENOR Exception: 0<1, OBJECT/Car Age : 9 Months"}]'
+      responses:
+        '200':
+          description: Your server returns this code if it accepts the callback
+  /v3/loans/{id}:
+    get:
+      operationId: getLoan
+      tags:
+      - Loans
+      summary: Get Loan Details
+      description: "Get the Detail of a Loan Request Given The id of a its loan.\r\n\r\nAvailable Status:\r\ncreated -> after customer just created the loan to us\r\nloan_request_processing -> after we called sampoerna loan API and no callback yet\r\nloan_request_approved -> after we just received sampoerna callback and it is approved\r\nloan_request_rejected -> after we just received sampoerna callback and it is rejected\r\nwithdrawal_on_behalf_processing -> after they call our WOB API, WOB still in pending state\r\nwithdrawal_on_behalf_completed -> after they call our WOB API, WOB still in completed state\r\nwithdrawal_on_behalf_failed -> after they call our WOB API, WOB in bank_rejected, they need to retry or this is final state\r\ndisbursement_report_processing -> after customer call our disbursement report API\r\ndisbursement_report_completed -> after we just call sampoerna disbursement API and completed\r\ndisbursement_report_failed-> after we just call sampoerna disbursement API and failed"
+      x-code-samples:
+      - lang: Shell
+        source: "curl --location --request GET \"{base_url}/loans/loan_f42b12c52f9b46ef82f617f04ce7ec2f\" \\\r\n  --header \"X-XFERS-USER-API-KEY: {{user-api-token}}\""
+      security:
+      - X-XFERS-USER-API-KEY: []
+      parameters:
+      - name: id
+        in: path
+        description: Loan ID. You can find this from the response when you create loan.
+        required: true
+        explode: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                succeess:
+                  $ref: '#/components/examples/create_loan'
+        4XX:
+          $ref: '#/components/responses/v3Error:4XX'
+  /v3/loans/reconciliations:
+    post:
+      operationId: loansRecon
+      tags:
+      - Loans
+      x-code-samples:
+      - lang: Shell
+        source: "curl --location --request POST \"{base_url}/loans/reconciliations\" \\\r\n  --header \"X-XFERS-USER-API-KEY: {{user-api-key}}\" \\\r\n  --header \"Content-Type: application/x-www-form-urlencoded\" \\\r\n  --data \"page=1&per_page=10&from=2015-01-26&to=2020-01-30\""
+      summary: Loans Reconciliation
+      description: Get Outstanding Loans. Response of this reconciliation request will be in callback.
+      security:
+      - X-XFERS-USER-API-KEY: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                page:
+                  type: integer
+                  default: 1
+                  description: The page number of loan_reconciliation. Starts with 1. Automatically set to 1 if this is not present while per_page is present.
+                per_page:
+                  type: string
+                  description: ' The amount of outstanding loans per page. If this is null or not present, will return all outstanding loans.'
+                from:
+                  type: string
+                  description: Starting Date of the recon time.
+                to:
+                  type: string
+                  description: Ending Date of the recon time.
+            examples:
+              Request Body Example:
+                summary: Request Body Example
+                value:
+                  page: '1'
+                  per_page: '120000.0'
+                  from: '2015-01-26'
+                  to: '2020-01-30'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                RESULT:
+                  CODE: '00'
+                  DESC: OK
+                  CURRENTPAGE: '1'
+                  TOTALPAGES: '3'
+                  TOTALROWS: '21'
+                  OSPRINCIPALTOTAL: '30500000.0000'
+                  OSINTERESTTOTAL: '15755626.1000'
+                  PRINCIPALTOTAL: '48250000.0000'
+                  INTERESTTOTAL: '15947580.2700'
+                  DATA:
+                  - RECONDATA:
+                    - ROWNUMBER: '0'
+                      REFNO: A6
+                      OSPRINCIPALREAL: '0.0000'
+                      OSINTERESTREAL: '0.0000'
+                      DPD: '0'
+                      ACCNO: TK001.1
+                      BOOKINGDATE: '2019-02-25'
+                      PRINCIPAL: '10000000.0000'
+                      INTEREST: '100.0000'
+                    - ROWNUMBER: '1'
+                      REFNO: CVY0JOS6E9
+                      OSPRINCIPALREAL: '0.0000'
+                      OSINTERESTREAL: '0.0000'
+                      DPD: '0'
+                      ACCNO: TK001.6
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '500000.0000'
+                      INTEREST: '20833.3300'
+                    - ROWNUMBER: '2'
+                      REFNO: HUN0JOS7W7
+                      OSPRINCIPALREAL: '0.0000'
+                      OSINTERESTREAL: '0.0000'
+                      DPD: '0'
+                      ACCNO: TK001.9
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '500000.0000'
+                      INTEREST: '20833.3300'
+                    - ROWNUMBER: '3'
+                      REFNO: NPM0JOR9955
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '38666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.17
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+                    - ROWNUMBER: '4'
+                      REFNO: NPM0JOR9956
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '41666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.16
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+                    - ROWNUMBER: '5'
+                      REFNO: NPM0JOR9957
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '41666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.15
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+                    - ROWNUMBER: '6'
+                      REFNO: NPM0JOR996
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '41666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.18
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+                    - ROWNUMBER: '7'
+                      REFNO: NPM0JOR997
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '41666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.19
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+                    - ROWNUMBER: '8'
+                      REFNO: NPM0JOR998
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '41666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.20
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+                    - ROWNUMBER: '9'
+                      REFNO: NPM0JOR999
+                      OSPRINCIPALREAL: '1000000.0000'
+                      OSINTERESTREAL: '41666.6700'
+                      DPD: '-21'
+                      ACCNO: TK001.21
+                      BOOKINGDATE: '2019-03-01'
+                      PRINCIPAL: '1000000.0000'
+                      INTEREST: '41666.6700'
+        4XX:
+          $ref: '#/components/responses/v3Error:4XX'
+components:
+  examples:
+    XFE403:
+      summary: XFE403 - ...
+      value:
+        error: string
+        error_code: XFE403
+        error_handling: '...'
+    XFE111:
+      summary: XFE1 - Duplicate credentials
+      value:
+        error: string
+        error_code: XFE111
+        error_handling: Particulars already exist. Please make sure you entered the correct parameters.
+    XFE3:
+      summary: XFE3 - Internal Error
+      value:
+        error: string
+        error_code: XFE3
+        error_handling: Unexpected error. Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE312:
+      summary: XFE312 - Conditions not met to close account
+      value:
+        error: string
+        error_code: XFE312
+        error_handling: Invalid request to close account. Follow instruction in the response.
+    XFE1:
+      summary: XFE1 - Server busy
+      value:
+        error: string
+        error_code: XFE1
+        error_handling: Follow instructions in the response.
+    XFE311:
+      summary: XFE311 - Cannot be different wallet type
+      value:
+        error: string
+        error_code: XFE311
+        error_handling: Follow instruction in response or contact customer support at https://bit.ly/XfersSupport.
+    XFE301:
+      summary: XFE301 - Account locked
+      value:
+        error: string
+        error_code: XFE301
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE108:
+      summary: XFE108 - More user information required
+      value:
+        error: string
+        error_code: XFE108
+        error_handling: Follow instructions in the response.
+    XFE107:
+      summary: XFE107 - Only enter one auth_code
+      value:
+        error: string
+        error_code: XFE107
+        error_handling: Do not enter both OTP or Google Auth OTP. Only need to enter one.
+    XFE402:
+      summary: XFE402 - Cannot use placeholder account
+      value:
+        error: string
+        error_code: XFE402
+        error_handling: Follow instructions in response.
+    XFE502:
+      summary: XFE502 - Unexpected BANK API error
+      value:
+        error: string
+        error_code: XFE502
+        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE106:
+      summary: XFE106 - No auth_code provided
+      value:
+        error: string
+        error_code: XFE106
+        error_handling: Enter either phone OTP or Google Auth OTP
+    XFE407:
+      summary: XFE407 - Conditions to charge card not met
+      value:
+        error: string
+        error_code: XFE407
+        error_handling: Invalid request for this transaction. Make sure you entered the correct txn_id.
+    XFE409:
+      summary: XFE409 - Order id exist
+      value:
+        error: string
+        error_code: XFE409
+        error_handling: Please enter another order_id.
+    XFE105:
+      summary: XFE105 - Captcha error
+      value:
+        error: string
+        error_code: XFE1
+        error_handling: Follow instructions in the response.
+    XFE404:
+      summary: XFE404 - Forex not supported
+      value:
+        error: string
+        error_code: XFE404
+        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
+    XFE109:
+      summary: XFE109 - Invalid credentials
+      value:
+        error: string
+        error_code: XFE109
+        error_handling: Make sure you entered the correct credentials.
+    XFE104:
+      summary: XFE104 - Media provided too large
+      value:
+        error: string
+        error_code: XFE104
+        error_handling: Media too big. Follow the guidelines in the response.
+    XFE15:
+      summary: XFE15 - Required parameter empty
+      value:
+        error: string
+        error_code: XFE15
+        error_handling: Make sure you entered the correct required parameter.
+    XFE14:
+      summary: XFE14 - API only allowed for fully verified user
+      value:
+        error: string
+        error_code: XFE14
+        error_handling: Please submit KYC data to get your account fully verified.
+    XFE2:
+      summary: XFE2 - Access denied
+      value:
+        error: string
+        error_code: XFE2
+        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
+    XFE506:
+      summary: XFE506 - Bank account already taken
+      value:
+        error: string
+        error_code: XFE506
+        error_handling: Please use another bank account.
+    XFE309:
+      summary: XFE309 - Cannot use same account
+      value:
+        error: string
+        error_code: XFE309
+        error_handling: Follow instructions in the response.
+    XFE13:
+      summary: XFE13 - Record not found
+      value:
+        error: string
+        error_code: XFE13
+        error_handling: Please check that you provided the correct API Key and the correct parameters.
+    XFE8:
+      summary: XFE8 - Cannot retrieve media
+      value:
+        error: string
+        error_code: XFE8
+        error_handling: Cannot retrieve media. Please enter a new URL or try again later.
+    XFE7:
+      summary: XFE7 - Database error
+      value:
+        error: string
+        error_code: XFE7
+        error_handling: Follow instructions in the response.
+    XFE408:
+      summary: XFE408 - Invalid charge request
+      value:
+        error: string
+        error_code: XFE408
+        error_handling: Invalid request. Please follow instructions in response or contact customer support at https://bit.ly/XfersSupport.
+    XFE302:
+      summary: XFE302 - Account deleted
+      value:
+        error: string
+        error_code: XFE302
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE201:
+      summary: XFE201 - Not yet a merchant
+      value:
+        error: string
+        error_code: XFE201
+        error_handling: Please verify your merchant or business account.
+    XFE103:
+      summary: XFE103 - ...
+      value:
+        error: string
+        error_code: XFE103
+        error_handling: Follow instructions in the response.
+    XFE406:
+      summary: XFE406 - Cannot refund prepaid transaction
+      value:
+        error: string
+        error_code: XFE406
+        error_handling: Please choose another transaction to refund.
+    XFE401:
+      summary: XFE401 - Cannot refund charge
+      value:
+        error: string
+        error_code: XFE401
+        error_handling: Invalid request. Please call another API or Contact customer support at https://bit.ly/XfersSupport.
+    XFE503:
+      summary: XFE503 - Failed name check
+      value:
+        error: string
+        error_code: XFE503
+        error_handling: Bank account name and name provided have to be similar.
+    XFE410:
+      summary: XFE410 - Invalid application fee
+      value:
+        error: string
+        error_code: XFE410
+        error_handling: Invalid request. Please make changes to the parameters as stated in the response.
+    XFE304:
+      summary: XFE304- Account closed
+      value:
+        error: string
+        error_code: XFE304
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE110:
+      summary: XFE110 - Cannot sign up twice
+      value:
+        error: string
+        error_code: XFE110
+        error_handling: Please sign in instead
+    XFE504:
+      summary: XFE504 - Maximum number of bank account
+      value:
+        error: string
+        error_code: XFE504
+        error_handling: Delete existing bank accounts.
+    XFE16:
+      summary: XFE16 - Invalid request
+      value:
+        error: string
+        error_code: XFE16
+        error_handling: API request not supported. Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport.
+    XFE310:
+      summary: XFE310 - Cannot use same account
+      value:
+        error: string
+        error_code: XFE310
+        error_handling: Follow instructions in the response.
+    XFE9:
+      summary: XFE9 - ....
+      value:
+        error: string
+        error_code: XFE9
+        error_handling: '...'
+    XFE601:
+      summary: XFE601 - Conditions to withdraw not met. Can be solved by changing amount
+      value:
+        error: string
+        error_code: XFE601
+        error_handling: Your withdrawal does not meet the conditions required. Please follow the instructions in the response.
+    create_loan:
+      value:
+        customer_data:
+          din: string content
+          custtype: 1
+          fullname: name01
+          custname: name01
+          title: sh
+          custaddress: string content
+          custrt: string content
+          custrw: string content
+          custkel: string content
+          custkec: string content
+          custcity: string content
+          custprov: string content
+          custzip: string content
+          custdati: '0102'
+          idtype: 1
+          idnumber: idnumber
+          idexpired: '2019-01-01'
+          gender: 1
+          maritalstatus: 2
+          birthdate: '1980-01-04'
+          birthplace: bekasi
+          birthdati: '0102'
+          worksince: '2014-01-01'
+          employeests: 1
+          contractend: '2014-01-01'
+          lasteducation: '0100'
+          economycode: '011110'
+          debiturcode: '907'
+          mmn: ibu kandung
+          npwp: no npwp
+          homestatus: 1
+          livedsince: '2000-01-01'
+          phonearea: area
+          phoneno: '12323535'
+          mobileno: 0878978979
+          dependent: 0
+          grossincome: 5000000
+          expenses: 1000000
+          sameidhomeaddr: 1
+          custaddresshome: string content
+          custrthome: string content
+          custrwhome: string content
+          custkelhome: string content
+          custkechome: string content
+          custcityhome: string content
+          custprovhome: string content
+          custziphome: string content
+          custdatihome: '0102'
+          spousename: string content
+          spousebirthdate: '1980-01-01'
+          spousebirthplace: string content
+          spouseidtype: 1
+          spouseidnumber: string content
+          spousephoneno: string content
+          spousemobileno: string content
+          spouseoffice: string content
+          spouseoffinephone: string content
+          relativestype: 1
+          relativesname: string content
+          custaddressrel: string content
+          custrtrel: string content
+          custrwrel: string content
+          custkelrel: string content
+          custkecrel: string content
+          custcityrel: string content
+          custprovrel: string content
+          custziprel: string content
+          phonenorel: string content
+          companyname: string content
+          companyaddr: string content
+          companycity: string content
+          companyzip: string content
+          companyphone: string content
+          deedno: string content
+          deeddate: '2019-01-01'
+          corporatetype: string content
+          jobid: '002'
+          jobtitleid: '50'
+          countryid: id
+          branchcode: '000'
+        loan_data:
+          refno: ref11
+          objectvalue: '10000000.0'
+          principaltotal: '1000000.0'
+          tenor: '1'
+          loantype: 0
+          effectiverate: '12.0'
+          installment: '1000000.0'
+          firstinstdate: '2018-11-01'
+          admfee: '0.0'
+          inscode: '001'
+          inspremi: '0.0'
+          insonloan: '0.0'
+          installmenttype: 1
+          branchcode: '000'
+          typeofuseid: '89'
+          orientationofuseid: '9'
+          debiturcatid: '10'
+          portfoliocatid: string content
+          credittypeid: '20'
+          creditattributeid: '20'
+          creditcategoryid: '10'
+          fincat: '000'
+          installfeeaccount: '50000.0'
+        collateral_data:
+          productcode: C304
+          merkcode: mrk
+          modelcode: mdl
+          collateralno: collno939854
+          collateraldate: '2018-01-01'
+          collateraladdress: string content
+          collateralcityid: '0102'
+          collateralname: collname
+          collateralownerid: collid935790
+          collateraldesctype: string content
+          engineno: string content
+          chassisno: string content
+          collateralyear: 2018
+          buildyear: 2018
+          condition: 1
+          color: string content
+          collateralkind: KTA01
+          collateralpurpose: string content
+          policeno: string
+          stnkexpired: '2030-01-01'
+          surveydate: '2018-01-01'
+          bindtypecode: '99'
+          collateraltypecode: '250'
+          sbrankcode: string content
+          collateralvalue: 100000000
+          dealercode: TK
+        installment_data:
+          period: '1.0'
+          duedate: '2018-12-12'
+          principal: '1000000.0'
+          interest: '10000000.0'
+          installfee: '50000.0'
+    XFE10:
+      summary: XFE10 - Invalid environment
+      value:
+        error: string
+        error_code: XFE10
+        error_handling: Request not supported for this environment.
+    XFE4:
+      summary: XFE4 - Authentication field empty
+      value:
+        error: string
+        error_code: XFE4
+        error_handling: Follow instructions in the response.
+    XFE307:
+      summary: XFE307 - ...
+      value:
+        error: string
+        error_code: XFE307
+        error_handling: '...'
+    XFE303:
+      summary: XFE303 - Account terminated
+      value:
+        error: string
+        error_code: XFE303
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE101:
+      summary: XFE101 - Not local number
+      value:
+        error: string
+        error_code: XFE101
+        error_handling: Follow instructions in the response.
+    XFE505:
+      summary: XFE505 - Bank abbrev provided invalid
+      value:
+        error: string
+        error_code: XFE505
+        error_handling: Use GET {{base-api-url}}api/v3/banks to get the correct bank abbrev.
+    XFE6:
+      summary: XFE6 - Invalid signature
+      value:
+        error: string
+        error_code: XFE6
+        error_handling: Follow instructions in the response.
+    XFE405:
+      summary: XFE405 - Charge cannot be refunded
+      value:
+        error: string
+        error_code: XFE405
+        error_handling: Only completed contract can be refunded.
+    XFE102:
+      summary: XFE102 - Entered value is less than minimum
+      value:
+        error: string
+        error_code: XFE102
+        error_handling: Make sure you entered the correct number.
+    XFE5:
+      summary: XFE5 - Api key is invalid
+      value:
+        error: string
+        error_code: XFE5
+        error_handling: Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport
+    XFE603:
+      summary: XFE603 - Not allowed to carry out request
+      value:
+        error: string
+        error_code: XFE603
+        error_handling: Invalid request. Please call another API or contact customer support at https://bit.ly/XfersSupport.
+    XFE12:
+      summary: XFE12 - Invalid parameter
+      value:
+        error: string
+        error_code: XFE12
+        error_handling: Make sure you entered the correct parameters.
+    XFE306:
+      summary: XFE306 - ...
+      value:
+        error: string
+        error_code: XFE306
+        error_handling: '...'
+    XFE602:
+      summary: XFE602 - Server busy
+      value:
+        error: string
+        error_code: XFE602
+        error_handling: Your withdrawal exceeds the limit for the time period. Please change the amount or verify your account.
+    XFE11:
+      summary: XFE11 - Timeout
+      value:
+        error: string
+        error_code: XFE11
+        error_handling: Please try again later.
+    XFE308:
+      summary: XFE308 - ...
+      value:
+        error: string
+        error_code: XFE308
+        error_handling: '...'
+    XFE501:
+      summary: XFE501 - Expected Bank API error
+      value:
+        error: string
+        error_code: XFE501
+        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE112:
+      summary: XFE112 - Repeat request
+      value:
+        error: string
+        error_code: XFE112
+        error_handling: API request has already been made. Please follow the instructions in the response or call aother API.
+    XFE305:
+      summary: XFE305 - ....
+      value:
+        error: string
+        error_code: XFE305
+        error_handling: '...'
+  schemas:
+    error_response:
+      type: object
+      properties:
+        error:
+          description: Error Message
+          type: string
+        error_code:
+          description: Xfers' error code XFEXXX
+          type: string
+        error_handling:
+          description: Instruction on how to handle error. Refer to Error Codes tag for more information.
+          type: string
+    collateral_data:
+      type: object
+      properties:
+        productcode:
+          type: string
+        merkcode:
+          type: string
+        modelcode:
+          type: string
+        collateralno:
+          type: string
+        collateraldate:
+          type: string
+        collateraladdress:
+          type: string
+        collateralcityid:
+          type: integer
+        collateralname:
+          type: string
+        collateralownerid:
+          type: string
+        collateraldesctype:
+          type: string
+        engineno:
+          type: string
+        chassisno:
+          type: string
+        collateralyear:
+          type: integer
+        buildyear:
+          type: integer
+        condition:
+          type: integer
+        color:
+          type: string
+        collateralkind:
+          type: string
+        collateralpurpose:
+          type: string
+        policeno:
+          type: string
+        stnkexpired:
+          type: string
+        surveydate:
+          type: string
+        bindtypecode:
+          type: string
+        collateraltypecode:
+          type: integer
+        sbrankcode:
+          type: string
+        collateralvalue:
+          type: integer
+        dealercode:
+          type: integer
+    installment_data:
+      type: object
+      properties:
+        period:
+          type: string
+        duedate:
+          type: string
+        principal:
+          type: string
+        interest:
+          type: string
+        installfee:
+          type: string
+    loan_data:
+      type: object
+      properties:
+        refno:
+          type: string
+        objectvalue:
+          type: string
+        principaltotal:
+          type: string
+        tenor:
+          type: integer
+        loantype:
+          type: integer
+        effectiverate:
+          type: string
+        installment:
+          type: string
+        firstinstdate:
+          type: string
+        admfee:
+          type: string
+        inscode:
+          type: string
+        inspremi:
+          type: string
+        insonloan:
+          type: string
+        installmenttype:
+          type: integer
+        branchcode:
+          type: integer
+        typeofuseid:
+          type: integer
+        orientationofuseid:
+          type: integer
+        debiturcatid:
+          type: integer
+        portfoliocatid:
+          type: string
+        credittypeid:
+          type: integer
+        creditattributeid:
+          type: integer
+        creditcategoryid:
+          type: integer
+        fincat:
+          type: integer
+        installfeeaccount:
+          type: string
+    customer_data:
+      type: object
+      properties:
+        din:
+          type: string
+        custtype:
+          type: integer
+        fullname:
+          type: string
+        custname:
+          type: string
+        title:
+          type: string
+        custaddress:
+          type: string
+        custrt:
+          type: string
+        custrw:
+          type: string
+        custkel:
+          type: string
+        custkec:
+          type: string
+        custcity:
+          type: string
+        custprov:
+          type: string
+        custzip:
+          type: string
+        custdati:
+          type: integer
+        idtype:
+          type: integer
+        idnumber:
+          type: string
+        idexpired:
+          type: string
+        gender:
+          type: integer
+        maritalstatus:
+          type: integer
+        birthdate:
+          type: string
+        birthplace:
+          type: string
+        birthdati:
+          type: string
+        worksince:
+          type: string
+        employeests:
+          type: string
+        contractend:
+          type: string
+        lasteducation:
+          type: integer
+        economycode:
+          type: integer
+        debiturcode:
+          type: integer
+        mmn:
+          type: string
+        npwp:
+          type: string
+        homestatus:
+          type: integer
+        livedsince:
+          type: string
+        phonearea:
+          type: string
+        phoneno:
+          type: integer
+        mobileno:
+          type: integer
+        dependent:
+          type: integer
+        grossincome:
+          type: integer
+        expenses:
+          type: integer
+        sameidhomeaddr:
+          type: integer
+        custaddresshome:
+          type: string
+        custrthome:
+          type: string
+        custrwhome:
+          type: string
+        custkelhome:
+          type: string
+        custkechome:
+          type: string
+        custcityhome:
+          type: string
+        custprovhome:
+          type: string
+        custziphome:
+          type: string
+        custdatihome:
+          type: integer
+        spousename:
+          type: string
+        spousebirthdate:
+          type: string
+        spousebirthplace:
+          type: string
+        spouseidtype:
+          type: string
+        spouseidnumber:
+          type: string
+        spousephoneno:
+          type: string
+        spousemobileno:
+          type: string
+        spouseoffice:
+          type: string
+        spouseoffinephone:
+          type: string
+        relativestype:
+          type: string
+        relativesname:
+          type: string
+        custaddressrel:
+          type: string
+        custrtrel:
+          type: string
+        custrwrel:
+          type: string
+        custkelrel:
+          type: string
+        custkecrel:
+          type: string
+        custcityrel:
+          type: string
+        custprovrel:
+          type: string
+        custziprel:
+          type: string
+        phonenorel:
+          type: string
+        companyname:
+          type: string
+        companyaddr:
+          type: string
+        companycity:
+          type: string
+        companyzip:
+          type: string
+        companyphone:
+          type: string
+        deedno:
+          type: string
+        deeddate:
+          type: string
+        corporatetype:
+          type: string
+        jobid:
+          type: integer
+        jobtitleid:
+          type: integer
+        countryid:
+          type: string
+        branchcode:
+          type: string
+  responses:
+    v3Error:4XX:
+      description: List of possible errors
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+          examples:
+            XFE1:
+              $ref: '#/components/examples/XFE1'
+            XFE2:
+              $ref: '#/components/examples/XFE2'
+            XFE3:
+              $ref: '#/components/examples/XFE3'
+            XFE4:
+              $ref: '#/components/examples/XFE4'
+            XFE5:
+              $ref: '#/components/examples/XFE5'
+            XFE6:
+              $ref: '#/components/examples/XFE6'
+            XFE7:
+              $ref: '#/components/examples/XFE7'
+            XFE8:
+              $ref: '#/components/examples/XFE8'
+            XFE9:
+              $ref: '#/components/examples/XFE9'
+            XFE10:
+              $ref: '#/components/examples/XFE10'
+            XFE11:
+              $ref: '#/components/examples/XFE11'
+            XFE12:
+              $ref: '#/components/examples/XFE12'
+            XFE13:
+              $ref: '#/components/examples/XFE13'
+            XFE14:
+              $ref: '#/components/examples/XFE14'
+            XFE15:
+              $ref: '#/components/examples/XFE15'
+            XFE16:
+              $ref: '#/components/examples/XFE16'
+            XFE101:
+              $ref: '#/components/examples/XFE101'
+            XFE102:
+              $ref: '#/components/examples/XFE102'
+            XFE103:
+              $ref: '#/components/examples/XFE103'
+            XFE104:
+              $ref: '#/components/examples/XFE104'
+            XFE105:
+              $ref: '#/components/examples/XFE105'
+            XFE106:
+              $ref: '#/components/examples/XFE106'
+            XFE107:
+              $ref: '#/components/examples/XFE107'
+            XFE108:
+              $ref: '#/components/examples/XFE108'
+            XFE109:
+              $ref: '#/components/examples/XFE109'
+            XFE110:
+              $ref: '#/components/examples/XFE110'
+            XFE111:
+              $ref: '#/components/examples/XFE111'
+            XFE112:
+              $ref: '#/components/examples/XFE112'
+            XFE201:
+              $ref: '#/components/examples/XFE201'
+            XFE301:
+              $ref: '#/components/examples/XFE301'
+            XFE302:
+              $ref: '#/components/examples/XFE302'
+            XFE303:
+              $ref: '#/components/examples/XFE303'
+            XFE304:
+              $ref: '#/components/examples/XFE304'
+            XFE305:
+              $ref: '#/components/examples/XFE305'
+            XFE306:
+              $ref: '#/components/examples/XFE306'
+            XFE307:
+              $ref: '#/components/examples/XFE307'
+            XFE308:
+              $ref: '#/components/examples/XFE308'
+            XFE309:
+              $ref: '#/components/examples/XFE309'
+            XFE310:
+              $ref: '#/components/examples/XFE310'
+            XFE311:
+              $ref: '#/components/examples/XFE311'
+            XFE312:
+              $ref: '#/components/examples/XFE312'
+            XFE401:
+              $ref: '#/components/examples/XFE401'
+            XFE402:
+              $ref: '#/components/examples/XFE402'
+            XFE403:
+              $ref: '#/components/examples/XFE403'
+            XFE404:
+              $ref: '#/components/examples/XFE404'
+            XFE405:
+              $ref: '#/components/examples/XFE405'
+            XFE406:
+              $ref: '#/components/examples/XFE406'
+            XFE407:
+              $ref: '#/components/examples/XFE407'
+            XFE408:
+              $ref: '#/components/examples/XFE408'
+            XFE409:
+              $ref: '#/components/examples/XFE409'
+            XFE410:
+              $ref: '#/components/examples/XFE410'
+            XFE501:
+              $ref: '#/components/examples/XFE501'
+            XFE502:
+              $ref: '#/components/examples/XFE502'
+            XFE503:
+              $ref: '#/components/examples/XFE503'
+            XFE504:
+              $ref: '#/components/examples/XFE504'
+            XFE505:
+              $ref: '#/components/examples/XFE505'
+            XFE506:
+              $ref: '#/components/examples/XFE506'
+            XFE601:
+              $ref: '#/components/examples/XFE601'
+            XFE602:
+              $ref: '#/components/examples/XFE602'
+            XFE603:
+              $ref: '#/components/examples/XFE603'
+  securitySchemes:
+    X-XFERS-USER-API-KEY:
+      type: apiKey
+      name: X-XFERS-USER-API-KEY
+      in: header
+      description: You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)
+externalDocs:
+  description: Find out more about Xfers
+  url: https://id.xfers.com
+x-tagGroups:
+- name: User Management
+  tags:
+  - Registration
+  - User Account
+  - Bank Account
+  - E-signature
+- name: Payments
+  tags:
+  - Charge
+  - Payout
+  - Withdraw
+  - Intents
+- name: Loans
+  tags:
+  - Loans
+  - Disbursements
+  - Repayments
+- name: Appendix
+  tags:
+  - Testing
+  - Error Response
+  - Pagination
+  - Callback Configuration
+  - Try it out with Postman

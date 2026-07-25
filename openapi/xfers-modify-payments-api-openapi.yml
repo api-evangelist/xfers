@@ -1,0 +1,99 @@
+openapi: 3.0.0
+info:
+  description: Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.
+  version: '3'
+  title: Xfers Bank Account Modify Payments API
+  contact:
+    name: Contact us through our help desk
+    url: https://bit.ly/XfersSupport
+servers:
+- description: Indonesia Production
+  url: https://id.xfers.com/api
+- description: Indonesia Sandbox for testing
+  url: https://sandbox-id.xfers.com/api
+tags:
+- name: Modify Payments
+paths:
+  /v3/payment_gateway/payments/{id}:
+    put:
+      tags:
+      - Modify Payments
+      summary: Action list
+      description: "List of actions to modify a given payment ID:\r\n1.  **cancel** : Cancel a payment when it is still in pending state. Status will be changed to 'cancelled'. (Unique Amount only)\r\n2.  **receive_payment** : Simulate Xfers receiving payment from the customer for a given contract id. Status will be changed to 'paid'. (Unique Amount and Sandbox only)\r\n3.  **settle** : Simulate Xfers disbursing payment to the destination account. Status will be changed to 'completed'. (Sandbox only)"
+      security:
+      - X-XFERS-APP-API-KEY: []
+      parameters:
+      - name: id
+        in: path
+        description: Transaction id in Xfers
+        required: true
+        schema:
+          type: string
+          example: contract_7abf6bb130d44c02862982ff6022875d
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                event:
+                  description: Event name
+                  type: string
+                  example: cancel
+                  enum:
+                  - cancel
+                  - receive_payment
+                  - settle
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/base_class/payment/schemas/BaseObject'
+                - properties:
+                    payment_method:
+                      $ref: '#/base_class/payment_method/schemas/UniqueAmountBankTransfer'
+              examples:
+                cancel:
+                  $ref: '#/base_class/payment/examples/payment_response/cancelled'
+                receive_payment:
+                  $ref: '#/base_class/payment/examples/payment_response/paid'
+                settle:
+                  $ref: '#/base_class/payment/examples/payment_response/completed'
+components:
+  securitySchemes:
+    X-XFERS-USER-API-KEY:
+      type: apiKey
+      name: X-XFERS-USER-API-KEY
+      in: header
+      description: You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)
+externalDocs:
+  description: Find out more about Xfers
+  url: https://id.xfers.com
+x-tagGroups:
+- name: User Management
+  tags:
+  - Registration
+  - User Account
+  - Bank Account
+  - E-signature
+- name: Payments
+  tags:
+  - Charge
+  - Payout
+  - Withdraw
+  - Intents
+- name: Loans
+  tags:
+  - Loans
+  - Disbursements
+  - Repayments
+- name: Appendix
+  tags:
+  - Testing
+  - Error Response
+  - Pagination
+  - Callback Configuration
+  - Try it out with Postman
