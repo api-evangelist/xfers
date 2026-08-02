@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/xfers-indonesia-openapi.json, openapi/xfers-indonesia-payment-gateway-unique-amount-openapi.json,
+  openapi/xfers-indonesia-payment-gateway-va-cvs-openapi.json, openapi/xfers-singapore-openapi.json
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: X-XFERS-APP-API-KEY
+  type: apiKey
+  in: header
+  parameter: X-XFERS-APP-API-KEY
+  description: You can retrieve this from your merchant's dashboard
+  sources:
+  - openapi/xfers-indonesia-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-unique-amount-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-va-cvs-openapi.json
+  - openapi/xfers-singapore-openapi.json
+- name: X-XFERS-USER-API-KEY
+  type: apiKey
+  in: header
+  parameter: X-XFERS-USER-API-KEY
+  description: You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)
+  sources:
+  - openapi/xfers-indonesia-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-unique-amount-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-va-cvs-openapi.json
+  - openapi/xfers-singapore-openapi.json
+- name: user-api-token
+  type: apiKey
+  in: query
+  parameter: X-XFERS-USER-API-KEY
+  description: You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)
+  sources:
+  - openapi/xfers-indonesia-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-unique-amount-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-va-cvs-openapi.json
+  - openapi/xfers-singapore-openapi.json
+- name: v4XfersAuth
+  type: http
+  scheme: bearer
+  bearerFormat: xfers_api_token
+  description: "You can retrieve this from the dashboard. For instance: \n\n```\n\nAuthorization:\
+    \ Bearer <xfers_api_token>\n\n```"
+  sources:
+  - openapi/xfers-indonesia-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-unique-amount-openapi.json
+  - openapi/xfers-indonesia-payment-gateway-va-cvs-openapi.json
+  - openapi/xfers-singapore-openapi.json

@@ -1,0 +1,145 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/ — no official Xfers MCP server found; successor brand StraitsX publishes
+  agent tooling (github.com/Xfers/dominos-agent references a StraitsX MCP)
+server:
+  name: xfers
+  transport: http
+  url: null
+tools:
+- name: signUpLogin
+  description: Sign Up Account/Trigger OTP
+  source_operation: openapi/xfers-singapore-openapi.json#signUpLogin
+- name: getToken
+  description: Get User API Token / Submit OTP
+  source_operation: openapi/xfers-singapore-openapi.json#getToken
+- name: submitKYC
+  description: Submit KYC Data
+  source_operation: openapi/xfers-singapore-openapi.json#submitKYC
+- name: getUserInfo
+  description: Get User Info
+  source_operation: openapi/xfers-singapore-openapi.json#getUserInfo
+- name: getTransactionHistory
+  description: Get Transaction History
+  source_operation: openapi/xfers-singapore-openapi.json#getTransactionHistory
+- name: getTransferInfo
+  description: Get Transfer Info / Get Virtual Account Number
+  source_operation: openapi/xfers-singapore-openapi.json#getTransferInfo
+- name: createCharge
+  description: Create Charge
+  source_operation: openapi/xfers-singapore-openapi.json#createCharge
+- name: listCharge
+  description: List all Charge
+  source_operation: openapi/xfers-singapore-openapi.json#listCharge
+- name: authorizeCharge
+  description: Authorize Charge
+  source_operation: openapi/xfers-singapore-openapi.json#authorizeCharge
+- name: cancelCharge
+  description: Cancel Charge
+  source_operation: openapi/xfers-singapore-openapi.json#cancelCharge
+- name: getCharge
+  description: Get Charge
+  source_operation: openapi/xfers-singapore-openapi.json#getCharge
+- name: refundCharge
+  description: Refund Charge
+  source_operation: openapi/xfers-singapore-openapi.json#refundCharge
+- name: createPayout
+  description: Create Payout
+  source_operation: openapi/xfers-singapore-openapi.json#createPayout
+- name: listPayout
+  description: List All Payout
+  source_operation: openapi/xfers-singapore-openapi.json#listPayout
+- name: getPayout
+  description: Get Payout
+  source_operation: openapi/xfers-singapore-openapi.json#getPayout
+- name: addBankAccount
+  description: Add Bank Account
+  source_operation: openapi/xfers-singapore-openapi.json#addBankAccount
+- name: listBankAcc
+  description: List Bank Account
+  source_operation: openapi/xfers-singapore-openapi.json#listBankAcc
+- name: updateBankAccount
+  description: Update Bank Account
+  source_operation: openapi/xfers-singapore-openapi.json#updateBankAccount
+- name: deleteBankAccount
+  description: Delete Bank Account
+  source_operation: openapi/xfers-singapore-openapi.json#deleteBankAccount
+- name: createWithdrawal
+  description: Create Withdrawal
+  source_operation: openapi/xfers-singapore-openapi.json#createWithdrawal
+- name: listWithdrawalRequests
+  description: List Withdrawal Requests
+  source_operation: openapi/xfers-singapore-openapi.json#listWithdrawalRequests
+- name: getBankAbbrev
+  description: Get Bank and Abbreviation Mapping
+  source_operation: openapi/xfers-singapore-openapi.json#getBankAbbrev
+- name: getWithdrawal
+  description: Get Withdrawal Request
+  source_operation: openapi/xfers-singapore-openapi.json#getWithdrawal
+- name: authorizeHello
+  description: Check Connection
+  source_operation: openapi/xfers-singapore-openapi.json#authorizeHello
+- name: createDirectBankTransferPayment
+  description: Create Direct Bank Transfer Payment
+  source_operation: openapi/xfers-singapore-openapi.json#createDirectBankTransferPayment
+- name: createIntent
+  description: Create an Intent
+  source_operation: openapi/xfers-singapore-openapi.json#createIntent
+- name: listIntent
+  description: List Current Intent
+  source_operation: openapi/xfers-singapore-openapi.json#listIntent
+- name: cancelIntent
+  description: Cancel an Intent
+  source_operation: openapi/xfers-singapore-openapi.json#cancelIntent
+- name: getApiV4AccountsId
+  description: Get Account Info (Coming Soon)
+  source_operation: openapi/xfers-singapore-openapi.json#getApiV4AccountsId
+- name: listDirectBankTransferPayments
+  description: List Direct Bank Transfer Payments (Coming Soon)
+  source_operation: openapi/xfers-singapore-openapi.json#listDirectBankTransferPayments
+- name: privateWallet
+  description: Register Account
+  source_operation: openapi/xfers-indonesia-openapi.json#privateWallet
+- name: esignaturesRegistration
+  description: Sign Up E-signature  Account
+  source_operation: openapi/xfers-indonesia-openapi.json#esignaturesRegistration
+- name: esignaturesUploadDocument
+  description: Upload document for E-signature
+  source_operation: openapi/xfers-indonesia-openapi.json#esignaturesUploadDocument
+- name: esignaturesCheckStatus
+  description: Check status for E-signature
+  source_operation: openapi/xfers-indonesia-openapi.json#esignaturesCheckStatus
+- name: createLoan
+  description: Create Loan
+  source_operation: openapi/xfers-indonesia-openapi.json#createLoan
+- name: getLoan
+  description: Get Loan Details
+  source_operation: openapi/xfers-indonesia-openapi.json#getLoan
+- name: loansRecon
+  description: Loans Reconciliation
+  source_operation: openapi/xfers-indonesia-openapi.json#loansRecon
+- name: createDisbursementReport
+  description: Create Disbursement Report
+  source_operation: openapi/xfers-indonesia-openapi.json#createDisbursementReport
+- name: createLoanDisbursement
+  description: Create Loan Disbursement
+  source_operation: openapi/xfers-indonesia-openapi.json#createLoanDisbursement
+- name: listLoanDisbursement
+  description: List Loan Disbursement
+  source_operation: openapi/xfers-indonesia-openapi.json#listLoanDisbursement
+- name: getLoanDisbursement
+  description: Get Loan Disbursement
+  source_operation: openapi/xfers-indonesia-openapi.json#getLoanDisbursement
+- name: createRepayment
+  description: Create Repayment
+  source_operation: openapi/xfers-indonesia-openapi.json#createRepayment
+- name: listRepayment
+  description: List Repayment
+  source_operation: openapi/xfers-indonesia-openapi.json#listRepayment
+- name: getRepayment
+  description: Get Repayment
+  source_operation: openapi/xfers-indonesia-openapi.json#getRepayment
+- name: repaymentRecon
+  description: Repayments Reconciliation
+  source_operation: openapi/xfers-indonesia-openapi.json#repaymentRecon

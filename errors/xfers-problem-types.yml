@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ (4 Xfers v3 specs extracted from docs.xfers.io)
+format: xfers-error-envelope
+envelope:
+  description: Xfers categorises failures with its own error codes; error bodies are
+    JSON with fields error (message specific to the request), error_code (error category),
+    and error_handling (instruction on how to resolve).
+  fields:
+  - error
+  - error_code
+  - error_handling
+  source: docs.xfers.io Error Response section
+problems:
+- status: 4XX
+  title: null
+  source_operation: openapi/xfers-singapore-openapi.json#signUpLogin
+- status: 4XX
+  title: List of possible errors
+  source_operation: openapi/xfers-indonesia-openapi.json#privateWallet

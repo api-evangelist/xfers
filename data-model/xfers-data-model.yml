@@ -1,0 +1,65 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/ (4 Xfers v3 specs)
+entities:
+- name: User
+  description: End user / wallet holder identified by phone number; carries KYC status
+    and available balance.
+- name: Charge
+  description: A request to collect payment from a user into the merchant wallet.
+- name: Payout
+  description: A transfer of funds from the merchant wallet to a recipient.
+- name: BankAccount
+  description: A bank account registered against a user, used for withdrawals.
+- name: WithdrawalRequest
+  description: A request to move wallet balance to a registered bank account; accepts
+    a caller-supplied idempotency_id.
+- name: Intent
+  description: A declared incoming bank-transfer payment that Xfers matches against
+    virtual-account transfers and confirms by callback.
+- name: Loan
+  description: Indonesia lending object connecting borrowers to disbursement and repayment
+    flows.
+- name: Disbursement
+  description: A disbursement of loan funds to a borrower (Indonesia).
+- name: Repayment
+  description: A repayment against a loan (Indonesia).
+- name: Payment
+  description: Payment gateway resource (JSON:API) representing money received via
+    a payment method.
+- name: PaymentMethod
+  description: 'Payment gateway resource (JSON:API): unique-amount bank transfer,
+    fixed virtual account, or convenience store (CVS) transfer.'
+relationships:
+- from: User
+  to: BankAccount
+  kind: has_many
+  via: /v3/user/bank_account
+- from: BankAccount
+  to: WithdrawalRequest
+  kind: has_many
+  via: /v3/user/bank_account/{bank_account_id}/withdraw
+- from: User
+  to: Charge
+  kind: has_many
+  via: charges are created against a user wallet
+- from: User
+  to: Intent
+  kind: has_many
+  via: /v3/intents declared per user virtual account
+- from: Loan
+  to: Disbursement
+  kind: has_many
+  via: /v3/loans/{loan_id}/disbursements
+- from: Loan
+  to: Repayment
+  kind: has_many
+  via: /v3/loans/{loan_id}/repayments
+- from: PaymentMethod
+  to: Payment
+  kind: has_many
+  via: /v3/payment_gateway/payment_methods/fixed_virtual_account_bank_transfers/{id}/payments
+- from: Charge
+  to: User
+  kind: belongs_to
+  via: user API key context

@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: registry probes (PyPI, RubyGems, Packagist, Maven Central) + github.com/Xfers
+packages:
+- language: python
+  registry: pypi
+  name: xfers
+  version: 1.4.1
+  url: https://pypi.org/project/xfers/
+  install: pip install xfers
+  source_code: https://github.com/Xfers/xfers-python
+  official: true
+  notes: GitHub repository is archived; package remains published.
+- language: ruby
+  registry: rubygems
+  name: xfers
+  version: 1.2.0
+  url: https://rubygems.org/gems/xfers
+  install: gem install xfers
+  official: true
+  notes: Described as "the easiest way to accept payments online in South East Asia"; ~26k downloads.
+- language: php
+  registry: packagist
+  name: xfers/xfers-php
+  version: v1.3.0
+  url: https://packagist.org/packages/xfers/xfers-php
+  install: composer require xfers/xfers-php
+  source_code: https://github.com/Xfers/xfers-php
+  official: true
+  notes: GitHub repository is archived; package remains published.
+- language: java
+  registry: maven
+  name: com.xfers:xfers-java
+  version: 1.19.0
+  url: https://central.sonatype.com/artifact/com.xfers/xfers-java
+  install: 'implementation "com.xfers:xfers-java:1.19.0"'
+  source_code: https://github.com/Xfers/xfers-java
+  official: true
+- language: javascript
+  registry: npm
+  name: null
+  official: false
+  notes: No first-party npm package found (registry.npmjs.org/xfers returns 404). A former
+    xfers-sdk web/JS SDK repository referenced from the docs (Xfers Components) no longer
+    exists on GitHub.

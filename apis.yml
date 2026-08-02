@@ -1,25 +1,420 @@
 aid: xfers
 name: Xfers
-description: Xfers is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Xfers is a Southeast Asian payments infrastructure company founded in Singapore
+  in 2015 and backed by 500 Global, providing bank-transfer collection, payouts, escrow-style
+  wallets, and lending disbursement APIs across Singapore and Indonesia. Xfers merged with
+  Payfazz in 2022 to form the Fazz Financial Group, with its regulated Singapore dollar
+  stablecoin and payments business continuing as StraitsX; the Xfers v3 API documentation
+  for Singapore and Indonesia remains published at docs.xfers.io.
 url: https://raw.githubusercontent.com/api-evangelist/xfers/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-successors:
+- name: Fazz
+  url: https://fazz.com
+- name: StraitsX
+  url: https://www.straitsx.com
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://docs.xfers.io/Xfers_X_Blue_Small.png
 tags:
-- Company
-apis: []
+- Payments
+- Fintech
+- Bank Transfers
+- Digital Wallets
+- Lending
+- Singapore
+- Indonesia
+- Southeast Asia
+apis:
+- aid: xfers:xfers-bank-account-api
+  name: Xfers Bank Account API
+  description: API to manage Bank Account
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Bank Account
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-bank-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-charge-api
+  name: Xfers Charge API
+  description: API for Charges
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Charge
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-charge-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-convenience-store-transfers-api
+  name: Xfers Convenience Store Transfers API
+  description: >-
+    The Convenience Store Transfers API from Xfers — 1 operation(s) for convenience store transfers.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Convenience Store Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-convenience-store-transfers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-cutting-edge-api
+  name: Xfers cutting_edge API
+  description: The cutting_edge API from Xfers — 2 operation(s) for cutting_edge.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - cutting_edge
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-cutting-edge-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-direct-bank-transfer-payments-api
+  name: Xfers Direct Bank Transfer Payments API
+  description: >-
+    The Direct Bank Transfer Payments API from Xfers — 1 operation(s) for direct bank transfer payments.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Direct Bank Transfer Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-direct-bank-transfer-payments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-disbursements-api
+  name: Xfers Disbursements API
+  description: API for Disbursement
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Disbursements
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-disbursements-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-e-signature-api
+  name: Xfers E-signature API
+  description: API for e-signature
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - E-signature
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-e-signature-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-fixed-virtual-account-bank-transfers-api
+  name: Xfers Fixed Virtual Account Bank Transfers API
+  description: >-
+    The Fixed Virtual Account Bank Transfers API from Xfers — 2 operation(s) for fixed virtual account
+    bank transfers.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Fixed Virtual Account Bank Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-fixed-virtual-account-bank-transfers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-intents-api
+  name: Xfers Intents API
+  description: "**For user case 1:**\r\n\r\nWhen a user is performing a top-up via  [GET /transfer_info](http://docs.xfers.io/#get-transfer-info),\
+    \ they might forget to enter their contact number which is needed for our system to identify them.\r\
+    \n\r\nThe Intents API solves this issue by requiring the user to transfer a unique amount to Xfers\
+    \ which will be used to identify them. The difference between the  `unique_amount`  and the actual\
+    \  `amount`  will be very small, and Xfers provides the difference for free to the user.\r\n\r\nNote\
+    \ that this only acts as a backup, and the user should enter his contact number in the comments section\
+    \ when doing a bank transfer whenever possible.\r\n\r\nExample: Jane wishes to transfer 5000 Indonesian\
+    \ Rupiah via  `/intents`.\r\n\r\n1.  She makes a HTTP GET request to  `/user/transfer_info`  to get\
+    \ the correct Xfers bank to transfer to (we have many banks!). The response tells her to transfer\
+    \ to Bank Central Asia (BCA).\r\n2.  She makes a HTTP POST request to create an intent. The response\
+    \ tells her to make a bank transfer of 4999 to Xfers.\r\n3.  Jane makes a transfer of 4999 to Xfers\
+    \ BCA. Within a few minutes, Xfers detects the transfer and tops up Jane’s Xfers account with 5000.\
+    \ Xfers absorbs the difference for free.\r\n4.  If  `notify_url`  is given, Xfers will send a callback\
+    \ to this url.\r\n\r\nNote the above scenario is only valid when disable_va is set to True\r\n\r\n\
+    **For user case 2:**\r\n\r\nIntent can also be use a means to get callback notifications from Xfers\
+    \ when a user successfully fund their virtual account on Xfers.\r\n\r\nExample: Jane wishes to transfer\
+    \ 5000 Indonesian Rupiah via  `/intents`  to her virtual Xfers account and get a callback notification\
+    \ when it successful\r\n\r\n1.  She makes a HTTP POST request to create an intent with disable_va\
+    \ set to false(default) and provide a  `notify_url`. The response will provide a list of virtual account\
+    \ nos she can fund her account with from a list of bank that Xfers support.\r\n2.  Jane makes a transfer\
+    \ of 500 to the Xfers BCA Virtual account that the intent api provide. Within a few minutes, Xfers\
+    \ detects the transfer and tops up Jane’s Xfers account with 5000.\r\n3.  Since  `notify_url`  is\
+    \ provided, Xfers will send a callback to this url."
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Intents
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-intents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-loans-api
+  name: Xfers Loans API
+  description: Loans Management
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Loans
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-loans-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-modify-payments-api
+  name: Xfers Modify Payments API
+  description: The Modify Payments API from Xfers — 1 operation(s) for modify payments.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Modify Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-modify-payments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-payment-queries-api
+  name: Xfers Payment Queries API
+  description: The Payment Queries API from Xfers — 1 operation(s) for payment queries.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Payment Queries
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-payment-queries-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-payment-queries-hide-first-api
+  name: Xfers Payment Queries (Hide first) API
+  description: >-
+    The Payment Queries (Hide first) API from Xfers — 1 operation(s) for payment queries (hide first).
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Payment Queries (Hide first)
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-payment-queries-hide-first-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-payout-api
+  name: Xfers Payout API
+  description: API for Payout
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Payout
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-payout-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-registration-api
+  name: Xfers Registration API
+  description: Register and verify new users.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Registration
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-registration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-repayments-api
+  name: Xfers Repayments API
+  description: API for Repayment
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Repayments
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-repayments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-testing-api
+  name: Xfers Testing API
+  description: API for testing purposes
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Testing
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-testing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-unique-amount-bank-transfers-api
+  name: Xfers Unique Amount Bank Transfers API
+  description: >-
+    The Unique Amount Bank Transfers API from Xfers — 1 operation(s) for unique amount bank transfers.
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Unique Amount Bank Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-unique-amount-bank-transfers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-user-account-api
+  name: Xfers User Account API
+  description: Manage User and Accounts
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - User Account
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-user-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-withdraw-api
+  name: Xfers Withdraw API
+  description: API for Withdrawal
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - Withdraw
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-withdraw-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/xfers-domain-security.yml
+- type: Authentication
+  url: authentication/xfers-authentication.yml
 - type: Website
   url: https://xfers.com
+- type: Documentation
+  url: https://docs.xfers.io
+- type: APIReference
+  url: https://docs.xfers.io/Singapore
+- type: GitHubOrganization
+  url: https://github.com/Xfers
+- type: StatusPage
+  url: https://xfers.statuspage.io
+- type: Support
+  url: https://support.straitsx.com/hc/en-us/requests/new
+- type: Postman
+  name: Xfers Singapore Postman collection
+  url: https://app.getpostman.com/run-collection/1eebf10c08b8f90bdded
+- type: Postman
+  name: Xfers Indonesia Postman collection
+  url: https://app.getpostman.com/run-collection/453dd7b670533289a719
