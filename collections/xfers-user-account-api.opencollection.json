@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account User Account API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get User Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/user"
+          },
+          "docs": "The main usage of this API is to get the current user. One user can have multiple accounts, and the balance returned is the account tied to the current API token. \r\nYou can also use this API to check various data of the user such as first_name, last_name.\r\n\r\nDescription of some notable response\r\n\r\nKey | Value | Description \r\n--------------- |  ----------- | -----\r\nkyc_status | fully_verified | current_kyc_status of user, enum of `not_submitted`, `in_process`, `rejected`, `fully_verified`"
+        },
+        {
+          "info": {
+            "name": "Get Transaction History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/user/activities",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max number of results to return per page."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Earliest date to query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Latest date to query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset results for pagination purposes."
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Will only show transactions of that type. You can add additional types by separating with a comma."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API displays a user’s transaction history. \n\n\nThis API displays a user’s transaction history.\n\nI.e. user’s transactions with other merchants will not be displayed."
+        },
+        {
+          "info": {
+            "name": "Get Transfer Info / Get Virtual Account Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/user/transfer_info",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "API to get bank account number to be shown to user.  \r\nPlease consult with us to get topup instruction template text to be shown.\r\n\r\nThe common usage of this API is to parse the transfer_info_array given by us and parse it and use the VA numbers of the bank you want\r\n\r\n#### For Virtual Account solution:  \r\nThis API is to get the Virtual Account Number to be displayed to the user\r\n\r\n#### For non Virtual Account solution:  \r\nThis API will show the bank account number to do top up.  \r\nPlease consul"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

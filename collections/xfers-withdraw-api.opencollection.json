@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Withdraw API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Withdraw",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Withdrawal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/user/bank_account/:bank_account_id/withdraw",
+            "params": [
+              {
+                "name": "bank_account_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "amount",
+                  "value": ""
+                },
+                {
+                  "name": "idempotency_id",
+                  "value": ""
+                },
+                {
+                  "name": "express",
+                  "value": ""
+                },
+                {
+                  "name": "user_api_token",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Withdrawal Time varies upon country. \r\nFor Indonesia, withdrawal time is instantaneous.\r\nFor Singapore, withdrawal time depends on whether it is an express withdrawal.\r\n\r\n#### Withdrawal on Behalf\r\nIf you wish to withdraw to a bank account that does not belong to you, add in user_api_token in the params.\r\n\r\nBehind the scenes, Xfers does a payout of funds from your Xfers account to that user’s Xfers account, followed by a withdrawal. This is required for compliance purposes as we cannot directly "
+        },
+        {
+          "info": {
+            "name": "List Withdrawal Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/user/bank_account/withdrawal_requests",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API will be used to get a list of the last 10 withdrawal requests."
+        },
+        {
+          "info": {
+            "name": "Withdrawal Notification Callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/notify_withdrawal_callback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is Xfers' callback request to your server to notify withdrawl status"
+        },
+        {
+          "info": {
+            "name": "Get Withdrawal Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/user/bank_account/withdrawal_requests/:withdrawal_request_id",
+            "params": [
+              {
+                "name": "withdrawal_request_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the withdrawal you want to get information of. You can retrieve this information from the "
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API will be used to get the current status of withdrawal request.\nIt is useful if you want to check with Xfers again about the status of your withdrawal request in case there is something wrong with the callback of the withdrawal request status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

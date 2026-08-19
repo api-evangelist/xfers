@@ -1,0 +1,216 @@
+{
+  "item": [
+    {
+      "id": "f9956363-d8c1-4dab-bc03-e350c99eb8c0",
+      "name": "Direct Bank Transfer Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71343a2a-e5d6-44f4-8439-e5f60ef18d01",
+          "name": "Create Direct Bank Transfer Payment",
+          "request": {
+            "name": "Create Direct Bank Transfer Payment",
+            "description": {
+              "content": "The following API will allow you to make a Direct Bank Transfer Payment request. Using Direct Bank Transfer has the advantage of having higher transaction limits as compared to normal Charge which uses your wallet balance (`/charges`). The API token used in `X-XFERS-USER-API-KEY` header should be your customer's API token.\r\n \r\nMerchants need to create a Direct Bank Transfer Payment request first. After receiving successful response from above API, please follow instruction in http://docs.xfers.io/Singapore#operation/getTransferInfo to get bank account details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v3",
+                "user",
+                "direct_bank_transfer_payments"
+              ],
+              "host": [
+                "www",
+                "xfers",
+                "io"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<float>\",\n  \"external_id\": \"<string>\",\n  \"callback_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c28015a8-9490-4ec3-a8fb-885fd3f4b541",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "direct_bank_transfer_payments"
+                  ],
+                  "host": [
+                    "www",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 500,\n  \"external_id\": \"abc_xy1\",\n  \"callback_url\": \"https://wwww.example.com/callbacks\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"contract_c184633a1d3d4d1aa6b49810795f6a65\",\n  \"object\": \"DirectBankTransferContract\",\n  \"status\": \"processing\",\n  \"amount\": \"500.0\",\n  \"total_amount\": \"500.0\",\n  \"currency\": \"sgd\",\n  \"notify_url\": \"https://wwww.example.com/callbacks\",\n  \"wallet_name\": \"Digital Goods\",\n  \"order_id\": \"abc_xy1\",\n  \"description\": null,\n  \"receipt_email\": \"antonio@coinbase.com\",\n  \"expiration_date\": null,\n  \"metadata\": {\n    \"callback_url\": \"https://wwww.example.com/callbacks\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f92c8379-4236-410d-8f85-43f11150546a",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "direct_bank_transfer_payments"
+                  ],
+                  "host": [
+                    "www",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 500,\n  \"external_id\": \"abc_xy1\",\n  \"callback_url\": \"https://wwww.example.com/callbacks\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f5fd2df6-1f91-4f30-acb3-6d2f81485ad9",
+    "name": "Xfers Bank Account Direct Bank Transfer Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

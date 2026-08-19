@@ -1,0 +1,128 @@
+{
+  "item": [
+    {
+      "id": "8132b9ce-632a-4945-92db-ac01154f49f2",
+      "name": "Unique Amount Bank Transfers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db218c90-b980-4748-876a-d92bf83a033b",
+          "name": "Unique Amount Bank Transfer",
+          "request": {
+            "name": "Unique Amount Bank Transfer",
+            "description": {
+              "content": "With Unique Amount Bank Transfer payment method, you need pass us the amount that you want your customer to pay and we will give you the unique amount. \n\n After your customer successfuly transfer with the unique amount, our system will associate it to your account and we will notify you with the successful callback.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payment_gateway",
+                "payment_methods",
+                "unique_amount_bank_transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": {\n    \"value\": \"reference #/base_class/payment/schemas/RequestBody not found in the OpenAPI spec\"\n  },\n  \"destination_account_id\": \"string\",\n  \"bank_type\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56538853-7391-4c91-a20a-df2b43165655",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payment_gateway",
+                    "payment_methods",
+                    "unique_amount_bank_transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment\": {\n    \"value\": \"reference #/base_class/payment/schemas/RequestBody not found in the OpenAPI spec\"\n  },\n  \"destination_account_id\": 2087,\n  \"bank_type\": 4936\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payment\": {\n    \"value\": \"reference #/base_class/payment/schemas/UniqueAmountBankTransfer not found in the OpenAPI spec\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "23564be1-a7f7-4749-9139-c3933890bde9",
+    "name": "Xfers Bank Account Unique Amount Bank Transfers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

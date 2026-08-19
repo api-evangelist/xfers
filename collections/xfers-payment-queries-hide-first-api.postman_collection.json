@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "24f924e8-1327-4666-a2aa-640f93fceaf5",
+      "name": "Payment Queries (Hide first)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6577091-572b-4fb3-bb96-d43205b4d477",
+          "name": "List Payment Method Payment History",
+          "request": {
+            "name": "List Payment Method Payment History",
+            "description": {
+              "content": "@irfan",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payment_gateway",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "payment_method_type",
+                  "value": "<string>",
+                  "description": "(Required) Payment collector type"
+                },
+                {
+                  "disabled": false,
+                  "key": "payment_method_id",
+                  "value": "<string>",
+                  "description": "(Required) Payment collector id"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "39bb18d1-9729-4165-a68a-9938c02c8d3f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payment_gateway",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_method_type",
+                      "value": "fixed_virtual_account"
+                    },
+                    {
+                      "key": "payment_method_id",
+                      "value": "va_7abf6bb130d44c02862982ff6022875d"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fe76a2e6-ec6a-4c44-a57b-6267f86a5658",
+    "name": "Xfers Bank Account Payment Queries (Hide first) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

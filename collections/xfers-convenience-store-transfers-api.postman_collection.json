@@ -1,0 +1,174 @@
+{
+  "item": [
+    {
+      "id": "d874523c-80c2-4558-aaed-855470d5d798",
+      "name": "Convenience Store Transfers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7cf95827-6646-4c15-badc-6788b1cdfaf2",
+          "name": "Top up using convenience store",
+          "request": {
+            "name": "Top up using convenience store",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payment_gateway",
+                "payment_method",
+                "convenience_store_transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"reference #/base_class/cvs_transfers/schemas/RequestBody not found in the OpenAPI spec\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "86b63e3f-6176-4761-8744-3df0322ff21f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payment_gateway",
+                    "payment_method",
+                    "convenience_store_transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/base_class/cvs_transfers/schemas/RequestBody not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": \"reference #/base_class/cvs_transfers/schemas/SuccessResponse not found in the OpenAPI spec\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69939c88-6008-477e-a7c9-ce232b901ff5",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payment_gateway",
+                    "payment_method",
+                    "convenience_store_transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"reference #/base_class/cvs_transfers/schemas/RequestBody not found in the OpenAPI spec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ffd8979f-686e-4106-b596-d405ee087a3b",
+    "name": "Xfers Bank Account Convenience Store Transfers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

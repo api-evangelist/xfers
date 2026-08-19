@@ -1,0 +1,365 @@
+{
+  "item": [
+    {
+      "id": "6fac1e4d-82b1-4c79-849b-7287e13c695e",
+      "name": "cutting_edge",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7caa03b-d07f-47be-a8be-ee52d7d61ada",
+          "name": "Get Account Info (Coming Soon)",
+          "request": {
+            "name": "Get Account Info (Coming Soon)",
+            "description": {
+              "content": "This API displays the account information, including the storage limits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4d66c4cd-8d17-485b-99c5-42676c60bf22",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields[accounts]",
+                      "value": "balance,wallet_id,limitations"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"account_48831b3a93e84e9a8dac8a7e11f5659e\",\n      \"type\": \"accounts\",\n      \"attributes\": {\n        \"balance\": \"150.00\",\n        \"currency\": \"sgd\",\n        \"wallet_name\": \"Digital Goods Wallet\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfdc3d46-f689-48b6-95be-b1d15a108c50",
+          "name": "Create Direct Bank Transfer Payment (Coming Soon)",
+          "request": {
+            "name": "Create Direct Bank Transfer Payment (Coming Soon)",
+            "description": {
+              "content": "The following API will allow you to make a Direct Bank Transfer Payment. Using Direct Bank Transfer has the advantage of having higher transaction limits as compared to normal Charge which uses your wallet balance (`/charges`). The API token used in Authorization header should be your customer's API token.\n\n In the response, you will have information about the bank account to top up to. Show this information to your customer for them to make a bank transfer. They need to put the `unique_topup_identifier` in the comments field when doing a bank transfer for Xfers to identify that their transfer is for this transaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "direct_bank_transfer_payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<float>",
+                  "description": "(Required) Amount for doing the payment"
+                },
+                {
+                  "disabled": false,
+                  "key": "external_id",
+                  "value": "<string>",
+                  "description": "(Required) The merchant's reference id"
+                },
+                {
+                  "disabled": false,
+                  "key": "callback_url",
+                  "value": "<string>",
+                  "description": "Merchant's callback url for sending notification after payment success"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "da4c04a6-6894-42af-818d-47423dffee3a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "direct_bank_transfer_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "amount",
+                      "value": "100"
+                    },
+                    {
+                      "key": "external_id",
+                      "value": "ref_20200101_0001"
+                    },
+                    {
+                      "key": "callback_url",
+                      "value": "http://your-callback-url"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"contract_9b562994c4274d9993ba93c94619a8f6\",\n    \"type\": \"direct_bank_transfer_payments\",\n    \"attributes\": {\n      \"amount\": \"3000.00\",\n      \"external_id\": \"ref_20200101_0001\",\n      \"status\": \"processing\",\n      \"created_at\": \"2020-01-02T15:33:45+08:00\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbc19916-4629-4f03-8076-5670468c4979",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "direct_bank_transfer_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "amount",
+                      "value": "100"
+                    },
+                    {
+                      "key": "external_id",
+                      "value": "ref_20200101_0001"
+                    },
+                    {
+                      "key": "callback_url",
+                      "value": "http://your-callback-url"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56be9a9e-9d70-43ca-b55d-d4a6f0fac813",
+          "name": "List Direct Bank Transfer Payments (Coming Soon)",
+          "request": {
+            "name": "List Direct Bank Transfer Payments (Coming Soon)",
+            "description": {
+              "content": "Retrive a previously created direct bank transfer payment. You can use this to check the status, whether it has been completed or still processing. The API token used in Authorization header should be your customer's API token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v4",
+                "direct_bank_transfer_payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "bf1f6443-c253-4105-b451-bc5faa8897fe",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "direct_bank_transfer_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"contract_9b562994c4274d9993ba93c94619a8f6\",\n      \"type\": \"direct_bank_transfer_payments\",\n      \"attributes\": {\n        \"amount\": \"3000.00\",\n        \"external_id\": \"ref_20200101_0001\",\n        \"status\": \"completed\",\n        \"created_at\": \"2019-04-12T07:10:50Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb150f30-64df-4a3c-95e6-37f32c1b4b78",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v4",
+                    "direct_bank_transfer_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"title\": \"string\",\n      \"detail\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aae24f20-8acd-4760-9a5b-58f93f2208af",
+    "name": "Xfers Bank Account cutting_edge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

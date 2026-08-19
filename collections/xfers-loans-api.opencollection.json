@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Loans API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Loans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Loan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/loans",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creating a Loan. We will pass this loan asynchronously and give callback after complete."
+        },
+        {
+          "info": {
+            "name": "Loan Notification Callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/notify_loan_callback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "After you set up your callback url in {{base-api-url}}/merchant_settings/callback_settings (loan_request_approved), we will send you the callback with the following parameters"
+        },
+        {
+          "info": {
+            "name": "Get Loan Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/loans/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Loan ID. You can find this from the response when you create loan."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get the Detail of a Loan Request Given The id of a its loan.\r\n\r\nAvailable Status:\r\ncreated -> after customer just created the loan to us\r\nloan_request_processing -> after we called sampoerna loan API and no callback yet\r\nloan_request_approved -> after we just received sampoerna callback and it is approved\r\nloan_request_rejected -> after we just received sampoerna callback and it is rejected\r\nwithdrawal_on_behalf_processing -> after they call our WOB API, WOB still in pending state\r\nwithdrawal_on"
+        },
+        {
+          "info": {
+            "name": "Loans Reconciliation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/loans/reconciliations",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "page",
+                  "value": ""
+                },
+                {
+                  "name": "per_page",
+                  "value": ""
+                },
+                {
+                  "name": "from",
+                  "value": ""
+                },
+                {
+                  "name": "to",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get Outstanding Loans. Response of this reconciliation request will be in callback."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

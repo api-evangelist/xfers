@@ -1,8 +1,8 @@
 generated: '2026-07-21'
 method: derived
 status: candidate
-source: openapi/ — no official Xfers MCP server found; successor brand StraitsX publishes
-  agent tooling (github.com/Xfers/dominos-agent references a StraitsX MCP)
+source: openapi/ — no official Xfers MCP server found; successor brand StraitsX publishes agent tooling
+  (github.com/Xfers/dominos-agent references a StraitsX MCP)
 server:
   name: xfers
   transport: http
@@ -143,3 +143,9 @@ tools:
 - name: repaymentRecon
   description: Repayments Reconciliation
   source_operation: openapi/xfers-indonesia-openapi.json#repaymentRecon
+deployment:
+  mode: none
+  verified: derived
+  tools: 45
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Convenience Store Transfers API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Convenience Store Transfers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Top up using convenience store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/payment_gateway/payment_method/convenience_store_transfers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Top up using convenience store"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

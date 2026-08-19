@@ -1,0 +1,483 @@
+{
+  "item": [
+    {
+      "id": "16597899-038c-4de2-aa83-1f507d3e536d",
+      "name": "E-signature",
+      "description": {
+        "content": "API for e-signature",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bdb7ce9c-4774-458e-8285-6e262f184466",
+          "name": "Sign Up E-signature  Account",
+          "request": {
+            "name": "Sign Up E-signature  Account",
+            "description": {
+              "content": "API to register user account for esignatures.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "esignatures_registration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "d65dd2d7-3146-44b9-9f9b-21e1146c0f65",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "esignatures_registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 201,\n  \"data\": {\n    \"privyId\": \"KE5757\",\n    \"email\": \"mail@xfers.com\",\n    \"phone\": \"+6282421424\",\n    \"processed_at\": \"2019-08-30 20:02:06 +0700\",\n    \"userToken\": \"fa3c4afdce0b48ea63f8e648f296c8ff6db41d93976d994a94329390d88dcaa5\",\n    \"status\": \"verified\",\n    \"identity\": {\n      \"nama\": \"Aldo Sanjoto\",\n      \"nik\": \"1234567890123456\",\n      \"tanggalLahir\": \"1997-08-30\",\n      \"tempatLahir\": \"Jakarta\"\n    }\n  },\n  \"message\": \"Data has been verified\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5dbe48ba-c189-4f5d-a36b-11cb4915cdb1",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "esignatures_registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6377d56e-00bb-4403-9aeb-608b7f37b23e",
+          "name": "Upload document for E-signature",
+          "request": {
+            "name": "Upload document for E-signature",
+            "description": {
+              "content": "API to upload document e-signature",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "esignatures_upload_document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "document",
+                  "value": "<File>",
+                  "description": "(Required) Document to be signed. Must be in pdf format with maximum size of 20MB"
+                },
+                {
+                  "disabled": false,
+                  "key": "doc_type",
+                  "value": "<string>",
+                  "description": "(Required) Can only be Serial or Parallel. \n 1. Serial: the signing or reviewing process will be based on the order of recipients. \n 2. Parallel: signer or reviewer can sign the document without having to wait for a previous one."
+                },
+                {
+                  "disabled": false,
+                  "key": "document_title",
+                  "value": "<string>",
+                  "description": "(Required) The title of the document"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "31513f37-ea1c-4fd6-b9ec-8ec39b5cca68",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "esignatures_upload_document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Document to be signed. Must be in pdf format with maximum size of 20MB",
+                        "type": "text/plain"
+                      },
+                      "key": "document",
+                      "value": "some random.pdf"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Can only be Serial or Parallel. \n 1. Serial: the signing or reviewing process will be based on the order of recipients. \n 2. Parallel: signer or reviewer can sign the document without having to wait for a previous one.",
+                        "type": "text/plain"
+                      },
+                      "key": "doc_type",
+                      "value": "Serial"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The title of the document",
+                        "type": "text/plain"
+                      },
+                      "key": "document_title",
+                      "value": "Contract document"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 201,\n  \"data\": {\n    \"docToken\": \"4e6e915f361c7bea9d81f1dc0c7ef7d2c306b37e21d3979d7229c82b29d80282\",\n    \"urlDocument\": \"https://sign-sandbox.privy.id/doc/4e6e915f361c7bea9d81f1dc0c7ef7d2c306b37e21d3979d7229c82b29d80282\",\n    \"recipients\": [\n      {\n        \"privyId\": \"KE7575\",\n        \"type\": \"Signer\",\n        \"enterpriseToken\": \"41bc84b42c8543daf448d893c255be1dbdcc722e\"\n      },\n      {\n        \"privyId\": \"TES001\",\n        \"type\": \"Signer\",\n        \"enterpriseToken\": null\n      }\n    ]\n  },\n  \"message\": \"Document successfully upload and shared\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a695da6-bcb2-436f-b905-65b9e7c578fc",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "esignatures_upload_document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Document to be signed. Must be in pdf format with maximum size of 20MB",
+                        "type": "text/plain"
+                      },
+                      "key": "document",
+                      "value": "some random.pdf"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Can only be Serial or Parallel. \n 1. Serial: the signing or reviewing process will be based on the order of recipients. \n 2. Parallel: signer or reviewer can sign the document without having to wait for a previous one.",
+                        "type": "text/plain"
+                      },
+                      "key": "doc_type",
+                      "value": "Serial"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The title of the document",
+                        "type": "text/plain"
+                      },
+                      "key": "document_title",
+                      "value": "Contract document"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26f295f0-3cbd-4323-8459-db165ae92c74",
+          "name": "Check status for E-signature",
+          "request": {
+            "name": "Check status for E-signature",
+            "description": {
+              "content": "API to check e-signature document status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "esignatures_check_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "doc_token",
+                  "value": "<string>",
+                  "description": "(Required) Document token that's retrieved after uploading document"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "124eb123-9f55-4f6a-ba78-730419d97307",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "esignatures_check_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Document token that's retrieved after uploading document",
+                        "type": "text/plain"
+                      },
+                      "key": "doc_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 200,\n  \"data\": {\n    \"docToken\": \"bb5e12c77438f60da1f2ab6e566c5aeb6d03561bec3e5d588f7e240e4c164120\",\n    \"recipients\": [\n      {\n        \"privyId\": \"AB1234\",\n        \"type\": \"Reviewer\",\n        \"signatoryStatus\": \"Completed\"\n      },\n      {\n        \"privyId\": \"DE2345\",\n        \"type\": \"Signer\",\n        \"signatoryStatus\": \"In Progress\"\n      }\n    ],\n    \"documentStatus\": \"In Progress\",\n    \"urlDocument\": \"https://sign-sandbox.privy.id/doc/bb5e12c77438f60da1f2ab6e566c5aeb6d03561bec3e5d588f7e240e4c164120\"\n  },\n  \"message\": \"Successfully get a status document\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "444eb8f9-5089-4b25-a99b-6afdf7f9df96",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "esignatures_check_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Document token that's retrieved after uploading document",
+                        "type": "text/plain"
+                      },
+                      "key": "doc_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b1f678ac-fa68-4523-b7a2-2de08151dec9",
+    "name": "Xfers Bank Account E-signature API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

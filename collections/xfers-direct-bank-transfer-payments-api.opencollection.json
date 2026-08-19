@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Direct Bank Transfer Payments API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Direct Bank Transfer Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Direct Bank Transfer Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/user/direct_bank_transfer_payments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The following API will allow you to make a Direct Bank Transfer Payment request. Using Direct Bank Transfer has the advantage of having higher transaction limits as compared to normal Charge which uses your wallet balance (`/charges`). The API token used in `X-XFERS-USER-API-KEY` header should be your customer's API token.\r\n \r\nMerchants need to create a Direct Bank Transfer Payment request first. After receiving successful response from above API, please follow instruction in http://docs.xfers.i"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

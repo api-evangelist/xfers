@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Disbursements API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Disbursements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Disbursement Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/loans/:id/disbursement_reports",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Loan ID. You can find this from the response when you create loan."
+              }
+            ]
+          },
+          "docs": "Create a disbursement report to complete a loan disbursement process. We will pass this loan asynchronously and give callback after complete"
+        },
+        {
+          "info": {
+            "name": "Disbursement Report Notification Callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/notify_disbursement_report_callback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "After you setup your callback url in {{base-api-url}}/merchant_settings/callback_settings (loan_disbursement_report_completed)"
+        },
+        {
+          "info": {
+            "name": "List Loan Disbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/loans/:loan_id/disbursements",
+            "params": [
+              {
+                "name": "loan_id",
+                "value": "",
+                "type": "path",
+                "description": "Loan ID. You can find this from the response when you create loan."
+              }
+            ]
+          },
+          "docs": "This API will be used to get a list of the last 10 withdrawal requests associated with the loan"
+        },
+        {
+          "info": {
+            "name": "Create Loan Disbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/loans/:loan_id/disbursements",
+            "params": [
+              {
+                "name": "loan_id",
+                "value": "",
+                "type": "path",
+                "description": "Loan ID. You can find this from the response when you create loan."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "bank_account_id",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "value": ""
+                },
+                {
+                  "name": "idempotency_id",
+                  "value": ""
+                },
+                {
+                  "name": "user_api_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Note: Disbursement and Withdrawal will be used synonymously. Disbursement is instantenous.\nDisbursement (Withdrawal on Behalf)\nIf you wish to disburse to a bank account not belonging to you, add in user_api_token in the params.\nDisbursement (a.k.a Withdrawal) notification\nAfter you setup your callback url in {{base-api-url}}/merchant_settings/callback_settings, we will send you the callback with the following parameter when the withdrawal is completed or failed. You need to acknowledge the callb"
+        },
+        {
+          "info": {
+            "name": "Loan Disbursement Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/notify_loan_disbursement_callback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is Xfers' callback request to your server to notify loan disbursement status"
+        },
+        {
+          "info": {
+            "name": "Get Loan Disbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/loans/:loan_id/disbursements/:id",
+            "params": [
+              {
+                "name": "loan_id",
+                "value": "",
+                "type": "path",
+                "description": "Loan ID. You can find this from the response when you create loan."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Disbursement ID. You can find this from the response when you create loan."
+              }
+            ]
+          },
+          "docs": "This API is used to get the current status of the loan disbursement (in the form of a withdrawal contract), in case the callback of the disbursement status is unclear."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

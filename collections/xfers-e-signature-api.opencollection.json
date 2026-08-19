@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account E-signature API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "E-signature",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign Up E-signature  Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/esignatures_registration"
+          },
+          "docs": "API to register user account for esignatures."
+        },
+        {
+          "info": {
+            "name": "Upload document for E-signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/esignatures_upload_document",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "document",
+                  "value": ""
+                },
+                {
+                  "name": "doc_type",
+                  "value": ""
+                },
+                {
+                  "name": "document_title",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "API to upload document e-signature"
+        },
+        {
+          "info": {
+            "name": "Check status for E-signature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/esignatures_check_status",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "doc_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "API to check e-signature document status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

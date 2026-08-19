@@ -1,0 +1,1395 @@
+{
+  "item": [
+    {
+      "id": "bb8b3f08-b8a7-41fa-bb2d-e7483d919100",
+      "name": "Registration",
+      "description": {
+        "content": "Register and verify new users.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "943cc056-fca5-4e4f-8246-56ef0f60740a",
+          "name": "Sign Up Account/Trigger OTP",
+          "request": {
+            "name": "Sign Up Account/Trigger OTP",
+            "description": {
+              "content": "This API is used to start user registration by inputting phone number.\nAfter this API is called, an OTP SMS will be sent to that number.\n\nYou can re-trigger this API to re-send OTP to the same phone number after 1 minute.\n\nThis OTP will expire in 10 minutes.\nThe SMS format will be:\n```\n[XFERS] Your OTP is 123456. This is to set up payments for `merchant_name` . If this is not done by you, please report to http://bit.ly/XfersSupport\n```\nThis API uses a pair of public key and secret key.\nThe header of this API uses public key called `X-XFERS-APP-API-KEY`.\nYou will need `X-XFERS-APP-SECRET-KEY`  to generate signature in the request body.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "authorize",
+                "signup_login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "phone_no",
+                  "value": "<string>",
+                  "description": "(Required) User mobile no. It should follow International format."
+                },
+                {
+                  "disabled": false,
+                  "key": "signature",
+                  "value": "<string>",
+                  "description": "(Required) SHA1-hex of (phone_no + X-XFERS-APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3af7afa1-59f5-4a94-b8ca-7da974a2c8a7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "authorize",
+                    "signup_login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) User mobile no. It should follow International format.",
+                        "type": "text/plain"
+                      },
+                      "key": "phone_no",
+                      "value": "+6287785725657"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) SHA1-hex of (phone_no + X-XFERS-APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/",
+                        "type": "text/plain"
+                      },
+                      "key": "signature",
+                      "value": "5488737c67d790565a15a2dbc3c98bf778aac2c0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c9a8fe1-30e1-4da2-958c-2c22eaa5ea1d",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "authorize",
+                    "signup_login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) User mobile no. It should follow International format.",
+                        "type": "text/plain"
+                      },
+                      "key": "phone_no",
+                      "value": "+6287785725657"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) SHA1-hex of (phone_no + X-XFERS-APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/",
+                        "type": "text/plain"
+                      },
+                      "key": "signature",
+                      "value": "5488737c67d790565a15a2dbc3c98bf778aac2c0"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a15592-542e-4bea-9ffc-12c3aaf40af8",
+          "name": "Register Account",
+          "request": {
+            "name": "Register Account",
+            "description": {
+              "content": "This API is used to start private ledger registration by inputting phone number.\n\n This API uses a pair of public key and secret key.\n\nThe header of this API uses public key called `X-XFERS-APP-API-KEY`. You will need `X-XFERS-APP-SECRET-KEY` to generate signature in the request body.\n\nPlease make use of Pre-request Script to test this API in postman",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "authorize",
+                "private_wallet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "phone_no",
+                  "value": "<string>",
+                  "description": "(Required) User mobile no. It should follow International format."
+                },
+                {
+                  "disabled": false,
+                  "key": "signature",
+                  "value": "<string>",
+                  "description": "(Required) SHA1-hex of (phone_no + X-XFERS-APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b189f12d-14a1-4bfa-b5ff-91b10cdff556",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "authorize",
+                    "private_wallet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) User mobile no. It should follow International format.",
+                        "type": "text/plain"
+                      },
+                      "key": "phone_no",
+                      "value": "+6287785725657"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) SHA1-hex of (phone_no + X-XFERS-APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/",
+                        "type": "text/plain"
+                      },
+                      "key": "signature",
+                      "value": "5488737c67d790565a15a2dbc3c98bf778aac2c0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76ba0552-07ad-4530-8d21-a8bd9e6c1f75",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "authorize",
+                    "private_wallet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) User mobile no. It should follow International format.",
+                        "type": "text/plain"
+                      },
+                      "key": "phone_no",
+                      "value": "+6287785725657"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) SHA1-hex of (phone_no + X-XFERS-APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/",
+                        "type": "text/plain"
+                      },
+                      "key": "signature",
+                      "value": "5488737c67d790565a15a2dbc3c98bf778aac2c0"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Missing API KEY in header\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "190b0633-dd0a-4378-83b7-757219d0808d",
+          "name": "Get User API Token / Submit OTP",
+          "request": {
+            "name": "Get User API Token / Submit OTP",
+            "description": {
+              "content": "After user receives the OTP SMS, merchant's app should capture the OTP and pass it to Xfers via this API.\nThis API will finish the registration and returns user_api_token. user_api_token is used to control the user's account.\nYou should save the user_api_token for future usage. (to be put in the `X-XFERS-USER-API-KEY` in headers of other APIs)\n\nIt will also return a is_fully_verified if they already have an Xfers account and have completed our KYC process.\n\nThis API uses a pair of public key and secret key.\nThe header of this API uses public key called `X-XFERS-APP-API-KEY`. You will need `X-XFERS-APP-SECRET-KEY` to generate signature in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "authorize",
+                "get_token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "otp",
+                  "value": "<string>",
+                  "description": "(Required) User mobile no. It should follow International format."
+                },
+                {
+                  "disabled": false,
+                  "key": "phone_no",
+                  "value": "<string>",
+                  "description": "(Required) User mobile no. It should follow International format."
+                },
+                {
+                  "disabled": false,
+                  "key": "signature",
+                  "value": "<string>",
+                  "description": "(Required) SHA1-hex of (phone_no + OTP + APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/"
+                },
+                {
+                  "disabled": false,
+                  "key": "return_url",
+                  "value": "<Endpoint>/v3/account_registration/completed",
+                  "description": "Url that new user will be redirected after they completed Xfers account registration at `sign_up_url` provided."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "916eebf6-0d35-497d-b5b9-915355f085c3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "authorize",
+                    "get_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "otp",
+                      "value": "541231"
+                    },
+                    {
+                      "key": "phone_no",
+                      "value": "+6287785725657"
+                    },
+                    {
+                      "key": "signature",
+                      "value": "71b72cb775fa0e52d815279c74964f5be18a88b8"
+                    },
+                    {
+                      "key": "return_url",
+                      "value": "71b72cb775fa0e52d815279c74964f5be18a88b8"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\",\n  \"id\": \"user_csn7v5lyn4a6\",\n  \"user_api_token\": \"A-Bm4vmjmGyhRaMEoxqBGeoXCEQwJYksrTXc6-ypsyk\",\n  \"currency\": \"idr\",\n  \"is_fully_verified\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0d0903c-830a-47f7-ae80-62349a297015",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "authorize",
+                    "get_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "otp",
+                      "value": "541231"
+                    },
+                    {
+                      "key": "phone_no",
+                      "value": "+6287785725657"
+                    },
+                    {
+                      "key": "signature",
+                      "value": "71b72cb775fa0e52d815279c74964f5be18a88b8"
+                    },
+                    {
+                      "key": "return_url",
+                      "value": "71b72cb775fa0e52d815279c74964f5be18a88b8"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "738d8377-8312-4ba9-9492-79b9fa6845d1",
+          "name": "Submit KYC Data",
+          "request": {
+            "name": "Submit KYC Data",
+            "description": {
+              "content": "To provide KYC data in order to change user from unverified status into fully verified status.  \n\nThe image/document provided us must be hosted in a URL then pass the URL to Xfers via this API.  \nMake sure data type for your image is jpeg / png.  \nMaximum size of the image/ document is 10 MB.  \n\nAfter this data is sent, we will do some verifications on our side and may take some time before user gets fully verified.  In Indonesia, fully verified user will be backed by a savings account.\r\nThus, there are required parameters which are mother_maiden_name, id_front_url, selfie_2id_url.\r\nAdditional data will speed up the KYC process.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id_front_url",
+                  "value": "<string>",
+                  "description": "(Required) URL storing the front image of user identity card"
+                },
+                {
+                  "disabled": false,
+                  "key": "selfie_2id_url",
+                  "value": "<string>",
+                  "description": "(Required) URL storing the selfie of user holding their id card"
+                },
+                {
+                  "disabled": false,
+                  "key": "identity_no",
+                  "value": "<string>",
+                  "description": "(Required) Account holder national identity number or, KTP number of Indonesian."
+                },
+                {
+                  "disabled": false,
+                  "key": "gender",
+                  "value": "<string>",
+                  "description": "(Required) Gender. Possible values: male / female"
+                },
+                {
+                  "disabled": false,
+                  "key": "mother_maiden_name",
+                  "value": "<string>",
+                  "description": "(Required) Name of Mother"
+                },
+                {
+                  "disabled": false,
+                  "key": "date_of_birth",
+                  "value": "<string>",
+                  "description": "(Required)  Date of birth for account holder in yyyy-mm-dd"
+                },
+                {
+                  "disabled": false,
+                  "key": "place_of_birth",
+                  "value": "<string>",
+                  "description": "(Required) Account holder’s birth place."
+                },
+                {
+                  "disabled": false,
+                  "key": "marital_status",
+                  "value": "<string>",
+                  "description": "(Required) Only Indonesia. Account holder’s marital status according to his/her KTP. Possible Values: 'Belum Kawin’, 'Kawin’, 'Janda’, or 'Duda’"
+                },
+                {
+                  "disabled": false,
+                  "key": "occupation",
+                  "value": "<string>",
+                  "description": "(Required) Only Indonesia. Account holder’s occupation according to his/her KTP."
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "(Required) Account holder city of residence."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) Account holder’s state of residence. In KTP, it is called Provinsi."
+                },
+                {
+                  "disabled": false,
+                  "key": "postal_code",
+                  "value": "<string>",
+                  "description": "(Required) Address postal code"
+                },
+                {
+                  "disabled": false,
+                  "key": "address_line_1",
+                  "value": "<string>",
+                  "description": "(Required) Address line 1"
+                },
+                {
+                  "disabled": false,
+                  "key": "fullname",
+                  "value": "<string>",
+                  "description": "Account holder full name"
+                },
+                {
+                  "disabled": false,
+                  "key": "first_name",
+                  "value": "<string>",
+                  "description": "Account holder firstname"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name",
+                  "value": "<string>",
+                  "description": "Account holder lastname"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "User email"
+                },
+                {
+                  "disabled": false,
+                  "key": "address_line_2",
+                  "value": "<string>",
+                  "description": "Address line 2"
+                },
+                {
+                  "disabled": false,
+                  "key": "nationality",
+                  "value": "<string>",
+                  "description": "Account holder nationality"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Account holder country of residence."
+                },
+                {
+                  "disabled": false,
+                  "key": "annual_income",
+                  "value": "<integer>",
+                  "description": "Annual income of user in the local currency (SGD/IDR)"
+                },
+                {
+                  "disabled": false,
+                  "key": "id_back_url",
+                  "value": "<string>",
+                  "description": "URL storing the back of the user id card"
+                },
+                {
+                  "disabled": false,
+                  "key": "proof_of_address_url",
+                  "value": "<string>",
+                  "description": "URL storing the proof of address"
+                },
+                {
+                  "disabled": false,
+                  "key": "meta_data",
+                  "value": "<string>",
+                  "description": "Addtional data like Jumio info dump."
+                },
+                {
+                  "disabled": false,
+                  "key": "blood_type",
+                  "value": "<string>",
+                  "description": " Account holder’s blood type, without rhesus. Possible values: ‘A’, ‘B’, 'AB’, or 'O’"
+                },
+                {
+                  "disabled": false,
+                  "key": "rt",
+                  "value": "<string>",
+                  "description": "Only Indonesia. Account holder’s RT according to his/her KTP. Leading zero is optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "rw",
+                  "value": "<string>",
+                  "description": "Account holder’s RW according to his/her KTP. Leading zero is optional."
+                },
+                {
+                  "disabled": false,
+                  "key": "administrative_village",
+                  "value": "<string>",
+                  "description": "Account holder’s administrative_village address. In KTP, it is called Kelurahan or Desa."
+                },
+                {
+                  "disabled": false,
+                  "key": "district",
+                  "value": "<string>",
+                  "description": "Only Indonesia. Account holder’s district address. In KTP, it is called Kecamatan."
+                },
+                {
+                  "disabled": false,
+                  "key": "religion",
+                  "value": "<string>",
+                  "description": "Only Indonesia. Account holder’s religion according to his/her KTP. Possible Values: 'Islam’, 'Katholik’, 'Kristen Protestan’, 'Hindu’, 'Budha’, 'Kong Hu Cu’, or 'Aliran Kepercayaan’"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1e6cc935-fc4a-4eff-8c79-ee868fc62296",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) URL storing the front image of user identity card",
+                        "type": "text/plain"
+                      },
+                      "key": "id_front_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) URL storing the selfie of user holding their id card",
+                        "type": "text/plain"
+                      },
+                      "key": "selfie_2id_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder national identity number or, KTP number of Indonesian.",
+                        "type": "text/plain"
+                      },
+                      "key": "identity_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Gender. Possible values: male / female",
+                        "type": "text/plain"
+                      },
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of Mother",
+                        "type": "text/plain"
+                      },
+                      "key": "mother_maiden_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required)  Date of birth for account holder in yyyy-mm-dd",
+                        "type": "text/plain"
+                      },
+                      "key": "date_of_birth",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder’s birth place.",
+                        "type": "text/plain"
+                      },
+                      "key": "place_of_birth",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Only Indonesia. Account holder’s marital status according to his/her KTP. Possible Values: 'Belum Kawin’, 'Kawin’, 'Janda’, or 'Duda’",
+                        "type": "text/plain"
+                      },
+                      "key": "marital_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Only Indonesia. Account holder’s occupation according to his/her KTP.",
+                        "type": "text/plain"
+                      },
+                      "key": "occupation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder city of residence.",
+                        "type": "text/plain"
+                      },
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder’s state of residence. In KTP, it is called Provinsi.",
+                        "type": "text/plain"
+                      },
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Address postal code",
+                        "type": "text/plain"
+                      },
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Address line 1",
+                        "type": "text/plain"
+                      },
+                      "key": "address_line_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder full name",
+                        "type": "text/plain"
+                      },
+                      "key": "fullname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder firstname",
+                        "type": "text/plain"
+                      },
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder lastname",
+                        "type": "text/plain"
+                      },
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "User email",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Address line 2",
+                        "type": "text/plain"
+                      },
+                      "key": "address_line_2",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder nationality",
+                        "type": "text/plain"
+                      },
+                      "key": "nationality",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder country of residence.",
+                        "type": "text/plain"
+                      },
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Annual income of user in the local currency (SGD/IDR)",
+                        "type": "text/plain"
+                      },
+                      "key": "annual_income",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL storing the back of the user id card",
+                        "type": "text/plain"
+                      },
+                      "key": "id_back_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL storing the proof of address",
+                        "type": "text/plain"
+                      },
+                      "key": "proof_of_address_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Addtional data like Jumio info dump.",
+                        "type": "text/plain"
+                      },
+                      "key": "meta_data",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": " Account holder’s blood type, without rhesus. Possible values: ‘A’, ‘B’, 'AB’, or 'O’",
+                        "type": "text/plain"
+                      },
+                      "key": "blood_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only Indonesia. Account holder’s RT according to his/her KTP. Leading zero is optional.",
+                        "type": "text/plain"
+                      },
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder’s RW according to his/her KTP. Leading zero is optional.",
+                        "type": "text/plain"
+                      },
+                      "key": "rw",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder’s administrative_village address. In KTP, it is called Kelurahan or Desa.",
+                        "type": "text/plain"
+                      },
+                      "key": "administrative_village",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only Indonesia. Account holder’s district address. In KTP, it is called Kecamatan.",
+                        "type": "text/plain"
+                      },
+                      "key": "district",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only Indonesia. Account holder’s religion according to his/her KTP. Possible Values: 'Islam’, 'Katholik’, 'Kristen Protestan’, 'Hindu’, 'Budha’, 'Kong Hu Cu’, or 'Aliran Kepercayaan’",
+                        "type": "text/plain"
+                      },
+                      "key": "religion",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_balance\": \"0.32\",\n  \"ledger_balance\": \"0.32\",\n  \"bank_transfer_rates\": \"0.0\",\n  \"bank_transfer_fees\": \"0.45\",\n  \"first_name\": \"Winston\",\n  \"last_name\": \"Andersen\",\n  \"date_of_birth\": \"1986-02-27\",\n  \"country_of_birth\": \"\",\n  \"gender\": \"male\",\n  \"email\": \"winston@xfers.com\",\n  \"country\": \"id\",\n  \"nationality\": \"Indonesian\",\n  \"address_line_1\": \"Blk 712 loyang Avenue 5\",\n  \"address_line_2\": \"#01-41\",\n  \"postal_code\": \"340712\",\n  \"nric_type\": \"\",\n  \"identity_no\": \"317201180894005\",\n  \"nric_issue_date\": \"\",\n  \"phone_no\": \"+6287785725657\",\n  \"bank_accounts\": [\n    {\n      \"id\": 69,\n      \"account_no\": \"1150006390175\",\n      \"account_holder_name\": \"PROD ONLY\",\n      \"detected_name\": \"PROD ONLY\",\n      \"verification_status\": \"pending\",\n      \"verified\": true,\n      \"bank_abbrev\": \"BCA\",\n      \"usage\": \"all\"\n    },\n    {\n      \"id\": 175,\n      \"account_no\": \"1680366060\",\n      \"account_holder_name\": \"PROD ONLY\",\n      \"detected_name\": \"PROD ONLY\",\n      \"verification_status\": \"pending\",\n      \"verified\": true,\n      \"bank_abbrev\": \"BCA\",\n      \"usage\": \"all\"\n    },\n    {\n      \"id\": 177,\n      \"account_no\": \"1150006390175\",\n      \"account_holder_name\": \"PROD ONLY\",\n      \"detected_name\": \"PROD ONLY\",\n      \"verification_status\": \"pending\",\n      \"verified\": true,\n      \"bank_abbrev\": \"MANDIRI\",\n      \"usage\": \"all\"\n    },\n    {\n      \"id\": 207,\n      \"account_no\": \"1234567890\",\n      \"account_holder_name\": \"Some Name\",\n      \"detected_name\": \"PROD ONLY\",\n      \"verification_status\": \"pending\",\n      \"verified\": true,\n      \"bank_abbrev\": \"BCA\",\n      \"usage\": \"all\"\n    }\n  ],\n  \"annual_income\": \"\",\n  \"id_front\": \"15332940588453-a-blue-sky-with-white-clouds-pv.jpg\",\n  \"id_front_url\": \"https://sandbox-xfers-id.s3-ap-southeast-1.amazonaws.com/users/nric_fronts/000/000/374/original/15332940588453-a-blue-sky-with-white-clouds-pv.jpg?AWSAccessKeyId=REDACTED-EXAMPLE&Expires=1533297752&Signature=REDACTED-EXAMPLE\",\n  \"selfie_2id\": \"15332940588453-a-blue-sky-with-white-clouds-pv.jpg\",\n  \"selfie_2id_url\": \"https://sandbox-xfers-id.s3-ap-southeast-1.amazonaws.com/users/nric_selfies/000/000/374/original/15332940588453-a-blue-sky-with-white-clouds-pv.jpg?AWSAccessKeyId=REDACTED-EXAMPLE&Expires=1533297752&Signature=REDACTED-EXAMPLE\",\n  \"account_locked\": false,\n  \"kyc_verified\": true,\n  \"meta_data\": \"\",\n  \"place_of_birth\": null,\n  \"blood_type\": null,\n  \"rt_rw\": null,\n  \"administrative_village\": null,\n  \"district\": null,\n  \"religion\": null,\n  \"marital_status\": null,\n  \"occupation\": null,\n  \"mother_maiden_name\": \"Luna\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecdd53fe-0183-41b3-af7e-af82f63aae24",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) URL storing the front image of user identity card",
+                        "type": "text/plain"
+                      },
+                      "key": "id_front_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) URL storing the selfie of user holding their id card",
+                        "type": "text/plain"
+                      },
+                      "key": "selfie_2id_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder national identity number or, KTP number of Indonesian.",
+                        "type": "text/plain"
+                      },
+                      "key": "identity_no",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Gender. Possible values: male / female",
+                        "type": "text/plain"
+                      },
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of Mother",
+                        "type": "text/plain"
+                      },
+                      "key": "mother_maiden_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required)  Date of birth for account holder in yyyy-mm-dd",
+                        "type": "text/plain"
+                      },
+                      "key": "date_of_birth",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder’s birth place.",
+                        "type": "text/plain"
+                      },
+                      "key": "place_of_birth",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Only Indonesia. Account holder’s marital status according to his/her KTP. Possible Values: 'Belum Kawin’, 'Kawin’, 'Janda’, or 'Duda’",
+                        "type": "text/plain"
+                      },
+                      "key": "marital_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Only Indonesia. Account holder’s occupation according to his/her KTP.",
+                        "type": "text/plain"
+                      },
+                      "key": "occupation",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder city of residence.",
+                        "type": "text/plain"
+                      },
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Account holder’s state of residence. In KTP, it is called Provinsi.",
+                        "type": "text/plain"
+                      },
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Address postal code",
+                        "type": "text/plain"
+                      },
+                      "key": "postal_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Address line 1",
+                        "type": "text/plain"
+                      },
+                      "key": "address_line_1",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder full name",
+                        "type": "text/plain"
+                      },
+                      "key": "fullname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder firstname",
+                        "type": "text/plain"
+                      },
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder lastname",
+                        "type": "text/plain"
+                      },
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "User email",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Address line 2",
+                        "type": "text/plain"
+                      },
+                      "key": "address_line_2",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder nationality",
+                        "type": "text/plain"
+                      },
+                      "key": "nationality",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder country of residence.",
+                        "type": "text/plain"
+                      },
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Annual income of user in the local currency (SGD/IDR)",
+                        "type": "text/plain"
+                      },
+                      "key": "annual_income",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL storing the back of the user id card",
+                        "type": "text/plain"
+                      },
+                      "key": "id_back_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "URL storing the proof of address",
+                        "type": "text/plain"
+                      },
+                      "key": "proof_of_address_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Addtional data like Jumio info dump.",
+                        "type": "text/plain"
+                      },
+                      "key": "meta_data",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": " Account holder’s blood type, without rhesus. Possible values: ‘A’, ‘B’, 'AB’, or 'O’",
+                        "type": "text/plain"
+                      },
+                      "key": "blood_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only Indonesia. Account holder’s RT according to his/her KTP. Leading zero is optional.",
+                        "type": "text/plain"
+                      },
+                      "key": "rt",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder’s RW according to his/her KTP. Leading zero is optional.",
+                        "type": "text/plain"
+                      },
+                      "key": "rw",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Account holder’s administrative_village address. In KTP, it is called Kelurahan or Desa.",
+                        "type": "text/plain"
+                      },
+                      "key": "administrative_village",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only Indonesia. Account holder’s district address. In KTP, it is called Kecamatan.",
+                        "type": "text/plain"
+                      },
+                      "key": "district",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Only Indonesia. Account holder’s religion according to his/her KTP. Possible Values: 'Islam’, 'Katholik’, 'Kristen Protestan’, 'Hindu’, 'Budha’, 'Kong Hu Cu’, or 'Aliran Kepercayaan’",
+                        "type": "text/plain"
+                      },
+                      "key": "religion",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "33da5303-22ee-4476-97b9-4c03e393e03b",
+    "name": "Xfers Bank Account Registration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

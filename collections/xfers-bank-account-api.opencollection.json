@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bank Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/user/bank_account",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This will list all bank accounts belonging to the user."
+        },
+        {
+          "info": {
+            "name": "Add Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/user/bank_account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API will be used to attach a new bank account to a user.\nYou will be able to withdraw user's balance to this bank account.\nIn Indonesia Production, This API will return the detected_name as provided from the bank.\nThe account_holder_name you provided and detected_name needs to be similar (doesn't need to be 100% match)."
+        },
+        {
+          "info": {
+            "name": "Update Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://id.xfers.com/api/v3/user/bank_account/:bank_account_id",
+            "params": [
+              {
+                "name": "bank_account_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "account_no",
+                  "value": ""
+                },
+                {
+                  "name": "bank",
+                  "value": ""
+                },
+                {
+                  "name": "account_holder_name",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This request allows you to update an existing bank account record."
+        },
+        {
+          "info": {
+            "name": "Delete Bank Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://id.xfers.com/api/v3/user/bank_account/:bank_account_id",
+            "params": [
+              {
+                "name": "bank_account_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This request allows you to delete an existing bank account record."
+        },
+        {
+          "info": {
+            "name": "Get Bank and Abbreviation Mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/banks",
+            "headers": [
+              {
+                "name": "X-XFERS-USER-API-KEY",
+                "value": ""
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This will provide you with a list of banks we support. Usually used for Add Bank Account API"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

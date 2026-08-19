@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account cutting_edge API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cutting_edge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Account Info (Coming Soon)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v4/accounts",
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Refer to https://jsonapi.org/format/#fetching-sparse-fieldsets"
+              }
+            ]
+          },
+          "docs": "This API displays the account information, including the storage limits."
+        },
+        {
+          "info": {
+            "name": "List Direct Bank Transfer Payments (Coming Soon)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v4/direct_bank_transfer_payments"
+          },
+          "docs": "Retrive a previously created direct bank transfer payment. You can use this to check the status, whether it has been completed or still processing. The API token used in Authorization header should be your customer's API token."
+        },
+        {
+          "info": {
+            "name": "Create Direct Bank Transfer Payment (Coming Soon)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v4/direct_bank_transfer_payments",
+            "params": [
+              {
+                "name": "amount",
+                "value": "100",
+                "type": "query",
+                "description": "Amount for doing the payment"
+              },
+              {
+                "name": "external_id",
+                "value": "ref_20200101_0001",
+                "type": "query",
+                "description": "The merchant's reference id"
+              },
+              {
+                "name": "callback_url",
+                "value": "http://your-callback-url",
+                "type": "query",
+                "description": "Merchant's callback url for sending notification after payment success"
+              }
+            ]
+          },
+          "docs": "The following API will allow you to make a Direct Bank Transfer Payment. Using Direct Bank Transfer has the advantage of having higher transaction limits as compared to normal Charge which uses your wallet balance (`/charges`). The API token used in Authorization header should be your customer's API token.\n\n In the response, you will have information about the bank account to top up to. Show this information to your customer for them to make a bank transfer. They need to put the `unique_topup_id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

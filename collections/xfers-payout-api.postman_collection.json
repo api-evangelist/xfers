@@ -1,0 +1,492 @@
+{
+  "item": [
+    {
+      "id": "6285bb65-76ef-4dcc-8f47-6969f8585181",
+      "name": "Payout",
+      "description": {
+        "content": "API for Payout",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca8a3d6c-0646-4cb4-9494-e5a3c625b93a",
+          "name": "Create Payout",
+          "request": {
+            "name": "Create Payout",
+            "description": {
+              "content": "The following API will allow you to move money from merchant's account to user's account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<float>\",\n  \"invoice_id\": \"<string>\",\n  \"user_api_token\": \"<string>\",\n  \"description\": \"<string>\",\n  \"wallet_id\": \"<string>\",\n  \"meta_data\": \"<string>\",\n  \"recipient\": \"<string>\",\n  \"currency\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8964b24e-3a35-4e37-a84a-cdc7ba838019",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_api_token\": \"user-api-key\",\n  \"amount\": 10000,\n  \"invocie_id\": \"Order_docs_12345\",\n  \"description\": \"Testing for Documentation\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"contract_9b562994c4274d9993ba93c94619a8f6\",\n  \"recipient\": \"winston@xfers.com\",\n  \"metadata\": {\n    \"merchant_metadata\": \"\"\n  },\n  \"invoice_id\": \"Order_docs_123\",\n  \"descriptions\": \"Payment for Rent for July\",\n  \"process_type\": \"normal\",\n  \"amount\": \"15000.0\",\n  \"currency\": \"idr\",\n  \"bank\": null,\n  \"bank_account_no\": null,\n  \"created_date\": \"2019-04-12T07:10:50Z\",\n  \"completed_date\": null,\n  \"status\": \"processing\",\n  \"wallet_id\": 1,\n  \"wallet_name\": \"General Wallet\",\n  \"balance\": \"102969900.0\",\n  \"fee_amount\": \"0.0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07f45480-6a17-4180-b536-cc884aed1c67",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_api_token\": \"user-api-key\",\n  \"amount\": 10000,\n  \"invocie_id\": \"Order_docs_12345\",\n  \"description\": \"Testing for Documentation\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83237956-8886-44ed-a3a9-d9fdf2392234",
+          "name": "List All Payout",
+          "request": {
+            "name": "List All Payout",
+            "description": {
+              "content": "Returns a list of payouts you’ve previously created. The payouts are returned in sorted order, with the most recent charges appearing first.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "A limit on the number of objects to be returned. Limit can range between 1 and 50 items."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c7db0da7-8564-400e-a3b4-f32a9d87b377",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"6fa51cd08c8ae115f858593412bb72c8\",\n    \"recipient\": \"+65XXXXXXXX\",\n    \"invoice_id\": \"AZ0001\",\n    \"amount\": 150,\n    \"currency\": \"SGD\",\n    \"descriptions\": \"Payment for Rent for July\",\n    \"bank\": \"\",\n    \"bank_account_no\": \"\",\n    \"created_date\": \"2015-07-01T19:01:25Z\",\n    \"completed_date\": \"\",\n    \"status\": \"completed\",\n    \"meta_data\": \"Liu Tianwei\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29f1bbbb-1994-42e6-92ef-75fc9d7faffa",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ad3982-78f4-4295-b03e-408bf719f3aa",
+          "name": "Get Payout",
+          "request": {
+            "name": "Get Payout",
+            "description": {
+              "content": "Retrieves the details of a payout that has previously been created.\nSupply the unique payout ID that was returned from your previous request, and Xfers will return the corresponding payout information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payouts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Payout ID. You can get this from the create payout API."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "baeae649-8a9b-4135-b347-49a79bb0a557",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payouts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Payout ID. You can get this from the create payout API."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"contract_9b562994c4274d9993ba93c94619a8f6\",\n  \"recipient\": \"winston@xfers.com\",\n  \"metadata\": {\n    \"merchant_metadata\": \"\"\n  },\n  \"invoice_id\": \"Order_docs_123\",\n  \"descriptions\": \"Payment for Rent for July\",\n  \"process_type\": \"normal\",\n  \"amount\": \"15000.0\",\n  \"currency\": \"idr\",\n  \"bank\": null,\n  \"bank_account_no\": null,\n  \"created_date\": \"2019-04-12T07:10:50Z\",\n  \"completed_date\": \"2019-04-12T07:11:22Z\",\n  \"status\": \"completed\",\n  \"wallet_id\": 1,\n  \"wallet_name\": \"General Wallet\",\n  \"balance\": \"102969900.0\",\n  \"fee_amount\": \"0.0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1595614e-101b-42cf-9506-f95abe91033c",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payouts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Payout ID. You can get this from the create payout API."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6e3a7377-c3a5-41ea-b56f-01e5d958d6eb",
+    "name": "Xfers Bank Account Payout API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "item": [
+    {
+      "id": "7927c006-4c93-456b-aa37-67a4dede3ba8",
+      "name": "Payment Queries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "901996b0-7be4-43ca-bc59-d72a39122e7d",
+          "name": "Retrieve Payment",
+          "request": {
+            "name": "Retrieve Payment",
+            "description": {
+              "content": "Get the status of your payment transaction by key in the payment ID from Xfers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payment_gateway",
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transaction id in Xfers"
+                }
+              ]
+            },
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c3815001-cabb-497d-9158-7a404c360ea8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payment_gateway",
+                    "payments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Transaction id in Xfers"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "80564c69-08b1-455c-a407-be0c3ea909a1",
+    "name": "Xfers Bank Account Payment Queries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

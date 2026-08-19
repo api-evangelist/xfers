@@ -1,0 +1,1308 @@
+{
+  "item": [
+    {
+      "id": "e102d820-6708-4f61-9481-653642fb2e28",
+      "name": "Testing",
+      "description": {
+        "content": "API for testing purposes",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "182b4c14-27c1-4ca0-a484-bc4905e1b9b9",
+          "name": "Mock KYC Verification",
+          "request": {
+            "name": "Mock KYC Verification",
+            "description": {
+              "content": "This API verifies the user with corresponding API KEY. This API can only be called from sandbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v3",
+                "user",
+                "verify"
+              ],
+              "host": [
+                "sandbox",
+                "xfers",
+                "io"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b93f84d-d543-47fa-9111-f5b53187d868",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "verify"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc4db0d7-cb3e-49e3-b633-2900fd78caae",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "verify"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f4ce95c-16d4-443e-99ef-6114cff5b1b6",
+          "name": "Check Connection",
+          "request": {
+            "name": "Check Connection",
+            "description": {
+              "content": "Use this endpoint to check connection with our server",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v3",
+                "authorize",
+                "hello"
+              ],
+              "host": [
+                "sandbox",
+                "xfers",
+                "io"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ae1a47d-aa77-483c-9fcb-bf200a82ab65",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "authorize",
+                    "hello"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"Hello world\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0ae8f5d-d35c-4314-8c9b-bdef344aee53",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "authorize",
+                    "hello"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "561f3d5a-157f-4284-b4a7-2438cc9fbc73",
+          "name": "Get Mock OTP",
+          "request": {
+            "name": "Get Mock OTP",
+            "description": {
+              "content": "Get a mock OTP. This is only usable in sandbox environment",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v3",
+                "authorize",
+                "get_mock_otp"
+              ],
+              "host": [
+                "sandbox",
+                "xfers",
+                "io"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "phone_no",
+                  "value": "<string>",
+                  "description": "(Required) Phone Number. For international number, you can use ’%2B’ to replace the plus(’+’) sign. (i.e. use %2B6287785725657 instead of +6287785725657)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "0e6a0680-6f0b-45a3-b30e-2407320273dd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "authorize",
+                    "get_mock_otp"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [
+                    {
+                      "key": "phone_no",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"otp\": \"138558\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dde6161d-3d78-4313-b27b-c34610acfa66",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "authorize",
+                    "get_mock_otp"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [
+                    {
+                      "key": "phone_no",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05572e19-3287-4131-b183-d153237ea2a2",
+          "name": "Mock Withdrawal Result",
+          "request": {
+            "name": "Mock Withdrawal Result",
+            "description": {
+              "content": "You need to wait for a few seconds after withdrawal creation to run this API. Currently only available in Indonesia",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v3",
+                "user",
+                "bank_account",
+                "withdrawal_requests",
+                "mock_result"
+              ],
+              "host": [
+                "sandbox",
+                "xfers",
+                "io"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"idempotency_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a095564f-e396-4c29-bbff-7af17ef38cd9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "bank_account",
+                    "withdrawal_requests",
+                    "mock_result"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"idempotency_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_balance\": 308446,\n  \"ledger_balance\": 308446,\n  \"withdrawal_request\": {\n    \"id\": \"contract_78a3e9bbae474e5ab6fffad8e609f716\",\n    \"idempotency_id\": \"Order_1234\",\n    \"type\": \"Sobatku/withdrawal\",\n    \"status\": \"completed\",\n    \"amount\": \"120000.0\",\n    \"fees\": \"0.0\",\n    \"account_no\": \"1680366060\",\n    \"bank_abbrev\": \"BCA\",\n    \"express\": true,\n    \"value_date\": null,\n    \"created_at\": \"2018-11-01T17:48:42+07:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f91305e-75a5-4179-a58e-e76033c19a29",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v3",
+                    "user",
+                    "bank_account",
+                    "withdrawal_requests",
+                    "mock_result"
+                  ],
+                  "host": [
+                    "sandbox",
+                    "xfers",
+                    "io"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"idempotency_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a73292dc-2bf4-4351-9a5b-ae8d5920b748",
+          "name": "Mock Loan Status",
+          "request": {
+            "name": "Mock Loan Status",
+            "description": {
+              "content": "Mock the Status so you can change its status and get its callback",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans_mock",
+                ":id",
+                "mocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the loan you want to request mock status."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6aac31a5-af0c-4302-bf55-9ad25cd97561",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans_mock",
+                    ":id",
+                    "mocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the loan you want to request mock status."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_balance\": 308446,\n  \"ledger_balance\": 308446,\n  \"withdrawal_request\": {\n    \"id\": \"contract_78a3e9bbae474e5ab6fffad8e609f716\",\n    \"idempotency_id\": \"Order_1234\",\n    \"type\": \"Sobatku/withdrawal\",\n    \"status\": \"completed\",\n    \"amount\": \"120000.0\",\n    \"fees\": \"0.0\",\n    \"account_no\": \"1680366060\",\n    \"bank_abbrev\": \"BCA\",\n    \"express\": true,\n    \"value_date\": null,\n    \"created_at\": \"2018-11-01T17:48:42+07:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0db96a19-bdc8-467b-8d38-872874b4bdc4",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans_mock",
+                    ":id",
+                    "mocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the loan you want to request mock status."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1eb6f864-9395-4595-b886-90540ed72f62",
+          "name": "Mock Loan Repayment Status",
+          "request": {
+            "name": "Mock Loan Repayment Status",
+            "description": {
+              "content": "Mock the Repayment Status so you can change its status and get its callback",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans_mock",
+                ":id",
+                "repayments",
+                ":repayment_id",
+                "mocks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the loan you want to request mock status."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repayment_id",
+                  "description": "(Required) ID of the loan repayment you want to request mock status."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94a40b9d-3fb3-450b-9294-9431389f3204",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans_mock",
+                    ":id",
+                    "repayments",
+                    ":repayment_id",
+                    "mocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the loan you want to request mock status."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repayment_id",
+                      "description": "(Required) ID of the loan repayment you want to request mock status."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"loan_id\": \"loan_abcdefghi_123\",\n  \"id\": \"loan_repayment_d2bb1cf12f0c43acb2ac13a06de858f2\",\n  \"status\": \"completed\",\n  \"amount\": \"100000.0\",\n  \"collection_fee\": \"0.0\",\n  \"idempotency_id\": \"2c4c17c4-ec8b-4267-963f-28bc40ebc41a\",\n  \"created_at\": \"2019-09-19 05:24:32 UTC\",\n  \"partner_bank_response\": {\n    \"success\": true,\n    \"refno\": \"ref05\",\n    \"accno\": \"TK001.7\",\n    \"accountname\": \"NAMA AKUN\",\n    \"period\": \"6\",\n    \"duedate\": \"2012-12-12\",\n    \"installment\": \"16646000.0\",\n    \"installfeeaccount\": \"0.0\",\n    \"dpd\": \"238\",\n    \"osprincipal\": \"389113770.0\",\n    \"osinterest\": \"123754230.0\",\n    \"ostotal\": \"512868000.0\",\n    \"overdueprincipal\": \"80148138.0\",\n    \"overdueinterest\": \"49861862.0\",\n    \"overduetotal\": \"130010000.0\",\n    \"penalty\": \"12118288.0\",\n    \"overdueinstallfee\": \"0.0\",\n    \"totaloverdueandpenalty\": \"142128288.0\",\n    \"failurereason\": null,\n    \"paymentid\": \"1.31\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a64158a6-6ced-423c-9bcf-872df6384122",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans_mock",
+                    ":id",
+                    "repayments",
+                    ":repayment_id",
+                    "mocks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the loan you want to request mock status."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repayment_id",
+                      "description": "(Required) ID of the loan repayment you want to request mock status."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3945107-7cf2-484e-8408-e0d58a756f84",
+          "name": "Mock KYC Rejection",
+          "request": {
+            "name": "Mock KYC Rejection",
+            "description": {
+              "content": "This API rejects the user with corresponding API KEY. This API can only be called from sandbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "sandbox",
+                "reject_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5e846fd-9f4a-414c-ab74-b504989ebf1b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "sandbox",
+                    "reject_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"{\\\"selfieQualityUnclear\\\":true,\\\"selfieQualityDark\\\":true}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"verification_status\": \"rejected\",\n  \"reject_reason\": \"{\\\"selfieQualityUnclear\\\":true,\\\"selfieQualityDark\\\":true}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bb2d85a-db50-4e06-b969-97dd6251c89e",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "sandbox",
+                    "reject_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"{\\\"selfieQualityUnclear\\\":true,\\\"selfieQualityDark\\\":true}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e13a0f0-8eff-4d14-958c-247af6b85519",
+          "name": "Mock User with OCR",
+          "request": {
+            "name": "Mock User with OCR",
+            "description": {
+              "content": "This API mocks a user creation with OCR and FR data. This API can only be called from sandbox.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "sandbox",
+                "mock_user_with_ocr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"facial_recognition_percentage\": \"<integer>\",\n  \"ktp_ocr_valid\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "053942df-3c0a-4aac-8335-76b83053b1fd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "sandbox",
+                    "mock_user_with_ocr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"081234567891@xfers.com\",\n  \"facial_recognition_percentage\": 70.2,\n  \"ktp_ocr_valid\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"081234567891@xfers.io\",\n  \"ocr_results\": [\n    {\n      \"id\": 139901,\n      \"user_id\": 1659930,\n      \"tag\": \"selfie\",\n      \"result\": \"{\\\"face_similarity\\\":\\\"70.2\\\"}\"\n    },\n    {\n      \"id\": 139902,\n      \"user_id\": 1659930,\n      \"tag\": \"id_front\",\n      \"result\": \"{\\\"province\\\":\\\"PROVINSI JAWA BARAT\\\",\\\"city\\\":\\\"KABUPATEN SUKABUMI\\\",\\\"nik\\\":\\\"3202210702960001\\\",\\\"name\\\":\\\"RAMDAN FEBRIANSYAH\\\",\\\"birth_place\\\":\\\"SUKABUMI\\\",\\\"birth_date\\\":\\\"07-02-1996\\\",\\\"gender\\\":\\\"LAKI-LAKI\\\",\\\"address\\\":\\\"KP CIRANJII\\\",\\\"rtrw\\\":\\\"002/003\\\",\\\"sub_district\\\":\\\"MEKARJAYA\\\",\\\"district\\\":\\\"JAMPANG KULON\\\",\\\"religion\\\":\\\"ISLAM\\\",\\\"stats\\\":\\\"BELUM KAWIN\\\",\\\"job\\\":\\\"BELUMTIDAK BEKERJA\\\",\\\"nationality\\\":\\\"WNI\\\",\\\"blood_type\\\":\\\"O\\\"}\"\n    }\n  ],\n  \"user_api_token\": {\n    \"id\": 2483701,\n    \"token_hash\": \"ps4igKCfMPQxRz74dToANcMvuv4npFPAg5FXEmzNTFE\",\n    \"secret_hash\": \"bjtjZZJnGzJ86UKBp76y3uY6iNTAPMVoPo2HjToRX-U\",\n    \"token_type\": \"V2\",\n    \"user_id\": 1659930,\n    \"version\": 3,\n    \"enabled\": true,\n    \"last_used\": null,\n    \"created_at\": \"2020-01-27T07:52:18.000Z\",\n    \"updated_at\": \"2020-01-27T07:52:18.538Z\",\n    \"connect_token_id\": 2108325,\n    \"is_kyc_host\": false,\n    \"xfers_api_access_template_id\": 2,\n    \"old_token_type\": null,\n    \"connect_verification_tiers\": 7,\n    \"wallet_id\": 1,\n    \"allow_negative_balance\": false,\n    \"user_wallet_id\": null,\n    \"account_id\": 1749950\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f727e082-78a8-4d2b-ad91-56843a099492",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "sandbox",
+                    "mock_user_with_ocr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"081234567891@xfers.com\",\n  \"facial_recognition_percentage\": 70.2,\n  \"ktp_ocr_valid\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "abf3e644-e8b7-4b9c-bb87-4544bec1a881",
+    "name": "Xfers Bank Account Testing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

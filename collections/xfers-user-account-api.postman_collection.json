@@ -1,0 +1,498 @@
+{
+  "item": [
+    {
+      "id": "e61a7c28-6ee6-485b-9b5c-827f2d49bd2d",
+      "name": "User Account",
+      "description": {
+        "content": "Manage User and Accounts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cc03fd1-7544-459b-88ff-9a886b05ce74",
+          "name": "Get User Info",
+          "request": {
+            "name": "Get User Info",
+            "description": {
+              "content": "The main usage of this API is to get the current user. One user can have multiple accounts, and the balance returned is the account tied to the current API token. \r\nYou can also use this API to check various data of the user such as first_name, last_name.\r\n\r\nDescription of some notable response\r\n\r\nKey | Value | Description \r\n--------------- |  ----------- | -----\r\nkyc_status | fully_verified | current_kyc_status of user, enum of `not_submitted`, `in_process`, `rejected`, `fully_verified`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "571652ca-14aa-4f3b-93e0-35318e737497",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"user_gksj43jgzgqv\",\n  \"available_balance\": \"2595750.79\",\n  \"ledger_balance\": \"2595750.79\",\n  \"bank_transfer_rates\": \"0.0\",\n  \"bank_transfer_fees\": \"0.45\",\n  \"first_name\": \"docs.xfers.io\",\n  \"last_name\": \"testingaccount\",\n  \"date_of_birth\": \"1990-11-09\",\n  \"country_of_birth\": \"SG\",\n  \"gender\": \"male\",\n  \"email\": \"docs@xfers.com\",\n  \"country\": \"sg\",\n  \"state\": \"Singapore\",\n  \"city\": \"Singapore\",\n  \"nationality\": \"Singaporean\",\n  \"address_line_1\": \"Blk 71 Ayer Rajah Cresent\",\n  \"address_line_2\": \"#02-52\",\n  \"postal_code\": \"541121\",\n  \"nric_type\": \"\",\n  \"identity_no\": \"S8117102G\",\n  \"nric_issue_date\": \"\",\n  \"phone_no\": \"+6281128125\",\n  \"bank_accounts\": [\n    {\n      \"id\": 329,\n      \"account_no\": \"800006788912\",\n      \"account_holder_name\": \"Tian Wei\",\n      \"detected_name\": \"PROD ONLY\",\n      \"verification_status\": \"pending\",\n      \"verified\": true,\n      \"bank_abbrev\": \"CIMB_NIAGA\",\n      \"usage\": \"all\"\n    },\n    {\n      \"id\": 561,\n      \"account_no\": \"2480096820\",\n      \"account_holder_name\": null,\n      \"detected_name\": \"PROD ONLY\",\n      \"verification_status\": \"pending\",\n      \"verified\": true,\n      \"bank_abbrev\": \"BCA\",\n      \"usage\": \"all\"\n    }\n  ],\n  \"annual_income\": \"\",\n  \"id_front\": \"15357011921535007959147096578.jpg\",\n  \"id_front_url\": \"https://sandbox-xfers-id.s3-ap-southeast-1.amazonaws.com/users/nric_fronts/000/000/383/original/15357011921535007959147096578.jpg?AWSAccessKeyId=REDACTED-EXAMPLE&Expires=1540979796&Signature=REDACTED-EXAMPLE\",\n  \"selfie_2id\": \"15357011921535007959147096578.jpg\",\n  \"selfie_2id_url\": \"https://sandbox-xfers-id.s3-ap-southeast-1.amazonaws.com/users/nric_selfies/000/000/383/original/15357011921535007959147096578.jpg?AWSAccessKeyId=REDACTED-EXAMPLE&Expires=1540979796&Signature=REDACTED-EXAMPLE\",\n  \"account_locked\": false,\n  \"google_auth_enabled\": false,\n  \"kyc_verified\": true,\n  \"kyc_needed\": true,\n  \"meta_data\": \"\",\n  \"display_name\": \"XfersDocsTest\",\n  \"avatar\": \"cardProfileDefault.png\",\n  \"avatar_url\": \"cardProfileDefault.png\",\n  \"is_guest\": false,\n  \"is_trial\": true,\n  \"place_of_birth\": null,\n  \"blood_type\": null,\n  \"rt_rw\": null,\n  \"administrative_village\": null,\n  \"district\": null,\n  \"religion\": null,\n  \"marital_status\": null,\n  \"occupation\": null,\n  \"mother_maiden_name\": \"Putras\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17d654df-24a3-4571-9d2d-ea2b5a5d762a",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f304da4-6229-4f7a-9324-f3fc083df5ff",
+          "name": "Get Transaction History",
+          "request": {
+            "name": "Get Transaction History",
+            "description": {
+              "content": "This API displays a user’s transaction history. \n\n\nThis API displays a user’s transaction history.\n\nI.e. user’s transactions with other merchants will not be displayed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Max number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "1 month ago",
+                  "description": "Earliest date to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "Now",
+                  "description": "Latest date to query"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Offset results for pagination purposes."
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "All types included",
+                  "description": "Will only show transactions of that type. You can add additional types by separating with a comma."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ae5c32b-a3a8-418c-a4a5-cb13ae2c75bf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "1 month ago"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "Now"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "types",
+                      "value": "All types included"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"activities\": [\n    {\n      \"fee\": 0,\n      \"created_at\": \"2019-09-18T14:58:29+08:00\",\n      \"wallet_name\": \"Digital Goods\",\n      \"id\": \"contract_52683616c80b4c91bc6d6aa83eca4874\",\n      \"amount\": 559,\n      \"status\": \"completed\",\n      \"type\": \"Transfer\",\n      \"metadata\": {\n        \"origin_name\": \"John Tan\",\n        \"destination_name\": \"ABC Business\",\n        \"description\": \"This is a charge, money is moving from a customer to the business account\"\n      },\n      \"order_id\": \"12345\",\n      \"invoice_id\": null\n    },\n    {\n      \"fee\": 0,\n      \"created_at\": \"2019-09-18T11:55:04+08:00\",\n      \"wallet_name\": \"Digital Goods\",\n      \"id\": \"contract_402539e247424cf1af35aae32b087727\",\n      \"amount\": -695.29,\n      \"status\": \"completed\",\n      \"type\": \"Transfer\",\n      \"metadata\": {\n        \"origin_name\": \"ABC Business\",\n        \"destination_name\": \"Mary Jane\",\n        \"description\": \"This is a payout, money is moving from the business account to a customer\"\n      },\n      \"order_id\": null,\n      \"invoice_id\": \"87676\"\n    },\n    {\n      \"fee\": 0,\n      \"created_at\": \"2019-08-25T21:47:59+08:00\",\n      \"wallet_name\": \"Digital Goods\",\n      \"id\": \"contract_aaebb4c688ea4a34b73ede332a5c78c3\",\n      \"amount\": -99.88,\n      \"status\": \"completed\",\n      \"type\": \"Withdrawal\",\n      \"metadata\": {\n        \"description\": \"POSB 208767841\"\n      }\n    },\n    {\n      \"fee\": 0,\n      \"created_at\": \"2019-08-24T14:50:43+08:00\",\n      \"wallet_name\": \"Digital Goods\",\n      \"id\": \"contract_e8db413d5f94476aa38de79b04128db6\",\n      \"amount\": 300,\n      \"status\": \"completed\",\n      \"type\": \"Deposit\",\n      \"metadata\": {\n        \"description\": \"Xfers - CIMB\"\n      }\n    }\n  ],\n  \"activities_returned\": 10,\n  \"limit\": 10,\n  \"offset\": 0,\n  \"start_date\": \"2019-08-20T14:02:38+08:00\",\n  \"end_date\": \"2019-09-20T23:59:59+08:00\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55f607c3-6924-4a83-b7cf-1ca6b510e7f7",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "1 month ago"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "Now"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "types",
+                      "value": "All types included"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f95c7b7d-158f-4b74-bf5f-a0ccd75f5600",
+          "name": "Get Transfer Info / Get Virtual Account Number",
+          "request": {
+            "name": "Get Transfer Info / Get Virtual Account Number",
+            "description": {
+              "content": "API to get bank account number to be shown to user.  \r\nPlease consult with us to get topup instruction template text to be shown.\r\n\r\nThe common usage of this API is to parse the transfer_info_array given by us and parse it and use the VA numbers of the bank you want\r\n\r\n#### For Virtual Account solution:  \r\nThis API is to get the Virtual Account Number to be displayed to the user\r\n\r\n#### For non Virtual Account solution:  \r\nThis API will show the bank account number to do top up.  \r\nPlease consult with us as this solution will require user to use some other identifier to detect the deposit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "transfer_info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "10ae982e-c5f7-4270-a313-dc9b50728ba5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "transfer_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bank_name_full\": \"Bank Permata\",\n  \"bank_abbrev\": \"PERMATA\",\n  \"bank_name_abbreviation\": \"PERMATA\",\n  \"bank_account_no\": \"8773162088567819\",\n  \"bank_payee_name\": \"PT Xfers Indonesia Teknologi\",\n  \"bank_code\": \"013\",\n  \"branch_code\": \"\",\n  \"branch_area\": \"\",\n  \"unique_id\": \"87785725657\",\n  \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-permata-32f25d774c784800bf92310ab010491d5f18af9fecef716ce1c61bb2ce12070d.png\",\n  \"transfer_info_array\": [\n    {\n      \"bank_name_full\": \"Bank Permata\",\n      \"bank_abbrev\": \"PERMATA\",\n      \"bank_name_abbreviation\": \"PERMATA\",\n      \"bank_account_no\": \"8773162088567819\",\n      \"bank_code\": \"013\",\n      \"branch_code\": \"\",\n      \"branch_area\": \"\",\n      \"unique_id\": \"87785725657\",\n      \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-permata-32f25d774c784800bf92310ab010491d5f18af9fecef716ce1c61bb2ce12070d.png\"\n    },\n    {\n      \"bank_name_full\": \"Bank Mandiri\",\n      \"bank_abbrev\": \"MANDIRI\",\n      \"bank_name_abbreviation\": \"MANDIRI\",\n      \"bank_account_no\": \"8830812088567819\",\n      \"bank_code\": 8,\n      \"branch_code\": \"\",\n      \"branch_area\": \"\",\n      \"unique_id\": \"87785725657\",\n      \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-mandiri-3c9030412a3deb3c41589344a9a7bf74a52ef8dd278834d400b917f35e1b3bf9.png\"\n    }\n  ],\n  \"wallet_name\": \"Xfers\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66424d8d-4b06-4751-9331-0358df685b65",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "transfer_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "994289d3-fc51-4dfd-b5d2-ca095b251e8c",
+    "name": "Xfers Bank Account User Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

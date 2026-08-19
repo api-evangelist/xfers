@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Payment Queries API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Queries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/payment_gateway/payments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Transaction id in Xfers"
+              }
+            ]
+          },
+          "docs": "Get the status of your payment transaction by key in the payment ID from Xfers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,934 @@
+{
+  "item": [
+    {
+      "id": "7ef0096c-16d0-41cf-8277-cfaf72baf59a",
+      "name": "Bank Account",
+      "description": {
+        "content": "API to manage Bank Account",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb93b18c-d325-40aa-99f5-00784862dc5b",
+          "name": "Add Bank Account",
+          "request": {
+            "name": "Add Bank Account",
+            "description": {
+              "content": "This API will be used to attach a new bank account to a user.\nYou will be able to withdraw user's balance to this bank account.\nIn Indonesia Production, This API will return the detected_name as provided from the bank.\nThe account_holder_name you provided and detected_name needs to be similar (doesn't need to be 100% match).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_no\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"account_holder_name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10475697-6c14-44a4-a3e3-67a28e1934f9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_no\": 393123432,\n  \"bank\": \"DBS\",\n  \"account_holder_name\": \"Tian Wei\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 175,\n    \"account_no\": \"1680366060\",\n    \"account_holder_name\": \"PROD ONLY\",\n    \"detected_name\": \"PROD ONLY\",\n    \"verification_status\": \"pending\",\n    \"verified\": true,\n    \"bank_abbrev\": \"BCA\",\n    \"usage\": \"all\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1821fefa-2be3-485b-a41d-d5ae9f2ec3de",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_no\": 393123432,\n  \"bank\": \"DBS\",\n  \"account_holder_name\": \"Tian Wei\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a5f2ab2-8fa7-477f-9fe6-a572c7f7ce21",
+          "name": "List Bank Account",
+          "request": {
+            "name": "List Bank Account",
+            "description": {
+              "content": "This will list all bank accounts belonging to the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e928a406-ad3b-4cbe-86ef-562d299d786b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 175,\n    \"account_no\": \"1680366060\",\n    \"account_holder_name\": \"PROD ONLY\",\n    \"detected_name\": \"PROD ONLY\",\n    \"verification_status\": \"pending\",\n    \"verified\": true,\n    \"bank_abbrev\": \"BCA\",\n    \"usage\": \"all\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8c48eb4-3e87-4a9a-8d0a-c686a5756a46",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09b03861-e17f-4010-80c1-444bf8ed9c4c",
+          "name": "Update Bank Account",
+          "request": {
+            "name": "Update Bank Account",
+            "description": {
+              "content": "This request allows you to update an existing bank account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account",
+                ":bank_account_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bank_account_id",
+                  "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "account_no",
+                  "value": "<string>",
+                  "description": "(Required) bank account number"
+                },
+                {
+                  "disabled": false,
+                  "key": "bank",
+                  "value": "<string>",
+                  "description": "(Required) Bank abbreviation. You can get the list of bank account abbreviation from the Get Bank and Abbreviation Mapping API."
+                },
+                {
+                  "disabled": false,
+                  "key": "account_holder_name",
+                  "value": "<string>",
+                  "description": "Name of bank account holder name. Put 'PROD_ONLY' in Indo Sandbox"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8d1dbfb3-b5be-40cd-b89e-e02d93050265",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    ":bank_account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bank_account_id",
+                      "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_no",
+                      "value": "393123432"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank abbreviation. You can get the list of bank account abbreviation from the Get Bank and Abbreviation Mapping API.",
+                        "type": "text/plain"
+                      },
+                      "key": "bank",
+                      "value": "DBS"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of bank account holder name. Put 'PROD_ONLY' in Indo Sandbox",
+                        "type": "text/plain"
+                      },
+                      "key": "account_holder_name",
+                      "value": "Tian Wei"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 175,\n    \"account_no\": \"1680366060\",\n    \"account_holder_name\": \"PROD ONLY\",\n    \"detected_name\": \"PROD ONLY\",\n    \"verification_status\": \"pending\",\n    \"verified\": true,\n    \"bank_abbrev\": \"BCA\",\n    \"usage\": \"all\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4163de32-4fe0-403f-a20c-995e6a3d84f8",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    ":bank_account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bank_account_id",
+                      "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_no",
+                      "value": "393123432"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank abbreviation. You can get the list of bank account abbreviation from the Get Bank and Abbreviation Mapping API.",
+                        "type": "text/plain"
+                      },
+                      "key": "bank",
+                      "value": "DBS"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of bank account holder name. Put 'PROD_ONLY' in Indo Sandbox",
+                        "type": "text/plain"
+                      },
+                      "key": "account_holder_name",
+                      "value": "Tian Wei"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbbe63cd-07ab-49aa-8c4b-7dfa0a01abce",
+          "name": "Delete Bank Account",
+          "request": {
+            "name": "Delete Bank Account",
+            "description": {
+              "content": "This request allows you to delete an existing bank account record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account",
+                ":bank_account_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bank_account_id",
+                  "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a5d711a0-76f7-4a26-b715-d72c6908802f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    ":bank_account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bank_account_id",
+                      "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 175,\n    \"account_no\": \"1680366060\",\n    \"account_holder_name\": \"PROD ONLY\",\n    \"detected_name\": \"PROD ONLY\",\n    \"verification_status\": \"pending\",\n    \"verified\": true,\n    \"bank_abbrev\": \"BCA\",\n    \"usage\": \"all\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43997b29-7d6a-4241-8e37-a8f1c1d854ac",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    ":bank_account_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bank_account_id",
+                      "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9e3c95b-643d-4171-bdbf-c1500bbec2f4",
+          "name": "Get Bank and Abbreviation Mapping",
+          "request": {
+            "name": "Get Bank and Abbreviation Mapping",
+            "description": {
+              "content": "This will provide you with a list of banks we support. Usually used for Add Bank Account API",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "banks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)",
+                "key": "X-XFERS-USER-API-KEY",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "02164f94-bedf-4545-a3f2-e1777355acdc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)",
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Bank Central Asia\",\n    \"abbreviation\": \"BCA\",\n    \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-bca-181848fa16527e50b887013cf0cb7b90ae7b89181cf2a49b563d2a9c99cf42ee.png\",\n    \"bank_code\": \"014\",\n    \"swift_code\": \"CENAIDJA\"\n  },\n  {\n    \"name\": \"Bank Mandiri\",\n    \"abbreviation\": \"MANDIRI\",\n    \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-mandiri-3c9030412a3deb3c41589344a9a7bf74a52ef8dd278834d400b917f35e1b3bf9.png\",\n    \"bank_code\": 8,\n    \"swift_code\": \"BMRIIDJA\"\n  },\n  {\n    \"name\": \"Bank Negara Indonesia\",\n    \"abbreviation\": \"BNI\",\n    \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-bni-dbb77bff33ad2bcd69f45600e4e53593a8bde8ce947175e055163b9f908898fb.png\",\n    \"bank_code\": 9,\n    \"swift_code\": \"BNINIDJA\"\n  },\n  {\n    \"name\": \"Bank Permata\",\n    \"abbreviation\": \"PERMATA\",\n    \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-permata-32f25d774c784800bf92310ab010491d5f18af9fecef716ce1c61bb2ce12070d.png\",\n    \"bank_code\": \"013\",\n    \"swift_code\": \"BBBAIDJA\"\n  },\n  {\n    \"name\": \"Bank Rakyat Indonesia\",\n    \"abbreviation\": \"BRI\",\n    \"img_src\": \"https://d2ukkkjyjaezp4.cloudfront.net/assets/bank-logo-bri-84ffad390f2ab1033df3254d47ef61b6ed47f73495503eb8d0a8eb82c36966a4.png\",\n    \"bank_code\": \"002\",\n    \"swift_code\": \"BRINIDJA359\"\n  },\n  {\n    \"name\": \"CIMB Niaga Bank\",\n    \"abbreviation\": \"CIMB_NIAGA\",\n    \"img_src\": null,\n    \"bank_code\": \"022\",\n    \"swift_code\": \"BNIAIDJA\"\n  },\n  {\n    \"name\": \"Bank Danamon\",\n    \"abbreviation\": \"DANAMON\",\n    \"img_src\": null,\n    \"bank_code\": \"011\",\n    \"swift_code\": \"BDINIDJA\"\n  },\n  {\n    \"name\": \"Bank Panin\",\n    \"abbreviation\": \"PANIN\",\n    \"img_src\": null,\n    \"bank_code\": 19,\n    \"swift_code\": \"PINBIDJA\"\n  },\n  {\n    \"name\": \"Bank Maybank\",\n    \"abbreviation\": \"BII\",\n    \"img_src\": null,\n    \"bank_code\": \"016\",\n    \"swift_code\": \"MBBEIDJA\"\n  },\n  {\n    \"name\": \"Anglomas International Bank\",\n    \"abbreviation\": \"ANGLOMAS\",\n    \"img_src\": null,\n    \"bank_code\": \"531\",\n    \"swift_code\": \"LOMAIDJ1\"\n  },\n  {\n    \"name\": \"Bangkok Bank\",\n    \"abbreviation\": \"BANGKOK\",\n    \"img_src\": null,\n    \"bank_code\": \"040\",\n    \"swift_code\": \"BKKBIDJA\"\n  },\n  {\n    \"name\": \"Bank Agris\",\n    \"abbreviation\": \"AGRIS\",\n    \"img_src\": null,\n    \"bank_code\": \"945\",\n    \"swift_code\": \"FINBIDJA\"\n  },\n  {\n    \"name\": \"Sinarmas\",\n    \"abbreviation\": \"SINARMAS\",\n    \"img_src\": null,\n    \"bank_code\": \"153\",\n    \"swift_code\": \"SBJKIDJA\"\n  },\n  {\n    \"name\": \"Bank Agroniaga\",\n    \"abbreviation\": \"AGRONIAGA\",\n    \"img_src\": null,\n    \"bank_code\": \"494\",\n    \"swift_code\": \"AGTBIDJA\"\n  },\n  {\n    \"name\": \"Bank Andara\",\n    \"abbreviation\": \"ANDARA\",\n    \"img_src\": null,\n    \"bank_code\": \"466\",\n    \"swift_code\": \"RIPAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Antar Daerah\",\n    \"abbreviation\": \"ANTAR_DAERAH\",\n    \"img_src\": null,\n    \"bank_code\": 88,\n    \"swift_code\": \"ANTDIDJD\"\n  },\n  {\n    \"name\": \"Bank ANZ Indonesia\",\n    \"abbreviation\": \"ANZ\",\n    \"img_src\": null,\n    \"bank_code\": \"061\",\n    \"swift_code\": \"ANZBIDJX\"\n  },\n  {\n    \"name\": \"Bank Artha Graha International\",\n    \"abbreviation\": \"ARTHA\",\n    \"img_src\": null,\n    \"bank_code\": \"037\",\n    \"swift_code\": \"ARTGIDJA\"\n  },\n  {\n    \"name\": \"Bank Artos Indonesia\",\n    \"abbreviation\": \"ARTOS\",\n    \"img_src\": null,\n    \"bank_code\": \"542\",\n    \"swift_code\": \"ATOSIDJ1\"\n  },\n  {\n    \"name\": \"Bank Bisnis Internasional\",\n    \"abbreviation\": \"BISNIS\",\n    \"img_src\": null,\n    \"bank_code\": \"459\",\n    \"swift_code\": \"BUSTIDJ1\"\n  },\n  {\n    \"name\": \"Bank BJB\",\n    \"abbreviation\": \"BJB\",\n    \"img_src\": null,\n    \"bank_code\": \"110\",\n    \"swift_code\": \"PDJBIDJA\"\n  },\n  {\n    \"name\": \"Bank BNP Paribas\",\n    \"abbreviation\": \"BNP\",\n    \"img_src\": null,\n    \"bank_code\": \"057\",\n    \"swift_code\": \"BNPAIDJA\"\n  },\n  {\n    \"name\": \"Bank Bukopin\",\n    \"abbreviation\": \"BUKOPIN\",\n    \"img_src\": null,\n    \"bank_code\": \"441\",\n    \"swift_code\": \"BBUKIDJA\"\n  },\n  {\n    \"name\": \"Bank Bumi Arta\",\n    \"abbreviation\": \"BUMI_ARTA\",\n    \"img_src\": null,\n    \"bank_code\": \"076\",\n    \"swift_code\": \"BBAIIDJA\"\n  },\n  {\n    \"name\": \"Bank Capital Indonesia\",\n    \"abbreviation\": \"CAPITAL\",\n    \"img_src\": null,\n    \"bank_code\": \"054\",\n    \"swift_code\": \"CRLYIDJA\"\n  },\n  {\n    \"name\": \"Bank Central Asia (BCA) Syariah\",\n    \"abbreviation\": \"BCA_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"536\",\n    \"swift_code\": \"UIBAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Chinatrust Indonesia\",\n    \"abbreviation\": \"CHINATRUST\",\n    \"img_src\": null,\n    \"bank_code\": \"949\",\n    \"swift_code\": \"CTCBIDJA\"\n  },\n  {\n    \"name\": \"Bank CIMB Niaga UUS\",\n    \"abbreviation\": \"CIMB_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"022\",\n    \"swift_code\": \"SYNAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Commonwealth\",\n    \"abbreviation\": \"COMMONWEALTH\",\n    \"img_src\": null,\n    \"bank_code\": \"950\",\n    \"swift_code\": \"BICNIDJA\"\n  },\n  {\n    \"name\": \"Bank Danamon UUS\",\n    \"abbreviation\": \"DANAMON_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"771\",\n    \"swift_code\": \"SYBDIDJ1\"\n  },\n  {\n    \"name\": \"Bank DBS Indonesia\",\n    \"abbreviation\": \"DBS\",\n    \"img_src\": null,\n    \"bank_code\": \"046\",\n    \"swift_code\": \"DBSBIDJA\"\n  },\n  {\n    \"name\": \"Bank Dinar Indonesia\",\n    \"abbreviation\": \"DINAR_INDONESIA\",\n    \"img_src\": null,\n    \"bank_code\": \"526\",\n    \"swift_code\": \"LMANIDJ1\"\n  },\n  {\n    \"name\": \"Bank DKI\",\n    \"abbreviation\": \"DKI\",\n    \"img_src\": null,\n    \"bank_code\": \"111\",\n    \"swift_code\": \"BDKIIDJ1\"\n  },\n  {\n    \"name\": \"Bank DKI UUS\",\n    \"abbreviation\": \"DKI_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"778\",\n    \"swift_code\": \"SYDKIDJ1\"\n  },\n  {\n    \"name\": \"Bank Ekonomi Raharja\",\n    \"abbreviation\": \"EKONOMI_RAHARJA\",\n    \"img_src\": null,\n    \"bank_code\": 87,\n    \"swift_code\": \"EKONIDJA\"\n  },\n  {\n    \"name\": \"Bank Fama International\",\n    \"abbreviation\": \"FAMA\",\n    \"img_src\": null,\n    \"bank_code\": \"562\",\n    \"swift_code\": \"FAMAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Ganesha\",\n    \"abbreviation\": \"GANESHA\",\n    \"img_src\": null,\n    \"bank_code\": \"161\",\n    \"swift_code\": \"GNESIDJA\"\n  },\n  {\n    \"name\": \"Bank Hana\",\n    \"abbreviation\": \"HANA\",\n    \"img_src\": null,\n    \"bank_code\": \"484\",\n    \"swift_code\": \"HNBNIDJA\"\n  },\n  {\n    \"name\": \"Bank Harda Internasional\",\n    \"abbreviation\": \"HARDA_INTERNASIONAL\",\n    \"img_src\": null,\n    \"bank_code\": \"567\",\n    \"swift_code\": \"HRDAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Himpunan Saudara 1906\",\n    \"abbreviation\": \"HIMPUNAN_SAUDARA\",\n    \"img_src\": null,\n    \"bank_code\": \"212\",\n    \"swift_code\": \"BSDRIDJA\"\n  },\n  {\n    \"name\": \"Bank ICBC Indonesia\",\n    \"abbreviation\": \"ICBC\",\n    \"img_src\": null,\n    \"bank_code\": \"164\",\n    \"swift_code\": \"ICBKIDJA\"\n  },\n  {\n    \"name\": \"Bank Ina Perdana\",\n    \"abbreviation\": \"INA_PERDANA\",\n    \"img_src\": null,\n    \"bank_code\": \"513\",\n    \"swift_code\": \"INPBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Index Selindo\",\n    \"abbreviation\": \"INDEX_SELINDO\",\n    \"img_src\": null,\n    \"bank_code\": \"555\",\n    \"swift_code\": \"BIDXIDJA\"\n  },\n  {\n    \"name\": \"Bank Jasa Jakarta\",\n    \"abbreviation\": \"JASA_JAKARTA\",\n    \"img_src\": null,\n    \"bank_code\": \"472\",\n    \"swift_code\": \"JSABIDJ1\"\n  },\n  {\n    \"name\": \"Bank Kesejahteraan Ekonomi\",\n    \"abbreviation\": \"KESEJAHTERAAN_EKONOMI\",\n    \"img_src\": null,\n    \"bank_code\": \"535\",\n    \"swift_code\": \"KSEBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Maspion Indonesia\",\n    \"abbreviation\": \"MASPION\",\n    \"img_src\": null,\n    \"bank_code\": \"157\",\n    \"swift_code\": \"MASDIDJ1\"\n  },\n  {\n    \"name\": \"Bank Mayapada International\",\n    \"abbreviation\": \"MAYAPADA\",\n    \"img_src\": null,\n    \"bank_code\": 97,\n    \"swift_code\": \"MAYAIDJA\"\n  },\n  {\n    \"name\": \"Bank Maybank Syariah Indonesia\",\n    \"abbreviation\": \"MAYBANK_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"947\",\n    \"swift_code\": \"MBBEIDJA\"\n  },\n  {\n    \"name\": \"Bank Mayora\",\n    \"abbreviation\": \"MAYORA\",\n    \"img_src\": null,\n    \"bank_code\": \"553\",\n    \"swift_code\": \"YORAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Mega\",\n    \"abbreviation\": \"MEGA\",\n    \"img_src\": null,\n    \"bank_code\": \"426\",\n    \"swift_code\": \"MEGAIDJA\"\n  },\n  {\n    \"name\": \"Bank Mestika Dharma\",\n    \"abbreviation\": \"MESTIKA_DHARMA\",\n    \"img_src\": null,\n    \"bank_code\": \"151\",\n    \"swift_code\": \"MEDHIDS1\"\n  },\n  {\n    \"name\": \"Bank Metro Express\",\n    \"abbreviation\": \"METRO_EXPRESS\",\n    \"img_src\": null,\n    \"bank_code\": \"152\",\n    \"swift_code\": \"MEEKIDJ1\"\n  },\n  {\n    \"name\": \"Bank Mizuho Indonesia\",\n    \"abbreviation\": \"MIZUHO\",\n    \"img_src\": null,\n    \"bank_code\": 48,\n    \"swift_code\": \"MHCCIDJA\"\n  },\n  {\n    \"name\": \"Bank MNC Internasional\",\n    \"abbreviation\": \"MNC_INTERNASIONAL\",\n    \"img_src\": null,\n    \"bank_code\": \"485\",\n    \"swift_code\": \"BUMIIDJA\"\n  },\n  {\n    \"name\": \"Bank Muamalat Indonesia\",\n    \"abbreviation\": \"MUAMALAT\",\n    \"img_src\": null,\n    \"bank_code\": \"147\",\n    \"swift_code\": \"MUABIDJA\"\n  },\n  {\n    \"name\": \"Bank Multi Arta Sentosa\",\n    \"abbreviation\": \"MULTI_ARTA_SENTOSA\",\n    \"img_src\": null,\n    \"bank_code\": \"548\",\n    \"swift_code\": \"MASBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Mutiara\",\n    \"abbreviation\": \"MUTIARA\",\n    \"img_src\": null,\n    \"bank_code\": 95,\n    \"swift_code\": \"CICTIDJA\"\n  },\n  {\n    \"name\": \"Bank Nationalnobu\",\n    \"abbreviation\": \"NATIONALNOBU\",\n    \"img_src\": null,\n    \"bank_code\": \"503\",\n    \"swift_code\": \"LFIBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Nusantara Parahyangan\",\n    \"abbreviation\": \"NUSANTARA_PARAHYANGAN\",\n    \"img_src\": null,\n    \"bank_code\": \"145\",\n    \"swift_code\": \"NUPAIDJ6\"\n  },\n  {\n    \"name\": \"Bank OCBC NISP\",\n    \"abbreviation\": \"OCBC\",\n    \"img_src\": null,\n    \"bank_code\": 28,\n    \"swift_code\": \"NISPIDJA\"\n  },\n  {\n    \"name\": \"Bank OCBC NISP UUS\",\n    \"abbreviation\": \"OCBC_UUS\",\n    \"img_src\": null,\n    \"bank_code\": 28,\n    \"swift_code\": \"SYONIDJ1\"\n  },\n  {\n    \"name\": \"Bank of America Merill-Lynch\",\n    \"abbreviation\": \"BAML\",\n    \"img_src\": null,\n    \"bank_code\": \"033\",\n    \"swift_code\": \"BOFAID2X\"\n  },\n  {\n    \"name\": \"Bank of China (BOC)\",\n    \"abbreviation\": \"BOC\",\n    \"img_src\": null,\n    \"bank_code\": 69,\n    \"swift_code\": \"BKCHIDJA\"\n  },\n  {\n    \"name\": \"Bank of India Indonesia\",\n    \"abbreviation\": \"INDIA\",\n    \"img_src\": null,\n    \"bank_code\": \"146\",\n    \"swift_code\": \"BKIDIDJA\"\n  },\n  {\n    \"name\": \"Bank of Tokyo Mitsubishi UFJ\",\n    \"abbreviation\": \"TOKYO\",\n    \"img_src\": null,\n    \"bank_code\": \"042\",\n    \"swift_code\": \"BOTKJPJT\"\n  },\n  {\n    \"name\": \"Bank Panin Syariah\",\n    \"abbreviation\": \"PANIN_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"517\",\n    \"swift_code\": \"ARFAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Permata UUS\",\n    \"abbreviation\": \"PERMATA_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"784\",\n    \"swift_code\": \"SYBBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Pundi Indonesia\",\n    \"abbreviation\": \"PUNDI_INDONESIA\",\n    \"img_src\": null,\n    \"bank_code\": \"558\",\n    \"swift_code\": \"EKSTIDJ1\"\n  },\n  {\n    \"name\": \"Bank QNB Kesawan\",\n    \"abbreviation\": \"QNB_KESAWAN\",\n    \"img_src\": null,\n    \"bank_code\": \"167\",\n    \"swift_code\": \"AWANIDJA\"\n  },\n  {\n    \"name\": \"Bank Rabobank International Indonesia\",\n    \"abbreviation\": \"RABOBANK\",\n    \"img_src\": null,\n    \"bank_code\": 89,\n    \"swift_code\": \"RABOIDJA\"\n  },\n  {\n    \"name\": \"Bank Resona Perdania\",\n    \"abbreviation\": \"RESONA\",\n    \"img_src\": null,\n    \"bank_code\": \"047\",\n    \"swift_code\": \"BPIAIDJA\"\n  },\n  {\n    \"name\": \"Bank Royal Indonesia\",\n    \"abbreviation\": \"ROYAL\",\n    \"img_src\": null,\n    \"bank_code\": \"501\",\n    \"swift_code\": \"ROYBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Sahabat Purba Danarta\",\n    \"abbreviation\": \"SAHABAT_PURBA_DANARTA\",\n    \"img_src\": null,\n    \"bank_code\": \"547\",\n    \"swift_code\": \"PUBAIDJ1\"\n  },\n  {\n    \"name\": \"Bank Sahabat Sampoerna\",\n    \"abbreviation\": \"SAHABAT_SAMPOERNA\",\n    \"img_src\": null,\n    \"bank_code\": \"523\",\n    \"swift_code\": \"BDIPIDJ1\"\n  },\n  {\n    \"name\": \"Bank SBI Indonesia\",\n    \"abbreviation\": \"SBI_INDONESIA\",\n    \"img_src\": null,\n    \"bank_code\": \"498\",\n    \"swift_code\": \"IDMOIDJ1\"\n  },\n  {\n    \"name\": \"Bank Sinar Harapan Bali\",\n    \"abbreviation\": \"SINAR_HARAPAN_BALI\",\n    \"img_src\": null,\n    \"bank_code\": \"564\",\n    \"swift_code\": \"SIHBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Sumitomo Mitsui Indonesia\",\n    \"abbreviation\": \"MITSUI\",\n    \"img_src\": null,\n    \"bank_code\": \"045\",\n    \"swift_code\": \"SUNIIDJA\"\n  },\n  {\n    \"name\": \"Bank Syariah BRI\",\n    \"abbreviation\": \"BRI_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"422\",\n    \"swift_code\": \"DJARIDJ1\"\n  },\n  {\n    \"name\": \"Bank Syariah Bukopin\",\n    \"abbreviation\": \"BUKOPIN_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"774\",\n    \"swift_code\": \"SDOBIDJ1\"\n  },\n  {\n    \"name\": \"Bank Syariah Mandiri\",\n    \"abbreviation\": \"MANDIRI_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"451\",\n    \"swift_code\": \"BSMDIDJA\"\n  },\n  {\n    \"name\": \"Bank Syariah Mega\",\n    \"abbreviation\": \"MEGA_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"506\",\n    \"swift_code\": \"BUTGIDJ1\"\n  },\n  {\n    \"name\": \"Bank Tabungan Negara (BTN)\",\n    \"abbreviation\": \"BTN\",\n    \"img_src\": null,\n    \"bank_code\": \"200\",\n    \"swift_code\": \"BTANIDJA\"\n  },\n  {\n    \"name\": \"Bank Tabungan Negara (BTN) UUS\",\n    \"abbreviation\": \"BTN_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"200\",\n    \"swift_code\": \"SYBTIDJ1\"\n  },\n  {\n    \"name\": \"Bank Tabungan Pensiunan Nasional\",\n    \"abbreviation\": \"TABUNGAN_PENSIUNAN_NASIONAL\",\n    \"img_src\": null,\n    \"bank_code\": \"213\",\n    \"swift_code\": \"TAPEIDJ1\"\n  },\n  {\n    \"name\": \"Bank Tabungan Pensiunan Nasional UUS\",\n    \"abbreviation\": \"TABUNGAN_PENSIUNAN_NASIONAL_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"213\",\n    \"swift_code\": \"SYTPIDJ1\"\n  },\n  {\n    \"name\": \"Bank UOB Indonesia\",\n    \"abbreviation\": \"UOB\",\n    \"img_src\": null,\n    \"bank_code\": \"023\",\n    \"swift_code\": \"BBIJIDJA\"\n  },\n  {\n    \"name\": \"Bank Victoria Internasional\",\n    \"abbreviation\": \"VICTORIA_INTERNASIONAL\",\n    \"img_src\": null,\n    \"bank_code\": \"566\",\n    \"swift_code\": \"VICTIDJ1\"\n  },\n  {\n    \"name\": \"Bank Victoria Syariah\",\n    \"abbreviation\": \"VICTORIA_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"405\",\n    \"swift_code\": \"SWAGIDJ1\"\n  },\n  {\n    \"name\": \"Bank Windu Kentjana Int\",\n    \"abbreviation\": \"WINDU\",\n    \"img_src\": null,\n    \"bank_code\": \"036\",\n    \"swift_code\": \"MCORIDJA\"\n  },\n  {\n    \"name\": \"Bank Woori Indonesia\",\n    \"abbreviation\": \"WOORI\",\n    \"img_src\": null,\n    \"bank_code\": 68,\n    \"swift_code\": \"HVBKIDJA\"\n  },\n  {\n    \"name\": \"Bank Yudha Bhakti\",\n    \"abbreviation\": \"YUDHA_BHAKTI\",\n    \"img_src\": null,\n    \"bank_code\": \"490\",\n    \"swift_code\": \"YUDBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Aceh\",\n    \"abbreviation\": \"ACEH\",\n    \"img_src\": null,\n    \"bank_code\": \"116\",\n    \"swift_code\": \"PDACIDJ1\"\n  },\n  {\n    \"name\": \"BPD Aceh UUS\",\n    \"abbreviation\": \"ACEH_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"116\",\n    \"swift_code\": \"SYACIDJ1\"\n  },\n  {\n    \"name\": \"BPD Bali\",\n    \"abbreviation\": \"BALI\",\n    \"img_src\": null,\n    \"bank_code\": \"129\",\n    \"swift_code\": \"ABALIDBS\"\n  },\n  {\n    \"name\": \"BPD Bengkulu\",\n    \"abbreviation\": \"BENGKULU\",\n    \"img_src\": null,\n    \"bank_code\": \"133\",\n    \"swift_code\": \"PDBKIDJ1\"\n  },\n  {\n    \"name\": \"Bank Pembangunan Daerah (BPD DIY)\",\n    \"abbreviation\": \"BPD_DIY\",\n    \"img_src\": null,\n    \"bank_code\": \"112\",\n    \"swift_code\": \"PDYKIDJ1\"\n  },\n  {\n    \"name\": \"Bank Pembangunan Daerah (BPD DIY) Syariah\",\n    \"abbreviation\": \"BPD_DIY_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"112\",\n    \"swift_code\": \"SYYKIDJ1\"\n  },\n  {\n    \"name\": \"BPD Jambi\",\n    \"abbreviation\": \"JAMBI\",\n    \"img_src\": null,\n    \"bank_code\": \"115\",\n    \"swift_code\": \"PDJMIDJ1\"\n  },\n  {\n    \"name\": \"BPD Jambi UUS\",\n    \"abbreviation\": \"JAMBI_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"115\",\n    \"swift_code\": \"SYJMIDJ1\"\n  },\n  {\n    \"name\": \"BPD Jawa Tengah\",\n    \"abbreviation\": \"JAWA_TENGAH\",\n    \"img_src\": null,\n    \"bank_code\": \"113\",\n    \"swift_code\": \"PDJGIDJ1\"\n  },\n  {\n    \"name\": \"BPD Jawa Tengah UUS\",\n    \"abbreviation\": \"JAWA_TENGAH_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"113\",\n    \"swift_code\": \"SYJGIDJ1\"\n  },\n  {\n    \"name\": \"BPD Jawa Timur\",\n    \"abbreviation\": \"JAWA_TIMUR\",\n    \"img_src\": null,\n    \"bank_code\": \"114\",\n    \"swift_code\": \"PDJTIDJ1\"\n  },\n  {\n    \"name\": \"BPD Jawa Timur UUS\",\n    \"abbreviation\": \"JAWA_TIMUR_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"114\",\n    \"swift_code\": \"SYJTIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Barat\",\n    \"abbreviation\": \"KALIMANTAN_BARAT\",\n    \"img_src\": null,\n    \"bank_code\": \"123\",\n    \"swift_code\": \"PDKBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Barat UUS\",\n    \"abbreviation\": \"KALIMANTAN_BARAT_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"123\",\n    \"swift_code\": \"SYKBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Selatan\",\n    \"abbreviation\": \"KALIMANTAN_SELATAN\",\n    \"img_src\": null,\n    \"bank_code\": \"122\",\n    \"swift_code\": \"PDKSIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Selatan UUS\",\n    \"abbreviation\": \"KALIMANTAN_SELATAN_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"122\",\n    \"swift_code\": \"SYKSIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Tengah\",\n    \"abbreviation\": \"KALIMANTAN_TENGAH\",\n    \"img_src\": null,\n    \"bank_code\": \"125\",\n    \"swift_code\": \"PDKGIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Timur\",\n    \"abbreviation\": \"KALIMANTAN_TIMUR\",\n    \"img_src\": null,\n    \"bank_code\": \"124\",\n    \"swift_code\": \"PDKTIDJ1\"\n  },\n  {\n    \"name\": \"BPD Kalimantan Timur UUS\",\n    \"abbreviation\": \"KALIMANTAN_TIMUR_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"124\",\n    \"swift_code\": \"SYKTIDJ1\"\n  },\n  {\n    \"name\": \"BPD Lampung\",\n    \"abbreviation\": \"LAMPUNG\",\n    \"img_src\": null,\n    \"bank_code\": \"121\",\n    \"swift_code\": \"PDLPIDJ1\"\n  },\n  {\n    \"name\": \"BPD Maluku\",\n    \"abbreviation\": \"MALUKU\",\n    \"img_src\": null,\n    \"bank_code\": \"131\",\n    \"swift_code\": \"PDMLIDJ1\"\n  },\n  {\n    \"name\": \"BPD Nusa Tenggara Barat\",\n    \"abbreviation\": \"NUSA_TENGGARA_BARAT\",\n    \"img_src\": null,\n    \"bank_code\": \"128\",\n    \"swift_code\": \"PDNBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Nusa Tenggara Barat UUS\",\n    \"abbreviation\": \"NUSA_TENGGARA_BARAT_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"128\",\n    \"swift_code\": \"SYNBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Nusa Tenggara Timur\",\n    \"abbreviation\": \"NUSA_TENGGARA_TIMUR\",\n    \"img_src\": null,\n    \"bank_code\": \"130\",\n    \"swift_code\": \"PDNTIDJ1\"\n  },\n  {\n    \"name\": \"BPD Papua\",\n    \"abbreviation\": \"PAPUA\",\n    \"img_src\": null,\n    \"bank_code\": \"132\",\n    \"swift_code\": \"PDIJIDJ1\"\n  },\n  {\n    \"name\": \"BPD Riau Dan Kepri\",\n    \"abbreviation\": \"RIAU_DAN_KEPRI\",\n    \"img_src\": null,\n    \"bank_code\": \"119\",\n    \"swift_code\": \"PDRIIDJA\"\n  },\n  {\n    \"name\": \"BPD Riau Dan Kepri UUS\",\n    \"abbreviation\": \"RIAU_DAN_KEPRI_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"119\",\n    \"swift_code\": \"SYRIIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sulawesi Tengah\",\n    \"abbreviation\": \"SULAWESI\",\n    \"img_src\": null,\n    \"bank_code\": \"134\",\n    \"swift_code\": \"PDWGIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sulawesi Tenggara\",\n    \"abbreviation\": \"SULAWESI_TENGGARA\",\n    \"img_src\": null,\n    \"bank_code\": \"135\",\n    \"swift_code\": \"PDWRIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sulselbar\",\n    \"abbreviation\": \"SULSELBAR\",\n    \"img_src\": null,\n    \"bank_code\": \"126\",\n    \"swift_code\": \"PDWSIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sulselbar UUS\",\n    \"abbreviation\": \"SULSELBAR_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"126\",\n    \"swift_code\": \"SYWSIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sulut\",\n    \"abbreviation\": \"SULUT\",\n    \"img_src\": null,\n    \"bank_code\": \"127\",\n    \"swift_code\": \"PDWUIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sumatera Barat\",\n    \"abbreviation\": \"SUMATERA_BARAT\",\n    \"img_src\": null,\n    \"bank_code\": \"118\",\n    \"swift_code\": \"PDSBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sumatera Barat UUS\",\n    \"abbreviation\": \"SUMATERA_BARAT_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"118\",\n    \"swift_code\": \"SYSBIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sumsel Dan Babel\",\n    \"abbreviation\": \"SUMSEL_DAN_BABEL\",\n    \"img_src\": null,\n    \"bank_code\": \"120\",\n    \"swift_code\": \"BSSPIDSP\"\n  },\n  {\n    \"name\": \"BPD Sumsel Dan Babel UUS\",\n    \"abbreviation\": \"SUMSEL_DAN_BABEL_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"120\",\n    \"swift_code\": \"SYSSIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sumut\",\n    \"abbreviation\": \"SUMUT\",\n    \"img_src\": null,\n    \"bank_code\": \"117\",\n    \"swift_code\": \"PDSUIDJ1\"\n  },\n  {\n    \"name\": \"BPD Sumut UUS\",\n    \"abbreviation\": \"SUMUT_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"117\",\n    \"swift_code\": \"SYSUIDJ1\"\n  },\n  {\n    \"name\": \"Centratama Nasional Bank\",\n    \"abbreviation\": \"CENTRATAMA\",\n    \"img_src\": null,\n    \"bank_code\": \"559\",\n    \"swift_code\": \"CNBAIDJ1\"\n  },\n  {\n    \"name\": \"Citibank\",\n    \"abbreviation\": \"CITIBANK\",\n    \"img_src\": null,\n    \"bank_code\": \"031\",\n    \"swift_code\": \"CITIIDJX\"\n  },\n  {\n    \"name\": \"Deutsche Bank\",\n    \"abbreviation\": \"DEUTSCHE\",\n    \"img_src\": null,\n    \"bank_code\": \"067\",\n    \"swift_code\": \"DEUTIDJA\"\n  },\n  {\n    \"name\": \"Hongkong and Shanghai Bank Corporation (HSBC)\",\n    \"abbreviation\": \"HSBC\",\n    \"img_src\": null,\n    \"bank_code\": \"041\",\n    \"swift_code\": \"HSBCIDJA\"\n  },\n  {\n    \"name\": \"Hongkong and Shanghai Bank Corporation (HSBC) UUS\",\n    \"abbreviation\": \"HSBC_UUS\",\n    \"img_src\": null,\n    \"bank_code\": \"041\",\n    \"swift_code\": \"SYHSIDJ1\"\n  },\n  {\n    \"name\": \"JP Morgan Chase Bank\",\n    \"abbreviation\": \"JPMORGAN\",\n    \"img_src\": null,\n    \"bank_code\": \"032\",\n    \"swift_code\": \"CHASIDJX\"\n  },\n  {\n    \"name\": \"Prima Master Bank\",\n    \"abbreviation\": \"PRIMA_MASTER\",\n    \"img_src\": null,\n    \"bank_code\": \"520\",\n    \"swift_code\": \"PMASIDJ1\"\n  },\n  {\n    \"name\": \"Royal Bank of Scotland (RBS)\",\n    \"abbreviation\": \"PRIMA_MASTER\",\n    \"img_src\": null,\n    \"bank_code\": \"052\",\n    \"swift_code\": \"ABNAIDJA\"\n  },\n  {\n    \"name\": \"Standard Charted Bank\",\n    \"abbreviation\": \"STANDARD_CHARTERED\",\n    \"img_src\": null,\n    \"bank_code\": \"050\",\n    \"swift_code\": \"SCBLIDJX\"\n  },\n  {\n    \"name\": \"Bank Mitra Niaga\",\n    \"abbreviation\": \"MITRA_NIAGA\",\n    \"img_src\": null,\n    \"bank_code\": \"491\",\n    \"swift_code\": \"MGABIDJ1\"\n  },\n  {\n    \"name\": \"Bank Ekspor Indonesia\",\n    \"abbreviation\": \"EKSPOR_INDONESIA\",\n    \"img_src\": null,\n    \"bank_code\": \"003\",\n    \"swift_code\": \"BEXIIDJA\"\n  },\n  {\n    \"name\": \"Bank Arta Niaga Kencana\",\n    \"abbreviation\": \"ARTA_NIAGA_KENCANA\",\n    \"img_src\": null,\n    \"bank_code\": \"020\",\n    \"swift_code\": \"ARNKIDJ1\"\n  },\n  {\n    \"name\": \"Bank BJB Syariah\",\n    \"abbreviation\": \"BJB_SYR\",\n    \"img_src\": null,\n    \"bank_code\": \"425\",\n    \"swift_code\": \"PDJBIDJA\"\n  },\n  {\n    \"name\": \"Bank BNI Syariah\",\n    \"abbreviation\": \"BNI_SYR\",\n    \"img_src\": null,\n    \"bank_code\": 9,\n    \"swift_code\": \"SYNIIDJ1\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8a18997-3a4f-43e6-a965-08a89ff2190c",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "banks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)",
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fb8d7dd8-3ac4-43ac-9a62-06824cb3c509",
+    "name": "Xfers Bank Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

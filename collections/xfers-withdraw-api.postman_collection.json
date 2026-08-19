@@ -1,0 +1,688 @@
+{
+  "item": [
+    {
+      "id": "0bf1aabd-cfcc-457f-a7e3-41d98a593a8c",
+      "name": "Withdraw",
+      "description": {
+        "content": "API for Withdrawal",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a56a207-592c-4f7e-8c3b-4cea7d837dff",
+          "name": "Create Withdrawal",
+          "request": {
+            "name": "Create Withdrawal",
+            "description": {
+              "content": "Withdrawal Time varies upon country. \r\nFor Indonesia, withdrawal time is instantaneous.\r\nFor Singapore, withdrawal time depends on whether it is an express withdrawal.\r\n\r\n#### Withdrawal on Behalf\r\nIf you wish to withdraw to a bank account that does not belong to you, add in user_api_token in the params.\r\n\r\nBehind the scenes, Xfers does a payout of funds from your Xfers account to that user’s Xfers account, followed by a withdrawal. This is required for compliance purposes as we cannot directly withdraw funds to a bank account that does not belong to you.\r\n\r\nTo clarify this:\r\n\r\nPlacing of xfers_api_token | Flow | Remark\r\n--------------- |  ----------- | -----\r\nmerchant's token in header, user's token in body| merchant's Xfers account -> user's Xfers account -> user's bank Account | We call this `Withdrawal on Behalf`\r\nuser's token in header, nothing in body| user's Xfers account -> user's bank Account | This is the standard Withdrawal usage\r\nmerchant's token in header, nothing in body| merchant's Xfers account -> merchant's bank Account | This is usually done via Xfers Dashboard\r\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account",
+                ":bank_account_id",
+                "withdraw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "bank_account_id",
+                  "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<string>",
+                  "description": "(Required) Transaction Amount"
+                },
+                {
+                  "disabled": false,
+                  "key": "idempotency_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique ref no provided by you to prevent double transaction, this cannot be repeated, Currently only activated for Indonesia"
+                },
+                {
+                  "disabled": false,
+                  "key": "express",
+                  "value": "false",
+                  "description": "Only Singapore.\n\nExpress Withdrawal has fees but will arrive at recipient bank within 24 hrs.\nStandard withdrawal is free but takes 2-3 business day to arrive at recipient bank.\nDefaults to false"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_api_token",
+                  "value": "<string>",
+                  "description": "Use this param if you want to withdraw to another user’s bank account instead of your own."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d2e8d63a-4428-49fe-a650-825c9b50dba6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    ":bank_account_id",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bank_account_id",
+                      "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction Amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "1200000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Unique ref no provided by you to prevent double transaction, this cannot be repeated, Currently only activated for Indonesia",
+                        "type": "text/plain"
+                      },
+                      "key": "idempotency_id",
+                      "value": "Order_1234"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_balance\": 68596,\n  \"ledger_balance\": 68596,\n  \"withdrawal_request\": {\n    \"id\": \"contract_d3b5b84ba7814eb28ed4f9845d65e53a\",\n    \"idempotency_id\": \"Order_12346\",\n    \"type\": \"Sobatku/withdrawal\",\n    \"status\": \"pending\",\n    \"amount\": \"110000.0\",\n    \"fees\": \"0.0\",\n    \"account_no\": \"1680366060\",\n    \"bank_abbrev\": \"BCA\",\n    \"express\": true,\n    \"value_date\": null,\n    \"failure_reason\": null,\n    \"created_at\": \"2018-12-05T11:15:37+07:00\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29a833ca-6e75-4e5e-ab24-7450d625965f",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    ":bank_account_id",
+                    "withdraw"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "bank_account_id",
+                      "description": "(Required) The ID of the bank account. You can retrieve this from in the response of Create Bank Account and List Bank Account API"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction Amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "1200000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Unique ref no provided by you to prevent double transaction, this cannot be repeated, Currently only activated for Indonesia",
+                        "type": "text/plain"
+                      },
+                      "key": "idempotency_id",
+                      "value": "Order_1234"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1404ceff-43b0-4c2b-a32d-8669eb168947",
+          "name": "List Withdrawal Requests",
+          "request": {
+            "name": "List Withdrawal Requests",
+            "description": {
+              "content": "This API will be used to get a list of the last 10 withdrawal requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account",
+                "withdrawal_requests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f94a6e52-0b50-43f4-9953-b482ddf4e79f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    "withdrawal_requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"contract_51005437f4734be5b7e3a548b4fa7d0e\",\n  \"idempotency_id\": \"Order_1234\",\n  \"type\": \"Sobatku/withdrawal on behalf\",\n  \"status\": \"pending\",\n  \"amount\": \"120000.0\",\n  \"fees\": \"0.0\",\n  \"account_no\": \"1680366060\",\n  \"bank_abbrev\": \"BCA\",\n  \"express\": true,\n  \"value_date\": null,\n  \"failure_reason\": null,\n  \"created_at\": \"2018-11-06T10:43:29+07:00\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bffa2b60-9a7a-416f-a3bc-141764f31f1b",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    "withdrawal_requests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd37c887-2a56-4e61-bc18-d474cad59158",
+          "name": "Withdrawal Notification Callback",
+          "request": {
+            "name": "Withdrawal Notification Callback",
+            "description": {
+              "content": "This is Xfers' callback request to your server to notify withdrawl status",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v3",
+                "notify_withdrawal_callback"
+              ],
+              "host": [
+                "yourserver",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_no\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"bank_abbrev\": \"<string>\",\n  \"fees\": \"<string>\",\n  \"id\": \"<string>\",\n  \"idempotency_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"value_date\": \"<YYYY-MM-DD>\",\n  \"failure_reason\": \"<string>\",\n  \"express\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "544464ea-cf24-4b21-ba7a-29997b9a8154",
+              "name": "Your server returns this code if it accepts the callback",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "notify_withdrawal_callback"
+                  ],
+                  "host": [
+                    "yourserver",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_no\": \"<string>\",\n  \"amount\": \"125000\",\n  \"bank_abbrev\": \"DBS\",\n  \"fees\": \"0\",\n  \"id\": \"contract_dd5a6b83\",\n  \"idempotency_id\": \"AZ0001\",\n  \"status\": \"completed\",\n  \"value_date\": \"2018-09-12\",\n  \"failure_reason\": \"Sample Error Message - Request cannot be processed\",\n  \"express\": \"true\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71233bd9-6d14-4cb6-a9a1-aba14a3d0385",
+          "name": "Get Withdrawal Request",
+          "request": {
+            "name": "Get Withdrawal Request",
+            "description": {
+              "content": "This API will be used to get the current status of withdrawal request.\nIt is useful if you want to check with Xfers again about the status of your withdrawal request in case there is something wrong with the callback of the withdrawal request status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "user",
+                "bank_account",
+                "withdrawal_requests",
+                ":withdrawal_request_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "withdrawal_request_id",
+                  "description": "(Required) The ID of the withdrawal you want to get information of. You can retrieve this information from the "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "85b53ed9-02dd-4a61-b865-aebe306cb13e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    "withdrawal_requests",
+                    ":withdrawal_request_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "withdrawal_request_id",
+                      "description": "(Required) The ID of the withdrawal you want to get information of. You can retrieve this information from the "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"contract_51005437f4734be5b7e3a548b4fa7d0e\",\n  \"idempotency_id\": \"Order_1234\",\n  \"type\": \"Sobatku/withdrawal on behalf\",\n  \"status\": \"pending\",\n  \"amount\": \"120000.0\",\n  \"fees\": \"0.0\",\n  \"account_no\": \"1680366060\",\n  \"bank_abbrev\": \"BCA\",\n  \"express\": true,\n  \"value_date\": null,\n  \"failure_reason\": null,\n  \"created_at\": \"2018-11-06T10:43:29+07:00\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a9f3361-f5ff-4221-a853-14324ef6c8bf",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "user",
+                    "bank_account",
+                    "withdrawal_requests",
+                    ":withdrawal_request_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "withdrawal_request_id",
+                      "description": "(Required) The ID of the withdrawal you want to get information of. You can retrieve this information from the "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b4cb03cd-75b6-460e-986e-483f8b5497fc",
+    "name": "Xfers Bank Account Withdraw API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

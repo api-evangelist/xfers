@@ -1,0 +1,873 @@
+{
+  "item": [
+    {
+      "id": "a07367d9-0884-4e44-bcc2-4a8da0fa6d26",
+      "name": "Disbursements",
+      "description": {
+        "content": "API for Disbursement",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc27e21d-822f-4f2f-979b-872aadb3f0f0",
+          "name": "Create Disbursement Report",
+          "request": {
+            "name": "Create Disbursement Report",
+            "description": {
+              "content": "Create a disbursement report to complete a loan disbursement process. We will pass this loan asynchronously and give callback after complete",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans",
+                ":id",
+                "disbursement_reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "2dfec8e0-a0c7-4e72-b014-c3a49a946afc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":id",
+                    "disbursement_reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0984a214-5a70-42df-90ae-7511be51001b",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":id",
+                    "disbursement_reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21450c6b-4495-4cf8-b6b3-4431fe3fb512",
+          "name": "Disbursement Report Notification Callback",
+          "request": {
+            "name": "Disbursement Report Notification Callback",
+            "description": {
+              "content": "After you setup your callback url in {{base-api-url}}/merchant_settings/callback_settings (loan_disbursement_report_completed)",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "http",
+              "path": [
+                "v3",
+                "notify_disbursement_report_callback"
+              ],
+              "host": [
+                "yourserver",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<loan_XXX>\",\n  \"status\": \"<string>\",\n  \"failure_reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9965b7fc-b863-45b2-9ead-a04f73acde2f",
+              "name": "Your server returns this code if it accepts the callback",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "path": [
+                    "v3",
+                    "notify_disbursement_report_callback"
+                  ],
+                  "host": [
+                    "yourserver",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"loan_dfghjkiuyfdcbnmjhgfc\",\n  \"status\": \"disbursement_report_completed\",\n  \"failure_reason\": \"some error JSON\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e19be34-92d8-451f-8c36-8e3f73b7e8d5",
+          "name": "Create Loan Disbursement",
+          "request": {
+            "name": "Create Loan Disbursement",
+            "description": {
+              "content": "Note: Disbursement and Withdrawal will be used synonymously. Disbursement is instantenous.\nDisbursement (Withdrawal on Behalf)\nIf you wish to disburse to a bank account not belonging to you, add in user_api_token in the params.\nDisbursement (a.k.a Withdrawal) notification\nAfter you setup your callback url in {{base-api-url}}/merchant_settings/callback_settings, we will send you the callback with the following parameter when the withdrawal is completed or failed. You need to acknowledge the callback by responding with a HTTP 200 status when succesfully processed.\nWe will send completed callback after we have confirmed with the bank that the money has been sent.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans",
+                ":loan_id",
+                "disbursements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "loan_id",
+                  "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "bank_account_id",
+                  "value": "<string>",
+                  "description": "(Required)  User Bank Account id"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<string>",
+                  "description": "(Required) Transaction Amount"
+                },
+                {
+                  "disabled": false,
+                  "key": "idempotency_id",
+                  "value": "<string>",
+                  "description": "(Required) Unique ref no provided by you to prevent double transaction, this cannot be repeated, Currently only activated for Indonesia."
+                },
+                {
+                  "disabled": false,
+                  "key": "user_api_token",
+                  "value": "<string>",
+                  "description": "Use this param if you want to withdraw to another user’s bank account instead of your own. This is your user API token which you can retrieve from the get token API response"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b0e8cc99-d2db-4ea1-924e-ed345f72ec03",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":loan_id",
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loan_id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required)  User Bank Account id",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_account_id",
+                      "value": "12345678"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction Amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "120000.0"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Unique ref no provided by you to prevent double transaction, this cannot be repeated, Currently only activated for Indonesia.",
+                        "type": "text/plain"
+                      },
+                      "key": "idempotency_id",
+                      "value": "Order_1234"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8d3c8f3-de46-4359-af03-e16a17da2441",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":loan_id",
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loan_id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required)  User Bank Account id",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_account_id",
+                      "value": "12345678"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction Amount",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "120000.0"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Unique ref no provided by you to prevent double transaction, this cannot be repeated, Currently only activated for Indonesia.",
+                        "type": "text/plain"
+                      },
+                      "key": "idempotency_id",
+                      "value": "Order_1234"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb7810e3-c2fd-4c7a-9e14-9cb5a9ee1d5b",
+          "name": "List Loan Disbursement",
+          "request": {
+            "name": "List Loan Disbursement",
+            "description": {
+              "content": "This API will be used to get a list of the last 10 withdrawal requests associated with the loan",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans",
+                ":loan_id",
+                "disbursements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "loan_id",
+                  "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a299390d-d9d9-4d8b-8046-9239c9fc3831",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":loan_id",
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loan_id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "930dfcf6-6095-4751-909c-fae1cf9aa410",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":loan_id",
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loan_id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04064521-d950-45c3-91c3-e2fca8fef4d7",
+          "name": "Loan Disbursement Notification",
+          "request": {
+            "name": "Loan Disbursement Notification",
+            "description": {
+              "content": "This is Xfers' callback request to your server to notify loan disbursement status",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "http",
+              "path": [
+                "v3",
+                "notify_loan_disbursement_callback"
+              ],
+              "host": [
+                "yourserver",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"idempotency_id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<string>\",\n  \"fees\": \"<string>\",\n  \"account_no\": \"<string>\",\n  \"bank_abbrev\": \"<string>\",\n  \"express\": \"<string>\",\n  \"value_date\": \"<string>\",\n  \"failure_reason\": \"<string>\",\n  \"arrival\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5cfcff64-2406-42b8-96d4-6c66d2758234",
+              "name": "Your server returns this code if it accepts the callback",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "path": [
+                    "v3",
+                    "notify_loan_disbursement_callback"
+                  ],
+                  "host": [
+                    "yourserver",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"contract_dd5a6b83\",\n  \"idempotency_id\": \"AZ0001\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"amount\": \"125000\",\n  \"fees\": \"0\",\n  \"account_no\": \"<string>\",\n  \"bank_abbrev\": \"BNI\",\n  \"express\": \"true\",\n  \"value_date\": \"2019-02-15\",\n  \"failure_reason\": \"Request tidak dapat diproses - BusinessException IB-1009 (Mohon maaf transaksi tidak dapat dilakukan. Ulangi beberapa saat lagi.)\",\n  \"arrival\": \"15 Feb 2019 - 4:04 PM\",\n  \"created_at\": \"2019-02-15T16:00:02+07:00\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b42820cb-91d3-4d25-a320-ebe36e294bcf",
+          "name": "Get Loan Disbursement",
+          "request": {
+            "name": "Get Loan Disbursement",
+            "description": {
+              "content": "This API is used to get the current status of the loan disbursement (in the form of a withdrawal contract), in case the callback of the disbursement status is unclear.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans",
+                ":loan_id",
+                "disbursements",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "loan_id",
+                  "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Disbursement ID. You can find this from the response when you create loan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3eba79d6-402c-4434-9064-2c22866c47e4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":loan_id",
+                    "disbursements",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loan_id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Disbursement ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"msg\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b74e285-65e1-4b0c-8952-5bb43e746744",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":loan_id",
+                    "disbursements",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "loan_id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Disbursement ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d1dfc0ea-e912-47ed-bd87-84b5c8756f5a",
+    "name": "Xfers Bank Account Disbursements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

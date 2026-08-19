@@ -1,0 +1,1065 @@
+{
+  "item": [
+    {
+      "id": "9a62c720-7612-4e14-8fea-f7a2aa457a94",
+      "name": "Charge",
+      "description": {
+        "content": "API for Charges",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5ba93ba-c9da-4be2-a568-da2ce6c93566",
+          "name": "Create Charge",
+          "request": {
+            "name": "Create Charge",
+            "description": {
+              "content": "The following API will allow you to move money from user's account to merchant's account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<float>\",\n  \"order_id\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"meta_data\": \"<string>\",\n  \"customer\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"debit_only\": \"<boolean>\",\n  \"card_only\": \"<string>\",\n  \"redirect\": \"<string>\",\n  \"cancel_url\": \"<string>\",\n  \"google_auth\": \"<string>\",\n  \"receipt_email\": \"<string>\",\n  \"skip_notifications\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da6e2119-d3e9-4f8e-b664-fb4928e6c114",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10000,\n  \"order_id\": \"Order_docs_12345\",\n  \"description\": \"Testing for Documentation\",\n  \"notify_url\": \"https://www.example.com/updates\",\n  \"meta_data\": \"test metadata\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"contract_7abf6bb130d44c02862982ff6022875d\",\n  \"object\": \"Sobatku::TransferContract\",\n  \"status\": \"processing\",\n  \"amount\": \"10000.0\",\n  \"total_amount\": \"10000.0\",\n  \"currency\": \"idr\",\n  \"fee_amount\": \"100.0\",\n  \"notify_url\": \"https://www.example.com/updates\",\n  \"wallet_name\": \"General Wallet\",\n  \"order_id\": \"Order_docs_12345\",\n  \"description\": \"Testing for Documentation\",\n  \"receipt_email\": \"winston@xfers.com\",\n  \"metadata\": {\n    \"callback_url\": \"https://www.example.com/updates\",\n    \"merchant_metadata\": \"test metadata\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6308e952-50e6-4295-be7a-ed5601d47fd6",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10000,\n  \"order_id\": \"Order_docs_12345\",\n  \"description\": \"Testing for Documentation\",\n  \"notify_url\": \"https://www.example.com/updates\",\n  \"meta_data\": \"test metadata\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a858003-c0c7-44fa-b75a-b63e35b8884b",
+          "name": "List all Charge",
+          "request": {
+            "name": "List all Charge",
+            "description": {
+              "content": "Returns a list of charges you’ve previously created. The charges are returned in sorted order, with the most recent charges appearing first.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "400a0239-bd21-4258-a84a-5bbe3a7b74ff",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"contract_b840cc9fc5a359c22ed2ccef3427aacd\",\n    \"object\": \"TransferContract\",\n    \"checkout_url\": \"https://sandbox.xfers.io/checkout_transaction/b840cc9fc5a359c22ed2ccef3427aacd\",\n    \"notify_url\": \"https://mysite.com/payment_notification\",\n    \"return_url\": \"https://mysite.com/return\",\n    \"cancel_url\": \"https://mysite.com/cancel\",\n    \"amount\": \"9.99\",\n    \"currency\": \"SGD\",\n    \"order_id\": \"A012312\",\n    \"description\": \"Carousell user - Konsolidate\",\n    \"receipt_email\": \"\",\n    \"total_amount\": \"12.49\",\n    \"fee_amount\": \"0.12\",\n    \"status\": \"completed\",\n    \"metadata\": {\n      \"firstname\": \"Tianwei\",\n      \"lastname\": \"Liu\"\n    },\n    \"transfer_info\": {\n      \"bank_name_full\": \"United Overseas Bank\",\n      \"bank_name_abbreviation\": \"UOB\",\n      \"bank_account_no\": \"123456789\",\n      \"bank_code\": \"7375\",\n      \"swift_code\": \"UOVBSGSGXXX\",\n      \"unique_id\": \"89898989\",\n      \"outstanding_amount\": \"0\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1655cce9-35c6-479b-872c-b9815a7e4b8a",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88768fee-00fa-4e8c-ac22-9e1d750a6e04",
+          "name": "Authorize Charge",
+          "request": {
+            "name": "Authorize Charge",
+            "description": {
+              "content": "Authorize a previously created charge. This is an optional process that will allow buyer to skip the sign in flow on Xfers, allowing checkout to be completed on merchant site. If a correct auth_code is provided, the charge will immediately become “accepted” by the buyer.\r\n\r\nThis endpoint is only used if  `user_phone_no`  param was passed in during charge creation. The response will return the  `transfer_info`  object containing information the bank the user should transfer to. If multiple banks are available, the  `transfer_info_array`  will also be returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "charges",
+                ":id",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"auth_code\": \"<string>\",\n  \"google_auth_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e6ff4a4-dbdf-45d1-addc-45442ad85bf0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_code\": \"<string>\",\n  \"google_auth_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": {\n    \"id\": \"contract_b840cc9fc5a359c22ed2ccef3427aacd\",\n    \"object\": \"TransferContract\",\n    \"checkout_url\": \"https://sandbox.xfers.io/checkout_transaction/b840cc9fc5a359c22ed2ccef3427aacd\",\n    \"notify_url\": \"https://mysite.com/payment_notification\",\n    \"return_url\": \"https://mysite.com/return\",\n    \"cancel_url\": \"https://mysite.com/cancel\",\n    \"amount\": \"9.99\",\n    \"currency\": \"SGD\",\n    \"order_id\": \"A012312\",\n    \"description\": \"Carousell user - Konsolidate\",\n    \"receipt_email\": \"\",\n    \"total_amount\": \"12.49\",\n    \"fee_amount\": \"0.12\",\n    \"status\": \"accepted\",\n    \"metadata\": {\n      \"firstname\": \"Tianwei\",\n      \"lastname\": \"Liu\"\n    },\n    \"transfer_info\": {\n      \"bank_name_full\": \"United Overseas Bank\",\n      \"bank_name_abbreviation\": \"UOB\",\n      \"bank_account_no\": \"123456789\",\n      \"bank_code\": \"7375\",\n      \"swift_code\": \"UOVBSGSGXXX\",\n      \"unique_id\": \"89898989\",\n      \"outstanding_amount\": \"0\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6c4b776-3aea-4ad5-8d38-b58ac905f6f1",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_code\": \"<string>\",\n  \"google_auth_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43bd528e-7fc9-45d2-9ac7-449f1567164e",
+          "name": "Cancel Charge",
+          "request": {
+            "name": "Cancel Charge",
+            "description": {
+              "content": "Cancelling a charge that has been previously created by not yet paid. To refund a paid charge, refer to creating a refund.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "charges",
+                ":id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "67438bac-2c58-4731-a5d8-66e56e4da208",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": {\n    \"id\": \"contract_b840cc9fc5a359c22ed2ccef3427aacd\",\n    \"object\": \"PendingTransferContract\",\n    \"checkout_url\": \"https://sandbox.xfers.io/checkout_transaction/b840cc9fc5a359c22ed2ccef3427aacd\",\n    \"notify_url\": \"https://mysite.com/payment_notification\",\n    \"return_url\": \"https://mysite.com/return\",\n    \"cancel_url\": \"https://mysite.com/cancel\",\n    \"amount\": \"9.99\",\n    \"currency\": \"SGD\",\n    \"order_id\": \"A012312\",\n    \"description\": \"Carousell user - Konsolidate\",\n    \"receipt_email\": \"\",\n    \"total_amount\": \"12.49\",\n    \"fee_amount\": \"0.12\",\n    \"status\": \"cancelled\",\n    \"metadata\": {\n      \"firstname\": \"Tianwei\",\n      \"lastname\": \"Liu\"\n    },\n    \"transfer_info\": {\n      \"bank_name_full\": \"United Overseas Bank\",\n      \"bank_name_abbreviation\": \"UOB\",\n      \"bank_account_no\": \"123456789\",\n      \"bank_code\": \"7375\",\n      \"swift_code\": \"UOVBSGSGXXX\",\n      \"unique_id\": \"89898989\",\n      \"outstanding_amount\": \"0\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ff73a0a-a4d1-45d9-8afa-548267febbd3",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9360260e-9c11-4e49-a471-edc5de7d7c9b",
+          "name": "Get Charge",
+          "request": {
+            "name": "Get Charge",
+            "description": {
+              "content": "Retrieves the details of a charge that has previously been created.\nSupply the ID that was returned from your previous request, and Xfers will return the corresponding charge information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "charges",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "42fb62b3-d0d6-4838-8031-592977a70c99",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"Missing API KEY in header\",\n  \"value\": {\n    \"id\": \"contract_7abf6bb130d44c02862982ff6022875d\",\n    \"object\": \"Sobatku::TransferContract\",\n    \"status\": \"completed\",\n    \"amount\": \"10000.0\",\n    \"total_amount\": \"10000.0\",\n    \"currency\": \"idr\",\n    \"fee_amount\": \"100.0\",\n    \"notify_url\": \"https://www.example.com/updates\",\n    \"wallet_name\": \"General Wallet\",\n    \"order_id\": \"Order_docs_12345\",\n    \"description\": \"Testing for Documentation\",\n    \"receipt_email\": \"winston@xfers.com\",\n    \"metadata\": {\n      \"callback_url\": \"https://www.example.com/updates\",\n      \"merchant_metadata\": \"test metadata\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31523f57-d380-4337-a5f6-f1d6b31e43c7",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bcae9ac-8596-427c-bda5-f4327a8809c7",
+          "name": "Refund Charge",
+          "request": {
+            "name": "Refund Charge",
+            "description": {
+              "content": "This API will refund a charge.\nBoth funds and fees in this transaction will be refunded to the user's Xfers account.\nPlease use the merchant’s API key for this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "charges",
+                ":id",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)",
+                "key": "X-XFERS-USER-API-KEY",
+                "value": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2d3663cb-ad7f-46e1-bc3c-53aa32582eaf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)",
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": {\n    \"id\": \"contract_7abf6bb130d44c02862982ff6022875d\",\n    \"object\": \"Sobatku::TransferContract\",\n    \"status\": \"completed\",\n    \"amount\": \"10000.0\",\n    \"total_amount\": \"10000.0\",\n    \"currency\": \"idr\",\n    \"fee_amount\": \"100.0\",\n    \"notify_url\": \"https://www.example.com/updates\",\n    \"wallet_name\": \"General Wallet\",\n    \"order_id\": \"Order_docs_12345\",\n    \"description\": \"Testing for Documentation\",\n    \"receipt_email\": \"winston@xfers.com\",\n    \"metadata\": {\n      \"callback_url\": \"https://www.example.com/updates\",\n      \"merchant_metadata\": \"test metadata\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f08d76ce-9ec4-4e47-8493-1981391d4f26",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "charges",
+                    ":id",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Charge ID that could be retrieved from the response in Create Charge endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)",
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5504282a-ed70-4d04-ba77-848c1a3e03d4",
+    "name": "Xfers Bank Account Charge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Intents API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Intents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Current Intent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/intents",
+            "params": [
+              {
+                "name": "disable_va",
+                "value": "",
+                "type": "query",
+                "description": "If true, does not return a Virtual Account for intent"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the current pending intent of the user. If multiple intents are created, only the last one is returned.\r\n\r\n`transfer_info_array`  is returned so you can display a list of all Xfers banks to transfer to."
+        },
+        {
+          "info": {
+            "name": "Create an Intent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/intents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The following request will allow you to create a intent for a transfer and register a callback notification once a transfer has be received or expired(all intents expires in 72 hours.)\r\n\r\nUser should be prompted to transfer  `unique_amount`  amount to the  `bank_account_no`  and  `bank_name`provided. Once the user deposits with  `unique_amount`, the full amount will be credited to his account."
+        },
+        {
+          "info": {
+            "name": "Cancel an Intent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/intents/:intent_id/cancel",
+            "params": [
+              {
+                "name": "intent_id",
+                "value": "",
+                "type": "path",
+                "description": "Intent ID. You can get this from the create Intent response."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Cancelling an intent that has been previously created but not yet completed."
+        },
+        {
+          "info": {
+            "name": "Intent Notification Callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/notify_intent_callback",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "intent_id",
+                  "value": ""
+                },
+                {
+                  "name": "request_id",
+                  "value": ""
+                },
+                {
+                  "name": "amount",
+                  "value": ""
+                },
+                {
+                  "name": "currency",
+                  "value": ""
+                },
+                {
+                  "name": "status",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "After intent has been verified(transfer processed)/expired by Xfers, Xfers will send a callback to the `notify_url` you provided. This is a server to server HTTPS POST and you will need to acknowledge the callback by providing a HTTP 200 status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Registration API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Registration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign Up Account/Trigger OTP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/authorize/signup_login",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "phone_no",
+                  "value": ""
+                },
+                {
+                  "name": "signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This API is used to start user registration by inputting phone number.\nAfter this API is called, an OTP SMS will be sent to that number.\n\nYou can re-trigger this API to re-send OTP to the same phone number after 1 minute.\n\nThis OTP will expire in 10 minutes.\nThe SMS format will be:\n```\n[XFERS] Your OTP is 123456. This is to set up payments for `merchant_name` . If this is not done by you, please report to http://bit.ly/XfersSupport\n```\nThis API uses a pair of public key and secret key.\nThe heade"
+        },
+        {
+          "info": {
+            "name": "Register Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/authorize/private_wallet",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "phone_no",
+                  "value": ""
+                },
+                {
+                  "name": "signature",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This API is used to start private ledger registration by inputting phone number.\n\n This API uses a pair of public key and secret key.\n\nThe header of this API uses public key called `X-XFERS-APP-API-KEY`. You will need `X-XFERS-APP-SECRET-KEY` to generate signature in the request body.\n\nPlease make use of Pre-request Script to test this API in postman"
+        },
+        {
+          "info": {
+            "name": "Get User API Token / Submit OTP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/authorize/get_token",
+            "params": [
+              {
+                "name": "otp",
+                "value": "",
+                "type": "query",
+                "description": "User mobile no. It should follow International format."
+              },
+              {
+                "name": "phone_no",
+                "value": "",
+                "type": "query",
+                "description": "User mobile no. It should follow International format."
+              },
+              {
+                "name": "signature",
+                "value": "",
+                "type": "query",
+                "description": "SHA1-hex of (phone_no + OTP + APP_SECRET_KEY). More information on generating SHA1 here http://www.sha1-online.com/"
+              },
+              {
+                "name": "return_url",
+                "value": "",
+                "type": "query",
+                "description": "Url that new user will be redirected after they completed Xfers account registration at `sign_up_url` provided."
+              }
+            ]
+          },
+          "docs": "After user receives the OTP SMS, merchant's app should capture the OTP and pass it to Xfers via this API.\nThis API will finish the registration and returns user_api_token. user_api_token is used to control the user's account.\nYou should save the user_api_token for future usage. (to be put in the `X-XFERS-USER-API-KEY` in headers of other APIs)\n\nIt will also return a is_fully_verified if they already have an Xfers account and have completed our KYC process.\n\nThis API uses a pair of public key and"
+        },
+        {
+          "info": {
+            "name": "Submit KYC Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://id.xfers.com/api/v3/user",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id_front_url",
+                  "value": ""
+                },
+                {
+                  "name": "selfie_2id_url",
+                  "value": ""
+                },
+                {
+                  "name": "fullname",
+                  "value": ""
+                },
+                {
+                  "name": "mother_maiden_name",
+                  "value": ""
+                },
+                {
+                  "name": "first_name",
+                  "value": ""
+                },
+                {
+                  "name": "last_name",
+                  "value": ""
+                },
+                {
+                  "name": "email",
+                  "value": ""
+                },
+                {
+                  "name": "date_of_birth",
+                  "value": ""
+                },
+                {
+                  "name": "gender",
+                  "value": ""
+                },
+                {
+                  "name": "address_line_1",
+                  "value": ""
+                },
+                {
+                  "name": "address_line_2",
+                  "value": ""
+                },
+                {
+                  "name": "nationality",
+                  "value": ""
+                },
+                {
+                  "name": "postal_code",
+                  "value": ""
+                },
+                {
+                  "name": "identity_no",
+                  "value": ""
+                },
+                {
+                  "name": "country",
+                  "value": ""
+                },
+                {
+                  "name": "city",
+                  "value": ""
+                },
+                {
+                  "name": "annual_income",
+                  "value": ""
+                },
+                {
+                  "name": "id_back_url",
+                  "value": ""
+                },
+                {
+                  "name": "proof_of_address_url",
+                  "value": ""
+                },
+                {
+                  "name": "meta_data",
+                  "value": ""
+                },
+                {
+                  "name": "place_of_birth",
+                  "value": ""
+                },
+                {
+                  "name": "blood_type",
+                  "value": ""
+                },
+                {
+                  "name": "rt",
+                  "value": ""
+                },
+                {
+                  "name": "rw",
+                  "value": ""
+                },
+                {
+                  "name": "administrative_village",
+                  "value": ""
+                },
+                {
+                  "name": "state",
+                  "value": ""
+                },
+                {
+                  "name": "district",
+                  "value": ""
+                },
+                {
+                  "name": "religion",
+                  "value": ""
+                },
+                {
+                  "name": "marital_status",
+                  "value": ""
+                },
+                {
+                  "name": "occupation",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "To provide KYC data in order to change user from unverified status into fully verified status.  \n\nThe image/document provided us must be hosted in a URL then pass the URL to Xfers via this API.  \nMake sure data type for your image is jpeg / png.  \nMaximum size of the image/ document is 10 MB.  \n\nAfter this data is sent, we will do some verifications on our side and may take some time before user gets fully verified.  In Indonesia, fully verified user will be backed by a savings account.\r\nThus, t"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

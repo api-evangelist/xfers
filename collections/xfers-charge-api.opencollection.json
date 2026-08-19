@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Charge API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/charges",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of charges you’ve previously created. The charges are returned in sorted order, with the most recent charges appearing first."
+        },
+        {
+          "info": {
+            "name": "Create Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/charges",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "The following API will allow you to move money from user's account to merchant's account."
+        },
+        {
+          "info": {
+            "name": "Authorize Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/charges/:id/authorize",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Charge ID that could be retrieved from the response in Create Charge endpoint"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Authorize a previously created charge. This is an optional process that will allow buyer to skip the sign in flow on Xfers, allowing checkout to be completed on merchant site. If a correct auth_code is provided, the charge will immediately become “accepted” by the buyer.\r\n\r\nThis endpoint is only used if  `user_phone_no`  param was passed in during charge creation. The response will return the  `transfer_info`  object containing information the bank the user should transfer to. If multiple banks "
+        },
+        {
+          "info": {
+            "name": "Cancel Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/charges/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Charge ID that could be retrieved from the response in Create Charge endpoint"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Cancelling a charge that has been previously created by not yet paid. To refund a paid charge, refer to creating a refund."
+        },
+        {
+          "info": {
+            "name": "Get Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/charges/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Charge ID that could be retrieved from the response in Create Charge endpoint"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves the details of a charge that has previously been created.\nSupply the ID that was returned from your previous request, and Xfers will return the corresponding charge information."
+        },
+        {
+          "info": {
+            "name": "Refund Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/charges/:id/refunds",
+            "headers": [
+              {
+                "name": "X-XFERS-USER-API-KEY",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Charge ID that could be retrieved from the response in Create Charge endpoint"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API will refund a charge.\nBoth funds and fees in this transaction will be refunded to the user's Xfers account.\nPlease use the merchant’s API key for this endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Testing API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Testing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mock KYC Verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://id.xfers.com/api/v3/user/verify",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API verifies the user with corresponding API KEY. This API can only be called from sandbox."
+        },
+        {
+          "info": {
+            "name": "Check Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/authorize/hello",
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Use this endpoint to check connection with our server"
+        },
+        {
+          "info": {
+            "name": "Get Mock OTP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/authorize/get_mock_otp",
+            "params": [
+              {
+                "name": "phone_no",
+                "value": "",
+                "type": "query",
+                "description": "Phone Number. For international number, you can use ’%2B’ to replace the plus(’+’) sign. (i.e. use %2B6287785725657 instead of +6287785725657)"
+              }
+            ]
+          },
+          "docs": "Get a mock OTP. This is only usable in sandbox environment"
+        },
+        {
+          "info": {
+            "name": "Mock Withdrawal Result",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://id.xfers.com/api/v3/user/bank_account/withdrawal_requests/mock_result",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "You need to wait for a few seconds after withdrawal creation to run this API. Currently only available in Indonesia"
+        },
+        {
+          "info": {
+            "name": "Mock Loan Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/loans_mock/:id/mocks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the loan you want to request mock status."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mock the Status so you can change its status and get its callback"
+        },
+        {
+          "info": {
+            "name": "Mock Loan Repayment Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/loans_mock/:id/repayments/:repayment_id/mocks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the loan you want to request mock status."
+              },
+              {
+                "name": "repayment_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the loan repayment you want to request mock status."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mock the Repayment Status so you can change its status and get its callback"
+        },
+        {
+          "info": {
+            "name": "Mock KYC Rejection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/sandbox/reject_user",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API rejects the user with corresponding API KEY. This API can only be called from sandbox."
+        },
+        {
+          "info": {
+            "name": "Mock User with OCR",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/sandbox/mock_user_with_ocr",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This API mocks a user creation with OCR and FR data. This API can only be called from sandbox."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

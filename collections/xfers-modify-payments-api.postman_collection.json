@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "56291298-9eb4-4eb0-84ae-8ad3e1d6bb12",
+      "name": "Modify Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13eefd03-8c06-4b94-83c1-395b5d5e48c0",
+          "name": "Action list",
+          "request": {
+            "name": "Action list",
+            "description": {
+              "content": "List of actions to modify a given payment ID:\r\n1.  **cancel** : Cancel a payment when it is still in pending state. Status will be changed to 'cancelled'. (Unique Amount only)\r\n2.  **receive_payment** : Simulate Xfers receiving payment from the customer for a given contract id. Status will be changed to 'paid'. (Unique Amount and Sandbox only)\r\n3.  **settle** : Simulate Xfers disbursing payment to the destination account. Status will be changed to 'completed'. (Sandbox only)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "payment_gateway",
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Transaction id in Xfers"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "508cceb5-c09a-48e5-9fd5-fc695fd0bd5c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "payment_gateway",
+                    "payments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Transaction id in Xfers"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event\": \"cancel\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"Error reading #/base_class/payment/examples/payment_response/cancelled. Can only use references from components and paths\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "96923a4c-72fc-43af-81c9-532407d67662",
+    "name": "Xfers Bank Account Modify Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

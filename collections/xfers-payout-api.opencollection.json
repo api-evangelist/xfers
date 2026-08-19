@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Payout API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/payouts",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "A limit on the number of objects to be returned. Limit can range between 1 and 50 items."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a list of payouts you’ve previously created. The payouts are returned in sorted order, with the most recent charges appearing first."
+        },
+        {
+          "info": {
+            "name": "Create Payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/payouts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The following API will allow you to move money from merchant's account to user's account."
+        },
+        {
+          "info": {
+            "name": "Get Payout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://id.xfers.com/api/v3/payouts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Payout ID. You can get this from the create payout API."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-XFERS-USER-API-KEY",
+              "value": "{{X-XFERS-USER-API-KEY}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves the details of a payout that has previously been created.\nSupply the unique payout ID that was returned from your previous request, and Xfers will return the corresponding payout information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

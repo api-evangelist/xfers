@@ -1,0 +1,678 @@
+{
+  "item": [
+    {
+      "id": "2521ad37-e12b-40e1-a292-2312cef0a8c2",
+      "name": "Loans",
+      "description": {
+        "content": "Loans Management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5aca0ba9-fddd-459f-a63d-b835876bedf3",
+          "name": "Create Loan",
+          "request": {
+            "name": "Create Loan",
+            "description": {
+              "content": "Creating a Loan. We will pass this loan asynchronously and give callback after complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_data\": {\n    \"din\": \"<string>\",\n    \"custtype\": \"<integer>\",\n    \"fullname\": \"<string>\",\n    \"custname\": \"<string>\",\n    \"title\": \"<string>\",\n    \"custaddress\": \"<string>\",\n    \"custrt\": \"<string>\",\n    \"custrw\": \"<string>\",\n    \"custkel\": \"<string>\",\n    \"custkec\": \"<string>\",\n    \"custcity\": \"<string>\",\n    \"custprov\": \"<string>\",\n    \"custzip\": \"<string>\",\n    \"custdati\": \"<integer>\",\n    \"idtype\": \"<integer>\",\n    \"idnumber\": \"<string>\",\n    \"idexpired\": \"<string>\",\n    \"gender\": \"<integer>\",\n    \"maritalstatus\": \"<integer>\",\n    \"birthdate\": \"<string>\",\n    \"birthplace\": \"<string>\",\n    \"birthdati\": \"<string>\",\n    \"worksince\": \"<string>\",\n    \"employeests\": \"<string>\",\n    \"contractend\": \"<string>\",\n    \"lasteducation\": \"<integer>\",\n    \"economycode\": \"<integer>\",\n    \"debiturcode\": \"<integer>\",\n    \"mmn\": \"<string>\",\n    \"npwp\": \"<string>\",\n    \"homestatus\": \"<integer>\",\n    \"livedsince\": \"<string>\",\n    \"phonearea\": \"<string>\",\n    \"phoneno\": \"<integer>\",\n    \"mobileno\": \"<integer>\",\n    \"dependent\": \"<integer>\",\n    \"grossincome\": \"<integer>\",\n    \"expenses\": \"<integer>\",\n    \"sameidhomeaddr\": \"<integer>\",\n    \"custaddresshome\": \"<string>\",\n    \"custrthome\": \"<string>\",\n    \"custrwhome\": \"<string>\",\n    \"custkelhome\": \"<string>\",\n    \"custkechome\": \"<string>\",\n    \"custcityhome\": \"<string>\",\n    \"custprovhome\": \"<string>\",\n    \"custziphome\": \"<string>\",\n    \"custdatihome\": \"<integer>\",\n    \"spousename\": \"<string>\",\n    \"spousebirthdate\": \"<string>\",\n    \"spousebirthplace\": \"<string>\",\n    \"spouseidtype\": \"<string>\",\n    \"spouseidnumber\": \"<string>\",\n    \"spousephoneno\": \"<string>\",\n    \"spousemobileno\": \"<string>\",\n    \"spouseoffice\": \"<string>\",\n    \"spouseoffinephone\": \"<string>\",\n    \"relativestype\": \"<string>\",\n    \"relativesname\": \"<string>\",\n    \"custaddressrel\": \"<string>\",\n    \"custrtrel\": \"<string>\",\n    \"custrwrel\": \"<string>\",\n    \"custkelrel\": \"<string>\",\n    \"custkecrel\": \"<string>\",\n    \"custcityrel\": \"<string>\",\n    \"custprovrel\": \"<string>\",\n    \"custziprel\": \"<string>\",\n    \"phonenorel\": \"<string>\",\n    \"companyname\": \"<string>\",\n    \"companyaddr\": \"<string>\",\n    \"companycity\": \"<string>\",\n    \"companyzip\": \"<string>\",\n    \"companyphone\": \"<string>\",\n    \"deedno\": \"<string>\",\n    \"deeddate\": \"<string>\",\n    \"corporatetype\": \"<string>\",\n    \"jobid\": \"<integer>\",\n    \"jobtitleid\": \"<integer>\",\n    \"countryid\": \"<string>\",\n    \"branchcode\": \"<string>\"\n  },\n  \"loan_data\": {\n    \"refno\": \"<string>\",\n    \"objectvalue\": \"<string>\",\n    \"principaltotal\": \"<string>\",\n    \"tenor\": \"<integer>\",\n    \"loantype\": \"<integer>\",\n    \"effectiverate\": \"<string>\",\n    \"installment\": \"<string>\",\n    \"firstinstdate\": \"<string>\",\n    \"admfee\": \"<string>\",\n    \"inscode\": \"<string>\",\n    \"inspremi\": \"<string>\",\n    \"insonloan\": \"<string>\",\n    \"installmenttype\": \"<integer>\",\n    \"branchcode\": \"<integer>\",\n    \"typeofuseid\": \"<integer>\",\n    \"orientationofuseid\": \"<integer>\",\n    \"debiturcatid\": \"<integer>\",\n    \"portfoliocatid\": \"<string>\",\n    \"credittypeid\": \"<integer>\",\n    \"creditattributeid\": \"<integer>\",\n    \"creditcategoryid\": \"<integer>\",\n    \"fincat\": \"<integer>\",\n    \"installfeeaccount\": \"<string>\"\n  },\n  \"collateral_data\": {\n    \"productcode\": \"<string>\",\n    \"merkcode\": \"<string>\",\n    \"modelcode\": \"<string>\",\n    \"collateralno\": \"<string>\",\n    \"collateraldate\": \"<string>\",\n    \"collateraladdress\": \"<string>\",\n    \"collateralcityid\": \"<integer>\",\n    \"collateralname\": \"<string>\",\n    \"collateralownerid\": \"<string>\",\n    \"collateraldesctype\": \"<string>\",\n    \"engineno\": \"<string>\",\n    \"chassisno\": \"<string>\",\n    \"collateralyear\": \"<integer>\",\n    \"buildyear\": \"<integer>\",\n    \"condition\": \"<integer>\",\n    \"color\": \"<string>\",\n    \"collateralkind\": \"<string>\",\n    \"collateralpurpose\": \"<string>\",\n    \"policeno\": \"<string>\",\n    \"stnkexpired\": \"<string>\",\n    \"surveydate\": \"<string>\",\n    \"bindtypecode\": \"<string>\",\n    \"collateraltypecode\": \"<integer>\",\n    \"sbrankcode\": \"<string>\",\n    \"collateralvalue\": \"<integer>\",\n    \"dealercode\": \"<integer>\"\n  },\n  \"installment_data\": {\n    \"period\": \"<string>\",\n    \"duedate\": \"<string>\",\n    \"principal\": \"<string>\",\n    \"interest\": \"<string>\",\n    \"installfee\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7369d49b-9c69-4e68-93a9-4bc2e8200cb4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_data\": {\n    \"din\": \"string content\",\n    \"custtype\": 1,\n    \"fullname\": \"name01\",\n    \"custname\": \"name01\",\n    \"title\": \"sh\",\n    \"custaddress\": \"string content\",\n    \"custrt\": \"string content\",\n    \"custrw\": \"string content\",\n    \"custkel\": \"string content\",\n    \"custkec\": \"string content\",\n    \"custcity\": \"string content\",\n    \"custprov\": \"string content\",\n    \"custzip\": \"string content\",\n    \"custdati\": \"0102\",\n    \"idtype\": 1,\n    \"idnumber\": \"idnumber\",\n    \"idexpired\": \"2019-01-01\",\n    \"gender\": 1,\n    \"maritalstatus\": 2,\n    \"birthdate\": \"1980-01-04\",\n    \"birthplace\": \"bekasi\",\n    \"birthdati\": \"0102\",\n    \"worksince\": \"2014-01-01\",\n    \"employeests\": 1,\n    \"contractend\": \"2014-01-01\",\n    \"lasteducation\": \"0100\",\n    \"economycode\": \"011110\",\n    \"debiturcode\": \"907\",\n    \"mmn\": \"ibu kandung\",\n    \"npwp\": \"no npwp\",\n    \"homestatus\": 1,\n    \"livedsince\": \"2000-01-01\",\n    \"phonearea\": \"area\",\n    \"phoneno\": \"12323535\",\n    \"mobileno\": 878978979,\n    \"dependent\": 0,\n    \"grossincome\": 5000000,\n    \"expenses\": 1000000,\n    \"sameidhomeaddr\": 1,\n    \"custaddresshome\": \"string content\",\n    \"custrthome\": \"string content\",\n    \"custrwhome\": \"string content\",\n    \"custkelhome\": \"string content\",\n    \"custkechome\": \"string content\",\n    \"custcityhome\": \"string content\",\n    \"custprovhome\": \"string content\",\n    \"custziphome\": \"string content\",\n    \"custdatihome\": \"0102\",\n    \"spousename\": \"string content\",\n    \"spousebirthdate\": \"1980-01-01\",\n    \"spousebirthplace\": \"string content\",\n    \"spouseidtype\": 1,\n    \"spouseidnumber\": \"string content\",\n    \"spousephoneno\": \"string content\",\n    \"spousemobileno\": \"string content\",\n    \"spouseoffice\": \"string content\",\n    \"spouseoffinephone\": \"string content\",\n    \"relativestype\": 1,\n    \"relativesname\": \"string content\",\n    \"custaddressrel\": \"string content\",\n    \"custrtrel\": \"string content\",\n    \"custrwrel\": \"string content\",\n    \"custkelrel\": \"string content\",\n    \"custkecrel\": \"string content\",\n    \"custcityrel\": \"string content\",\n    \"custprovrel\": \"string content\",\n    \"custziprel\": \"string content\",\n    \"phonenorel\": \"string content\",\n    \"companyname\": \"string content\",\n    \"companyaddr\": \"string content\",\n    \"companycity\": \"string content\",\n    \"companyzip\": \"string content\",\n    \"companyphone\": \"string content\",\n    \"deedno\": \"string content\",\n    \"deeddate\": \"2019-01-01\",\n    \"corporatetype\": \"string content\",\n    \"jobid\": \"002\",\n    \"jobtitleid\": \"50\",\n    \"countryid\": \"id\",\n    \"branchcode\": \"000\"\n  },\n  \"loan_data\": {\n    \"refno\": \"ref11\",\n    \"objectvalue\": \"10000000.0\",\n    \"principaltotal\": \"1000000.0\",\n    \"tenor\": \"1\",\n    \"loantype\": 0,\n    \"effectiverate\": \"12.0\",\n    \"installment\": \"1000000.0\",\n    \"firstinstdate\": \"2018-11-01\",\n    \"admfee\": \"0.0\",\n    \"inscode\": \"001\",\n    \"inspremi\": \"0.0\",\n    \"insonloan\": \"0.0\",\n    \"installmenttype\": 1,\n    \"branchcode\": \"000\",\n    \"typeofuseid\": \"89\",\n    \"orientationofuseid\": \"9\",\n    \"debiturcatid\": \"10\",\n    \"portfoliocatid\": \"string content\",\n    \"credittypeid\": \"20\",\n    \"creditattributeid\": \"20\",\n    \"creditcategoryid\": \"10\",\n    \"fincat\": \"000\",\n    \"installfeeaccount\": \"50000.0\"\n  },\n  \"collateral_data\": {\n    \"productcode\": \"C304\",\n    \"merkcode\": \"mrk\",\n    \"modelcode\": \"mdl\",\n    \"collateralno\": \"collno939854\",\n    \"collateraldate\": \"2018-01-01\",\n    \"collateraladdress\": \"string content\",\n    \"collateralcityid\": \"0102\",\n    \"collateralname\": \"collname\",\n    \"collateralownerid\": \"collid935790\",\n    \"collateraldesctype\": \"string content\",\n    \"engineno\": \"string content\",\n    \"chassisno\": \"string content\",\n    \"collateralyear\": 2018,\n    \"buildyear\": 2018,\n    \"condition\": 1,\n    \"color\": \"string content\",\n    \"collateralkind\": \"KTA01\",\n    \"collateralpurpose\": \"string content\",\n    \"policeno\": \"string\",\n    \"stnkexpired\": \"2030-01-01\",\n    \"surveydate\": \"2018-01-01\",\n    \"bindtypecode\": \"99\",\n    \"collateraltypecode\": \"250\",\n    \"sbrankcode\": \"string content\",\n    \"collateralvalue\": 100000000,\n    \"dealercode\": \"TK\"\n  },\n  \"installment_data\": {\n    \"period\": \"1.0\",\n    \"duedate\": \"2018-12-12\",\n    \"principal\": \"1000000.0\",\n    \"interest\": \"10000000.0\",\n    \"installfee\": \"50000.0\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customer_data\": {\n    \"din\": \"string content\",\n    \"custtype\": 1,\n    \"fullname\": \"name01\",\n    \"custname\": \"name01\",\n    \"title\": \"sh\",\n    \"custaddress\": \"string content\",\n    \"custrt\": \"string content\",\n    \"custrw\": \"string content\",\n    \"custkel\": \"string content\",\n    \"custkec\": \"string content\",\n    \"custcity\": \"string content\",\n    \"custprov\": \"string content\",\n    \"custzip\": \"string content\",\n    \"custdati\": \"0102\",\n    \"idtype\": 1,\n    \"idnumber\": \"idnumber\",\n    \"idexpired\": \"2019-01-01\",\n    \"gender\": 1,\n    \"maritalstatus\": 2,\n    \"birthdate\": \"1980-01-04\",\n    \"birthplace\": \"bekasi\",\n    \"birthdati\": \"0102\",\n    \"worksince\": \"2014-01-01\",\n    \"employeests\": 1,\n    \"contractend\": \"2014-01-01\",\n    \"lasteducation\": \"0100\",\n    \"economycode\": \"011110\",\n    \"debiturcode\": \"907\",\n    \"mmn\": \"ibu kandung\",\n    \"npwp\": \"no npwp\",\n    \"homestatus\": 1,\n    \"livedsince\": \"2000-01-01\",\n    \"phonearea\": \"area\",\n    \"phoneno\": \"12323535\",\n    \"mobileno\": 878978979,\n    \"dependent\": 0,\n    \"grossincome\": 5000000,\n    \"expenses\": 1000000,\n    \"sameidhomeaddr\": 1,\n    \"custaddresshome\": \"string content\",\n    \"custrthome\": \"string content\",\n    \"custrwhome\": \"string content\",\n    \"custkelhome\": \"string content\",\n    \"custkechome\": \"string content\",\n    \"custcityhome\": \"string content\",\n    \"custprovhome\": \"string content\",\n    \"custziphome\": \"string content\",\n    \"custdatihome\": \"0102\",\n    \"spousename\": \"string content\",\n    \"spousebirthdate\": \"1980-01-01\",\n    \"spousebirthplace\": \"string content\",\n    \"spouseidtype\": 1,\n    \"spouseidnumber\": \"string content\",\n    \"spousephoneno\": \"string content\",\n    \"spousemobileno\": \"string content\",\n    \"spouseoffice\": \"string content\",\n    \"spouseoffinephone\": \"string content\",\n    \"relativestype\": 1,\n    \"relativesname\": \"string content\",\n    \"custaddressrel\": \"string content\",\n    \"custrtrel\": \"string content\",\n    \"custrwrel\": \"string content\",\n    \"custkelrel\": \"string content\",\n    \"custkecrel\": \"string content\",\n    \"custcityrel\": \"string content\",\n    \"custprovrel\": \"string content\",\n    \"custziprel\": \"string content\",\n    \"phonenorel\": \"string content\",\n    \"companyname\": \"string content\",\n    \"companyaddr\": \"string content\",\n    \"companycity\": \"string content\",\n    \"companyzip\": \"string content\",\n    \"companyphone\": \"string content\",\n    \"deedno\": \"string content\",\n    \"deeddate\": \"2019-01-01\",\n    \"corporatetype\": \"string content\",\n    \"jobid\": \"002\",\n    \"jobtitleid\": \"50\",\n    \"countryid\": \"id\",\n    \"branchcode\": \"000\"\n  },\n  \"loan_data\": {\n    \"refno\": \"ref11\",\n    \"objectvalue\": \"10000000.0\",\n    \"principaltotal\": \"1000000.0\",\n    \"tenor\": \"1\",\n    \"loantype\": 0,\n    \"effectiverate\": \"12.0\",\n    \"installment\": \"1000000.0\",\n    \"firstinstdate\": \"2018-11-01\",\n    \"admfee\": \"0.0\",\n    \"inscode\": \"001\",\n    \"inspremi\": \"0.0\",\n    \"insonloan\": \"0.0\",\n    \"installmenttype\": 1,\n    \"branchcode\": \"000\",\n    \"typeofuseid\": \"89\",\n    \"orientationofuseid\": \"9\",\n    \"debiturcatid\": \"10\",\n    \"portfoliocatid\": \"string content\",\n    \"credittypeid\": \"20\",\n    \"creditattributeid\": \"20\",\n    \"creditcategoryid\": \"10\",\n    \"fincat\": \"000\",\n    \"installfeeaccount\": \"50000.0\"\n  },\n  \"collateral_data\": {\n    \"productcode\": \"C304\",\n    \"merkcode\": \"mrk\",\n    \"modelcode\": \"mdl\",\n    \"collateralno\": \"collno939854\",\n    \"collateraldate\": \"2018-01-01\",\n    \"collateraladdress\": \"string content\",\n    \"collateralcityid\": \"0102\",\n    \"collateralname\": \"collname\",\n    \"collateralownerid\": \"collid935790\",\n    \"collateraldesctype\": \"string content\",\n    \"engineno\": \"string content\",\n    \"chassisno\": \"string content\",\n    \"collateralyear\": 2018,\n    \"buildyear\": 2018,\n    \"condition\": 1,\n    \"color\": \"string content\",\n    \"collateralkind\": \"KTA01\",\n    \"collateralpurpose\": \"string content\",\n    \"policeno\": \"string\",\n    \"stnkexpired\": \"2030-01-01\",\n    \"surveydate\": \"2018-01-01\",\n    \"bindtypecode\": \"99\",\n    \"collateraltypecode\": \"250\",\n    \"sbrankcode\": \"string content\",\n    \"collateralvalue\": 100000000,\n    \"dealercode\": \"TK\"\n  },\n  \"installment_data\": {\n    \"period\": \"1.0\",\n    \"duedate\": \"2018-12-12\",\n    \"principal\": \"1000000.0\",\n    \"interest\": \"10000000.0\",\n    \"installfee\": \"50000.0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e2fac64-6d5f-4664-a433-96c0582f1080",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_data\": {\n    \"din\": \"string content\",\n    \"custtype\": 1,\n    \"fullname\": \"name01\",\n    \"custname\": \"name01\",\n    \"title\": \"sh\",\n    \"custaddress\": \"string content\",\n    \"custrt\": \"string content\",\n    \"custrw\": \"string content\",\n    \"custkel\": \"string content\",\n    \"custkec\": \"string content\",\n    \"custcity\": \"string content\",\n    \"custprov\": \"string content\",\n    \"custzip\": \"string content\",\n    \"custdati\": \"0102\",\n    \"idtype\": 1,\n    \"idnumber\": \"idnumber\",\n    \"idexpired\": \"2019-01-01\",\n    \"gender\": 1,\n    \"maritalstatus\": 2,\n    \"birthdate\": \"1980-01-04\",\n    \"birthplace\": \"bekasi\",\n    \"birthdati\": \"0102\",\n    \"worksince\": \"2014-01-01\",\n    \"employeests\": 1,\n    \"contractend\": \"2014-01-01\",\n    \"lasteducation\": \"0100\",\n    \"economycode\": \"011110\",\n    \"debiturcode\": \"907\",\n    \"mmn\": \"ibu kandung\",\n    \"npwp\": \"no npwp\",\n    \"homestatus\": 1,\n    \"livedsince\": \"2000-01-01\",\n    \"phonearea\": \"area\",\n    \"phoneno\": \"12323535\",\n    \"mobileno\": 878978979,\n    \"dependent\": 0,\n    \"grossincome\": 5000000,\n    \"expenses\": 1000000,\n    \"sameidhomeaddr\": 1,\n    \"custaddresshome\": \"string content\",\n    \"custrthome\": \"string content\",\n    \"custrwhome\": \"string content\",\n    \"custkelhome\": \"string content\",\n    \"custkechome\": \"string content\",\n    \"custcityhome\": \"string content\",\n    \"custprovhome\": \"string content\",\n    \"custziphome\": \"string content\",\n    \"custdatihome\": \"0102\",\n    \"spousename\": \"string content\",\n    \"spousebirthdate\": \"1980-01-01\",\n    \"spousebirthplace\": \"string content\",\n    \"spouseidtype\": 1,\n    \"spouseidnumber\": \"string content\",\n    \"spousephoneno\": \"string content\",\n    \"spousemobileno\": \"string content\",\n    \"spouseoffice\": \"string content\",\n    \"spouseoffinephone\": \"string content\",\n    \"relativestype\": 1,\n    \"relativesname\": \"string content\",\n    \"custaddressrel\": \"string content\",\n    \"custrtrel\": \"string content\",\n    \"custrwrel\": \"string content\",\n    \"custkelrel\": \"string content\",\n    \"custkecrel\": \"string content\",\n    \"custcityrel\": \"string content\",\n    \"custprovrel\": \"string content\",\n    \"custziprel\": \"string content\",\n    \"phonenorel\": \"string content\",\n    \"companyname\": \"string content\",\n    \"companyaddr\": \"string content\",\n    \"companycity\": \"string content\",\n    \"companyzip\": \"string content\",\n    \"companyphone\": \"string content\",\n    \"deedno\": \"string content\",\n    \"deeddate\": \"2019-01-01\",\n    \"corporatetype\": \"string content\",\n    \"jobid\": \"002\",\n    \"jobtitleid\": \"50\",\n    \"countryid\": \"id\",\n    \"branchcode\": \"000\"\n  },\n  \"loan_data\": {\n    \"refno\": \"ref11\",\n    \"objectvalue\": \"10000000.0\",\n    \"principaltotal\": \"1000000.0\",\n    \"tenor\": \"1\",\n    \"loantype\": 0,\n    \"effectiverate\": \"12.0\",\n    \"installment\": \"1000000.0\",\n    \"firstinstdate\": \"2018-11-01\",\n    \"admfee\": \"0.0\",\n    \"inscode\": \"001\",\n    \"inspremi\": \"0.0\",\n    \"insonloan\": \"0.0\",\n    \"installmenttype\": 1,\n    \"branchcode\": \"000\",\n    \"typeofuseid\": \"89\",\n    \"orientationofuseid\": \"9\",\n    \"debiturcatid\": \"10\",\n    \"portfoliocatid\": \"string content\",\n    \"credittypeid\": \"20\",\n    \"creditattributeid\": \"20\",\n    \"creditcategoryid\": \"10\",\n    \"fincat\": \"000\",\n    \"installfeeaccount\": \"50000.0\"\n  },\n  \"collateral_data\": {\n    \"productcode\": \"C304\",\n    \"merkcode\": \"mrk\",\n    \"modelcode\": \"mdl\",\n    \"collateralno\": \"collno939854\",\n    \"collateraldate\": \"2018-01-01\",\n    \"collateraladdress\": \"string content\",\n    \"collateralcityid\": \"0102\",\n    \"collateralname\": \"collname\",\n    \"collateralownerid\": \"collid935790\",\n    \"collateraldesctype\": \"string content\",\n    \"engineno\": \"string content\",\n    \"chassisno\": \"string content\",\n    \"collateralyear\": 2018,\n    \"buildyear\": 2018,\n    \"condition\": 1,\n    \"color\": \"string content\",\n    \"collateralkind\": \"KTA01\",\n    \"collateralpurpose\": \"string content\",\n    \"policeno\": \"string\",\n    \"stnkexpired\": \"2030-01-01\",\n    \"surveydate\": \"2018-01-01\",\n    \"bindtypecode\": \"99\",\n    \"collateraltypecode\": \"250\",\n    \"sbrankcode\": \"string content\",\n    \"collateralvalue\": 100000000,\n    \"dealercode\": \"TK\"\n  },\n  \"installment_data\": {\n    \"period\": \"1.0\",\n    \"duedate\": \"2018-12-12\",\n    \"principal\": \"1000000.0\",\n    \"interest\": \"10000000.0\",\n    \"installfee\": \"50000.0\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce814c4a-44e1-4518-b5c4-fae5038a52a2",
+          "name": "Loan Notification Callback",
+          "request": {
+            "name": "Loan Notification Callback",
+            "description": {
+              "content": "After you set up your callback url in {{base-api-url}}/merchant_settings/callback_settings (loan_request_approved), we will send you the callback with the following parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v3",
+                "notify_loan_callback"
+              ],
+              "host": [
+                "yourserver",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<loan_XXX>\",\n  \"status\": \"<string>\",\n  \"failure_reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f783d9bc-d723-486c-9072-aff21a4ccd38",
+              "name": "Your server returns this code if it accepts the callback",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "v3",
+                    "notify_loan_callback"
+                  ],
+                  "host": [
+                    "yourserver",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"loan_dfghjkiuyfdcbnmjhgfc\",\n  \"status\": \"loan_request_approved\",\n  \"failure_reason\": \"[{\\\"REASONCODE\\\":\\\"REQ\\\",\\\"REMARK\\\":\\\"[JENIS OBJECT/KENDARAAN] IS NOT REGISTERED\\\"},{\\\"REASONCODE\\\":\\\"MAXTENOR\\\",\\\"REMARK\\\":\\\"MINIMUM TENOR Exception: 0<1, OBJECT/Car Age : 9 Months\\\"}]\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84f43e94-1e37-46ec-8148-30cb674fc762",
+          "name": "Get Loan Details",
+          "request": {
+            "name": "Get Loan Details",
+            "description": {
+              "content": "Get the Detail of a Loan Request Given The id of a its loan.\r\n\r\nAvailable Status:\r\ncreated -> after customer just created the loan to us\r\nloan_request_processing -> after we called sampoerna loan API and no callback yet\r\nloan_request_approved -> after we just received sampoerna callback and it is approved\r\nloan_request_rejected -> after we just received sampoerna callback and it is rejected\r\nwithdrawal_on_behalf_processing -> after they call our WOB API, WOB still in pending state\r\nwithdrawal_on_behalf_completed -> after they call our WOB API, WOB still in completed state\r\nwithdrawal_on_behalf_failed -> after they call our WOB API, WOB in bank_rejected, they need to retry or this is final state\r\ndisbursement_report_processing -> after customer call our disbursement report API\r\ndisbursement_report_completed -> after we just call sampoerna disbursement API and completed\r\ndisbursement_report_failed-> after we just call sampoerna disbursement API and failed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7219039b-dde9-482d-a25c-b348555149b7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customer_data\": {\n    \"din\": \"string content\",\n    \"custtype\": 1,\n    \"fullname\": \"name01\",\n    \"custname\": \"name01\",\n    \"title\": \"sh\",\n    \"custaddress\": \"string content\",\n    \"custrt\": \"string content\",\n    \"custrw\": \"string content\",\n    \"custkel\": \"string content\",\n    \"custkec\": \"string content\",\n    \"custcity\": \"string content\",\n    \"custprov\": \"string content\",\n    \"custzip\": \"string content\",\n    \"custdati\": \"0102\",\n    \"idtype\": 1,\n    \"idnumber\": \"idnumber\",\n    \"idexpired\": \"2019-01-01\",\n    \"gender\": 1,\n    \"maritalstatus\": 2,\n    \"birthdate\": \"1980-01-04\",\n    \"birthplace\": \"bekasi\",\n    \"birthdati\": \"0102\",\n    \"worksince\": \"2014-01-01\",\n    \"employeests\": 1,\n    \"contractend\": \"2014-01-01\",\n    \"lasteducation\": \"0100\",\n    \"economycode\": \"011110\",\n    \"debiturcode\": \"907\",\n    \"mmn\": \"ibu kandung\",\n    \"npwp\": \"no npwp\",\n    \"homestatus\": 1,\n    \"livedsince\": \"2000-01-01\",\n    \"phonearea\": \"area\",\n    \"phoneno\": \"12323535\",\n    \"mobileno\": 878978979,\n    \"dependent\": 0,\n    \"grossincome\": 5000000,\n    \"expenses\": 1000000,\n    \"sameidhomeaddr\": 1,\n    \"custaddresshome\": \"string content\",\n    \"custrthome\": \"string content\",\n    \"custrwhome\": \"string content\",\n    \"custkelhome\": \"string content\",\n    \"custkechome\": \"string content\",\n    \"custcityhome\": \"string content\",\n    \"custprovhome\": \"string content\",\n    \"custziphome\": \"string content\",\n    \"custdatihome\": \"0102\",\n    \"spousename\": \"string content\",\n    \"spousebirthdate\": \"1980-01-01\",\n    \"spousebirthplace\": \"string content\",\n    \"spouseidtype\": 1,\n    \"spouseidnumber\": \"string content\",\n    \"spousephoneno\": \"string content\",\n    \"spousemobileno\": \"string content\",\n    \"spouseoffice\": \"string content\",\n    \"spouseoffinephone\": \"string content\",\n    \"relativestype\": 1,\n    \"relativesname\": \"string content\",\n    \"custaddressrel\": \"string content\",\n    \"custrtrel\": \"string content\",\n    \"custrwrel\": \"string content\",\n    \"custkelrel\": \"string content\",\n    \"custkecrel\": \"string content\",\n    \"custcityrel\": \"string content\",\n    \"custprovrel\": \"string content\",\n    \"custziprel\": \"string content\",\n    \"phonenorel\": \"string content\",\n    \"companyname\": \"string content\",\n    \"companyaddr\": \"string content\",\n    \"companycity\": \"string content\",\n    \"companyzip\": \"string content\",\n    \"companyphone\": \"string content\",\n    \"deedno\": \"string content\",\n    \"deeddate\": \"2019-01-01\",\n    \"corporatetype\": \"string content\",\n    \"jobid\": \"002\",\n    \"jobtitleid\": \"50\",\n    \"countryid\": \"id\",\n    \"branchcode\": \"000\"\n  },\n  \"loan_data\": {\n    \"refno\": \"ref11\",\n    \"objectvalue\": \"10000000.0\",\n    \"principaltotal\": \"1000000.0\",\n    \"tenor\": \"1\",\n    \"loantype\": 0,\n    \"effectiverate\": \"12.0\",\n    \"installment\": \"1000000.0\",\n    \"firstinstdate\": \"2018-11-01\",\n    \"admfee\": \"0.0\",\n    \"inscode\": \"001\",\n    \"inspremi\": \"0.0\",\n    \"insonloan\": \"0.0\",\n    \"installmenttype\": 1,\n    \"branchcode\": \"000\",\n    \"typeofuseid\": \"89\",\n    \"orientationofuseid\": \"9\",\n    \"debiturcatid\": \"10\",\n    \"portfoliocatid\": \"string content\",\n    \"credittypeid\": \"20\",\n    \"creditattributeid\": \"20\",\n    \"creditcategoryid\": \"10\",\n    \"fincat\": \"000\",\n    \"installfeeaccount\": \"50000.0\"\n  },\n  \"collateral_data\": {\n    \"productcode\": \"C304\",\n    \"merkcode\": \"mrk\",\n    \"modelcode\": \"mdl\",\n    \"collateralno\": \"collno939854\",\n    \"collateraldate\": \"2018-01-01\",\n    \"collateraladdress\": \"string content\",\n    \"collateralcityid\": \"0102\",\n    \"collateralname\": \"collname\",\n    \"collateralownerid\": \"collid935790\",\n    \"collateraldesctype\": \"string content\",\n    \"engineno\": \"string content\",\n    \"chassisno\": \"string content\",\n    \"collateralyear\": 2018,\n    \"buildyear\": 2018,\n    \"condition\": 1,\n    \"color\": \"string content\",\n    \"collateralkind\": \"KTA01\",\n    \"collateralpurpose\": \"string content\",\n    \"policeno\": \"string\",\n    \"stnkexpired\": \"2030-01-01\",\n    \"surveydate\": \"2018-01-01\",\n    \"bindtypecode\": \"99\",\n    \"collateraltypecode\": \"250\",\n    \"sbrankcode\": \"string content\",\n    \"collateralvalue\": 100000000,\n    \"dealercode\": \"TK\"\n  },\n  \"installment_data\": {\n    \"period\": \"1.0\",\n    \"duedate\": \"2018-12-12\",\n    \"principal\": \"1000000.0\",\n    \"interest\": \"10000000.0\",\n    \"installfee\": \"50000.0\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6044aa5a-bbb8-43fa-9d7d-628800803461",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Loan ID. You can find this from the response when you create loan."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9b33cdc-df30-4d7e-a9ab-4653d502e116",
+          "name": "Loans Reconciliation",
+          "request": {
+            "name": "Loans Reconciliation",
+            "description": {
+              "content": "Get Outstanding Loans. Response of this reconciliation request will be in callback.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "loans",
+                "reconciliations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number of loan_reconciliation. Starts with 1. Automatically set to 1 if this is not present while per_page is present."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<string>",
+                  "description": " The amount of outstanding loans per page. If this is null or not present, will return all outstanding loans."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "Starting Date of the recon time."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "Ending Date of the recon time."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c80f929f-3ee3-4996-bcb1-dc2160f280fe",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    "reconciliations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The page number of loan_reconciliation. Starts with 1. Automatically set to 1 if this is not present while per_page is present.",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": " The amount of outstanding loans per page. If this is null or not present, will return all outstanding loans.",
+                        "type": "text/plain"
+                      },
+                      "key": "per_page",
+                      "value": "120000.0"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Starting Date of the recon time.",
+                        "type": "text/plain"
+                      },
+                      "key": "from",
+                      "value": "2015-01-26"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Ending Date of the recon time.",
+                        "type": "text/plain"
+                      },
+                      "key": "to",
+                      "value": "2020-01-30"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"RESULT\": {\n    \"CODE\": \"00\",\n    \"DESC\": \"OK\",\n    \"CURRENTPAGE\": \"1\",\n    \"TOTALPAGES\": \"3\",\n    \"TOTALROWS\": \"21\",\n    \"OSPRINCIPALTOTAL\": \"30500000.0000\",\n    \"OSINTERESTTOTAL\": \"15755626.1000\",\n    \"PRINCIPALTOTAL\": \"48250000.0000\",\n    \"INTERESTTOTAL\": \"15947580.2700\",\n    \"DATA\": [\n      {\n        \"RECONDATA\": [\n          {\n            \"ROWNUMBER\": \"0\",\n            \"REFNO\": \"A6\",\n            \"OSPRINCIPALREAL\": \"0.0000\",\n            \"OSINTERESTREAL\": \"0.0000\",\n            \"DPD\": \"0\",\n            \"ACCNO\": \"TK001.1\",\n            \"BOOKINGDATE\": \"2019-02-25\",\n            \"PRINCIPAL\": \"10000000.0000\",\n            \"INTEREST\": \"100.0000\"\n          },\n          {\n            \"ROWNUMBER\": \"1\",\n            \"REFNO\": \"CVY0JOS6E9\",\n            \"OSPRINCIPALREAL\": \"0.0000\",\n            \"OSINTERESTREAL\": \"0.0000\",\n            \"DPD\": \"0\",\n            \"ACCNO\": \"TK001.6\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"500000.0000\",\n            \"INTEREST\": \"20833.3300\"\n          },\n          {\n            \"ROWNUMBER\": \"2\",\n            \"REFNO\": \"HUN0JOS7W7\",\n            \"OSPRINCIPALREAL\": \"0.0000\",\n            \"OSINTERESTREAL\": \"0.0000\",\n            \"DPD\": \"0\",\n            \"ACCNO\": \"TK001.9\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"500000.0000\",\n            \"INTEREST\": \"20833.3300\"\n          },\n          {\n            \"ROWNUMBER\": \"3\",\n            \"REFNO\": \"NPM0JOR9955\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"38666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.17\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          },\n          {\n            \"ROWNUMBER\": \"4\",\n            \"REFNO\": \"NPM0JOR9956\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"41666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.16\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          },\n          {\n            \"ROWNUMBER\": \"5\",\n            \"REFNO\": \"NPM0JOR9957\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"41666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.15\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          },\n          {\n            \"ROWNUMBER\": \"6\",\n            \"REFNO\": \"NPM0JOR996\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"41666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.18\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          },\n          {\n            \"ROWNUMBER\": \"7\",\n            \"REFNO\": \"NPM0JOR997\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"41666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.19\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          },\n          {\n            \"ROWNUMBER\": \"8\",\n            \"REFNO\": \"NPM0JOR998\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"41666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.20\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          },\n          {\n            \"ROWNUMBER\": \"9\",\n            \"REFNO\": \"NPM0JOR999\",\n            \"OSPRINCIPALREAL\": \"1000000.0000\",\n            \"OSINTERESTREAL\": \"41666.6700\",\n            \"DPD\": \"-21\",\n            \"ACCNO\": \"TK001.21\",\n            \"BOOKINGDATE\": \"2019-03-01\",\n            \"PRINCIPAL\": \"1000000.0000\",\n            \"INTEREST\": \"41666.6700\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad26f676-dd7f-4ce2-af96-afbe42b48cb5",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "loans",
+                    "reconciliations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The page number of loan_reconciliation. Starts with 1. Automatically set to 1 if this is not present while per_page is present.",
+                        "type": "text/plain"
+                      },
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": " The amount of outstanding loans per page. If this is null or not present, will return all outstanding loans.",
+                        "type": "text/plain"
+                      },
+                      "key": "per_page",
+                      "value": "120000.0"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Starting Date of the recon time.",
+                        "type": "text/plain"
+                      },
+                      "key": "from",
+                      "value": "2015-01-26"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Ending Date of the recon time.",
+                        "type": "text/plain"
+                      },
+                      "key": "to",
+                      "value": "2020-01-30"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "02c1089c-f523-40d1-8aea-92ebee03d119",
+    "name": "Xfers Bank Account Loans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}

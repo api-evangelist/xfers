@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Xfers Bank Account Unique Amount Bank Transfers API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Unique Amount Bank Transfers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Unique Amount Bank Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://id.xfers.com/api/v3/payment_gateway/payment_methods/unique_amount_bank_transfers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "With Unique Amount Bank Transfer payment method, you need pass us the amount that you want your customer to pay and we will give you the unique amount. \n\n After your customer successfuly transfer with the unique amount, our system will associate it to your account and we will notify you with the successful callback."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

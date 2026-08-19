@@ -1,0 +1,682 @@
+{
+  "item": [
+    {
+      "id": "e699236d-cc7e-4579-89aa-fcc1d5bbe4f2",
+      "name": "Intents",
+      "description": {
+        "content": "**For user case 1:**\r\n\r\nWhen a user is performing a top-up via  [GET /transfer_info](http://docs.xfers.io/#get-transfer-info), they might forget to enter their contact number which is needed for our system to identify them.\r\n\r\nThe Intents API solves this issue by requiring the user to transfer a unique amount to Xfers which will be used to identify them. The difference between the  `unique_amount`  and the actual  `amount`  will be very small, and Xfers provides the difference for free to the user.\r\n\r\nNote that this only acts as a backup, and the user should enter his contact number in the comments section when doing a bank transfer whenever possible.\r\n\r\nExample: Jane wishes to transfer 5000 Indonesian Rupiah via  `/intents`.\r\n\r\n1.  She makes a HTTP GET request to  `/user/transfer_info`  to get the correct Xfers bank to transfer to (we have many banks!). The response tells her to transfer to Bank Central Asia (BCA).\r\n2.  She makes a HTTP POST request to create an intent. The response tells her to make a bank transfer of 4999 to Xfers.\r\n3.  Jane makes a transfer of 4999 to Xfers BCA. Within a few minutes, Xfers detects the transfer and tops up Jane’s Xfers account with 5000. Xfers absorbs the difference for free.\r\n4.  If  `notify_url`  is given, Xfers will send a callback to this url.\r\n\r\nNote the above scenario is only valid when disable_va is set to True\r\n\r\n**For user case 2:**\r\n\r\nIntent can also be use a means to get callback notifications from Xfers when a user successfully fund their virtual account on Xfers.\r\n\r\nExample: Jane wishes to transfer 5000 Indonesian Rupiah via  `/intents`  to her virtual Xfers account and get a callback notification when it successful\r\n\r\n1.  She makes a HTTP POST request to create an intent with disable_va set to false(default) and provide a  `notify_url`. The response will provide a list of virtual account nos she can fund her account with from a list of bank that Xfers support.\r\n2.  Jane makes a transfer of 500 to the Xfers BCA Virtual account that the intent api provide. Within a few minutes, Xfers detects the transfer and tops up Jane’s Xfers account with 5000.\r\n3.  Since  `notify_url`  is provided, Xfers will send a callback to this url.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea72e25b-2340-48b1-a40d-a612603e4efd",
+          "name": "Create an Intent",
+          "request": {
+            "name": "Create an Intent",
+            "description": {
+              "content": "The following request will allow you to create a intent for a transfer and register a callback notification once a transfer has be received or expired(all intents expires in 72 hours.)\r\n\r\nUser should be prompted to transfer  `unique_amount`  amount to the  `bank_account_no`  and  `bank_name`provided. Once the user deposits with  `unique_amount`, the full amount will be credited to his account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "intents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<float>\",\n  \"currency\": \"<string>\",\n  \"request_id\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"notify_url\": \"<string>\",\n  \"disable_va\": \"false\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64e39894-115a-4e96-8494-00811f40990a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "intents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<float>\",\n  \"currency\": \"<string>\",\n  \"request_id\": \"AZ0001\",\n  \"bank\": \"BCA\",\n  \"notify_url\": \"https://mysite.com/payment_notification\",\n  \"disable_va\": \"false\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"a975f036cb4b43f3b2d1ff90040ec292\",\n  \"request_id\": \"AI1001\",\n  \"amount\": \"30000.0\",\n  \"currency\": \"IDR\",\n  \"unique_amount\": \"29999\",\n  \"bank_abbrev\": \"MANDIRI\",\n  \"bank_name\": \"Bank Mandiri\",\n  \"account_name\": \"PT Media Indonusa\",\n  \"bank_account_no\": \"8855845678901235\",\n  \"notify_url\": \"https://mysite.com/topup_notification\",\n  \"expiration_date\": \"2017-06-01T07:46:40Z\",\n  \"status\": \"pending\",\n  \"transfer_info_array\": [\n    {\n      \"bank_name_full\": \"Bank Central Asia\",\n      \"bank_name_abbreviation\": \"BCA\",\n      \"bank_account_no\": \"1063003003\",\n      \"bank_code\": \"\",\n      \"branch_code\": \"\",\n      \"branch_area\": \"\",\n      \"unique_id\": \"97266867\",\n      \"img_src\": \"https://www.xfers.io/images/bankLogos/bank-logo-bca.png\"\n    },\n    {\n      \"bank_name_full\": \"Bank Mandiri\",\n      \"bank_name_abbreviation\": \"MANDIRI\",\n      \"bank_account_no\": \"8855845678901235\",\n      \"bank_code\": \"\",\n      \"branch_code\": \"\",\n      \"branch_area\": \"\",\n      \"unique_id\": \"97266867\",\n      \"img_src\": \"https://www.xfers.io/images/bankLogos/bank-logo-mandiri.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bae83fb5-f045-466b-96c7-1a7667825b7d",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "intents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<float>\",\n  \"currency\": \"<string>\",\n  \"request_id\": \"AZ0001\",\n  \"bank\": \"BCA\",\n  \"notify_url\": \"https://mysite.com/payment_notification\",\n  \"disable_va\": \"false\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "847b3f83-b496-4fb3-bcf6-3563da646847",
+          "name": "List Current Intent",
+          "request": {
+            "name": "List Current Intent",
+            "description": {
+              "content": "Returns the current pending intent of the user. If multiple intents are created, only the last one is returned.\r\n\r\n`transfer_info_array`  is returned so you can display a list of all Xfers banks to transfer to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "intents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "disable_va",
+                  "value": "false",
+                  "description": "If true, does not return a Virtual Account for intent"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3e3234b-e96c-4fc8-a031-4d1ff421e3fb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "intents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disable_va",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"a975f036cb4b43f3b2d1ff90040ec292\",\n  \"request_id\": \"AI1001\",\n  \"amount\": \"30000.0\",\n  \"currency\": \"IDR\",\n  \"unique_amount\": \"29999\",\n  \"bank_abbrev\": \"MANDIRI\",\n  \"bank_name\": \"Bank Mandiri\",\n  \"account_name\": \"PT Media Indonusa\",\n  \"bank_account_no\": \"8855845678901235\",\n  \"notify_url\": \"https://mysite.com/topup_notification\",\n  \"expiration_date\": \"2017-06-01T07:46:40Z\",\n  \"status\": \"pending\",\n  \"transfer_info_array\": [\n    {\n      \"bank_name_full\": \"Bank Central Asia\",\n      \"bank_name_abbreviation\": \"BCA\",\n      \"bank_account_no\": \"1063003003\",\n      \"bank_code\": \"\",\n      \"branch_code\": \"\",\n      \"branch_area\": \"\",\n      \"unique_id\": \"97266867\",\n      \"img_src\": \"https://www.xfers.io/images/bankLogos/bank-logo-bca.png\"\n    },\n    {\n      \"bank_name_full\": \"Bank Mandiri\",\n      \"bank_name_abbreviation\": \"MANDIRI\",\n      \"bank_account_no\": \"8855845678901235\",\n      \"bank_code\": \"\",\n      \"branch_code\": \"\",\n      \"branch_area\": \"\",\n      \"unique_id\": \"97266867\",\n      \"img_src\": \"https://www.xfers.io/images/bankLogos/bank-logo-mandiri.png\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c85c70e1-0ae5-4a82-bab0-a0df9203dd6f",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "intents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disable_va",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dda9759e-2cef-400a-9b16-d8f3ad08e419",
+          "name": "Cancel an Intent",
+          "request": {
+            "name": "Cancel an Intent",
+            "description": {
+              "content": "Cancelling an intent that has been previously created but not yet completed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "intents",
+                ":intent_id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "intent_id",
+                  "description": "(Required) Intent ID. You can get this from the create Intent response."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-XFERS-USER-API-KEY"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97886f7e-88c8-434d-96f4-7812611e4699",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "intents",
+                    ":intent_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "intent_id",
+                      "description": "(Required) Intent ID. You can get this from the create Intent response."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"6f5f85859a51cd08c8ae113412bb72c8\",\n  \"request_id\": \"AZ0001\",\n  \"amount\": \"5000\",\n  \"currency\": \"IDR\",\n  \"amount_to_transfer\": \"4999\",\n  \"bank_name\": \"Bank Central Asia\",\n  \"bank_abbrev\": \"BCA\",\n  \"account_name\": \"Xveria Media Indonesia\",\n  \"bank_account_no\": \"0124121241\",\n  \"notify_url\": \"https://mysite.com/topup_notification\",\n  \"expiration_date\": \"2016-09-09T17:55:51Z\",\n  \"status\": \"pending\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fb75d7c-285f-471a-af0e-59aa4394b24c",
+              "name": "List of possible errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "intents",
+                    ":intent_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "intent_id",
+                      "description": "(Required) Intent ID. You can get this from the create Intent response."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-XFERS-USER-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"error_code\": \"XFE1\",\n  \"error_handling\": \"Follow instructions in the response.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4233f9ad-6387-44b4-aec7-12eaa3c5689c",
+          "name": "Intent Notification Callback",
+          "request": {
+            "name": "Intent Notification Callback",
+            "description": {
+              "content": "After intent has been verified(transfer processed)/expired by Xfers, Xfers will send a callback to the `notify_url` you provided. This is a server to server HTTPS POST and you will need to acknowledge the callback by providing a HTTP 200 status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "http",
+              "path": [
+                "v3",
+                "notify_intent_callback"
+              ],
+              "host": [
+                "yourserver",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "intent_id",
+                  "value": "<string>",
+                  "description": "Xfers’ id unique to each intent"
+                },
+                {
+                  "disabled": false,
+                  "key": "request_id",
+                  "value": "<string>",
+                  "description": "Unique ref number provided by your during your intent call"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<string>",
+                  "description": "reason for verification status. Only applicable when verification_status is false"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "U3-letter ISO code for currency(IDR/SGD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Transfer status."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e3dccc89-5ea3-4b16-ab82-2cf2bc0e366f",
+              "name": "Your server returns this code if it accepts the callback",
+              "originalRequest": {
+                "url": {
+                  "protocol": "http",
+                  "path": [
+                    "v3",
+                    "notify_intent_callback"
+                  ],
+                  "host": [
+                    "yourserver",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Xfers’ id unique to each intent",
+                        "type": "text/plain"
+                      },
+                      "key": "intent_id",
+                      "value": "6f5f85859a51cd08c8ae113412bb72c8"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique ref number provided by your during your intent call",
+                        "type": "text/plain"
+                      },
+                      "key": "request_id",
+                      "value": "A012312"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "reason for verification status. Only applicable when verification_status is false",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "Amount that user intented to transfer."
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "U3-letter ISO code for currency(IDR/SGD)",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Transfer status.",
+                        "type": "text/plain"
+                      },
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://id.xfers.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "85fcd9a4-3d31-4d4c-97a9-5d411ba16942",
+    "name": "Xfers Bank Account Intents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.\n\nContact Support:\n Name: Contact us through our help desk",
+      "type": "text/plain"
+    }
+  }
+}
