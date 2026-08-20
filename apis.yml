@@ -36,6 +36,15 @@ tags:
 - Payments
 - Fintech
 - Bank Transfers
+- Digital Wallet
+- Lending
+- Singapore
+- Indonesia
+- Southeast Asia
+tags_raw:
+- Payments
+- Fintech
+- Bank Transfers
 - Digital Wallets
 - Lending
 - Singapore
@@ -96,7 +105,8 @@ apis:
   description: The cutting_edge API from Xfers — 2 operation(s) for cutting_edge.
   humanURL: https://docs.xfers.io/Singapore
   baseURL: https://www.xfers.io/api
-  tags:
+  tags: []
+  tags_raw:
   - cutting_edge
   properties:
   - type: OpenAPI
@@ -146,6 +156,8 @@ apis:
   humanURL: https://docs.xfers.io/Singapore
   baseURL: https://www.xfers.io/api
   tags:
+  - E-Signature
+  tags_raw:
   - E-signature
   properties:
   - type: OpenAPI
