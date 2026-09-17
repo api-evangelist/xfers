@@ -162,24 +162,6 @@ apis:
     url: https://docs.xfers.io/V3/Indonesia
   - type: Documentation
     url: https://docs.xfers.io/indonesia/payment-gateway
-- aid: xfers:xfers-e-signature-api
-  name: Xfers E-signature API
-  description: API for e-signature
-  humanURL: https://docs.xfers.io/Singapore
-  baseURL: https://www.xfers.io/api
-  tags:
-  - E-Signature
-  tags_raw:
-  - E-signature
-  properties:
-  - type: OpenAPI
-    url: openapi/xfers-e-signature-api-openapi.yml
-  - type: Documentation
-    url: https://docs.xfers.io/Singapore
-  - type: Documentation
-    url: https://docs.xfers.io/V3/Indonesia
-  - type: Documentation
-    url: https://docs.xfers.io/indonesia/payment-gateway
 - aid: xfers:xfers-fixed-virtual-account-bank-transfers-api
   name: Xfers Fixed Virtual Account Bank Transfers API
   description: >-
@@ -408,6 +390,22 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/xfers-withdraw-api-openapi.yml
+  - type: Documentation
+    url: https://docs.xfers.io/Singapore
+  - type: Documentation
+    url: https://docs.xfers.io/V3/Indonesia
+  - type: Documentation
+    url: https://docs.xfers.io/indonesia/payment-gateway
+- aid: xfers:xfers-esignature-api
+  name: Xfers E Signature API
+  description: API for e-signature
+  humanURL: https://docs.xfers.io/Singapore
+  baseURL: https://www.xfers.io/api
+  tags:
+  - ESignature
+  properties:
+  - type: OpenAPI
+    url: openapi/xfers-esignature-api-openapi.yml
   - type: Documentation
     url: https://docs.xfers.io/Singapore
   - type: Documentation
