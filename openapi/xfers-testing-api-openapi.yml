@@ -1,16 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: Welcome to Xfers' API documentation. You can find information on our API endpoint specific to your country.
+  title: Xfers Testing API
   version: '3'
-  title: Xfers Bank Account Testing API
   contact:
     name: Contact us through our help desk
     url: https://bit.ly/XfersSupport
+  description: 'Operations tagged Testing across 2 of this provider''s published API definitions: xfers-indonesia-openapi.json, xfers-singapore-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - description: Indonesia Production
   url: https://id.xfers.com/api
 - description: Indonesia Sandbox for testing
   url: https://sandbox-id.xfers.com/api
+- description: Singapore Production
+  url: https://www.xfers.io/api
+- description: Singapore Sandbox for testing
+  url: https://sandbox.xfers.io/api
 tags:
 - name: Testing
   description: API for testing purposes
@@ -25,7 +29,7 @@ paths:
       operationId: mockKYCVerification
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request PATCH \"$BASE_URL/v3/user/verify\" \\\r\n  --header \"X-XFERS-USER-API-KEY: $CUSTOMER_API_KEY\" \\\r\n  --data \"\""
+        source: "curl --location --request PATCH \"$BASE_URL/v3/user/verify\" \\\n  --header \"X-XFERS-USER-API-KEY: $CUSTOMER_API_KEY\" \\\n  --data \"\""
       summary: Mock KYC Verification
       description: This API verifies the user with corresponding API KEY. This API can only be called from sandbox.
       security:
@@ -38,7 +42,12 @@ paths:
               example:
                 message: success
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/authorize/hello:
     get:
       tags:
@@ -49,7 +58,7 @@ paths:
       operationId: authorizeHello
       x-code-samples:
       - lang: Shell
-        source: "curl \"$BASE_URL/v3/authorize/hello\" \\\r\n  -H \"X-XFERS-USER-API-KEY: $CUSTOMER_API_KEY\""
+        source: "curl \"$BASE_URL/v3/authorize/hello\" \\\n  -H \"X-XFERS-USER-API-KEY: $CUSTOMER_API_KEY\""
       summary: Check Connection
       description: Use this endpoint to check connection with our server
       security:
@@ -62,7 +71,12 @@ paths:
               example:
                 msg: Hello world
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/authorize/get_mock_otp:
     get:
       tags:
@@ -73,7 +87,7 @@ paths:
       operationId: getMockOtp
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request GET \"$BASE_URL/v3/authorize/get_mock_otp?phone_no=%252B6287785725657\" \\\r\n  --header \"X-XFERS-APP-API-KEY: $CUSTOMER_API_KEY\""
+        source: "curl --location --request GET \"$BASE_URL/v3/authorize/get_mock_otp?phone_no=%252B6287785725657\" \\\n  --header \"X-XFERS-APP-API-KEY: $CUSTOMER_API_KEY\""
       summary: Get Mock OTP
       description: Get a mock OTP. This is only usable in sandbox environment
       security:
@@ -94,7 +108,12 @@ paths:
               example:
                 otp: '138558'
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/user/bank_account/withdrawal_requests/mock_result:
     put:
       operationId: mockWithdrawalResult
@@ -107,7 +126,7 @@ paths:
       description: You need to wait for a few seconds after withdrawal creation to run this API. Currently only available in Indonesia
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request PUT \"$BASE_URL/v3/user/bank_account/withdrawal_requests/mock_result\" \\\r\n  --header \"Content-Type: application/json\" \\\r\n  --header \"X-XFERS-USER-API-KEY: $CUSTOMER_API_KEY\" \\\r\n  --form \"idempotency_id=Order_1234\" \\\r\n  --form \"status=completed\""
+        source: "curl --location --request PUT \"$BASE_URL/v3/user/bank_account/withdrawal_requests/mock_result\" \\\n  --header \"Content-Type: application/json\" \\\n  --header \"X-XFERS-USER-API-KEY: $CUSTOMER_API_KEY\" \\\n  --form \"idempotency_id=Order_1234\" \\\n  --form \"status=completed\""
       security:
       - X-XFERS-USER-API-KEY: []
       requestBody:
@@ -149,7 +168,12 @@ paths:
                   value_date: null
                   created_at: '2018-11-01T17:48:42+07:00'
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/loans_mock/{id}/mocks:
     post:
       operationId: mockLoanStatus
@@ -159,7 +183,7 @@ paths:
       description: Mock the Status so you can change its status and get its callback
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request POST \"{base_url}/loans_mock/loan_457d2959cff448a1951c589f8c841946/mocks\" \\\r\n  --header \"Content-Type: application/json\" \\\r\n  --header \"X-XFERS-USER-API-KEY: {{user-api-token}}\" \\\r\n  --form \"status=loan_request_approved\""
+        source: "curl --location --request POST \"{base_url}/loans_mock/loan_457d2959cff448a1951c589f8c841946/mocks\" \\\n  --header \"Content-Type: application/json\" \\\n  --header \"X-XFERS-USER-API-KEY: {{user-api-token}}\" \\\n  --form \"status=loan_request_approved\""
       security:
       - user-api-token: []
       parameters:
@@ -207,7 +231,12 @@ paths:
                   value_date: null
                   created_at: '2018-11-01T17:48:42+07:00'
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/loans_mock/{id}/repayments/{repayment_id}/mocks:
     post:
       operationId: mockLoanRepaymentStatus
@@ -217,7 +246,7 @@ paths:
       description: Mock the Repayment Status so you can change its status and get its callback
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request POST \"{base_url}/loans_mock/loan_457d2959cff448a1951c589f8c841946/repayments/loan_repayment_ab442a2957a2468f9df4c6fe9f6b40f6/mock\" \\\r\n  --header \"Content-Type: application/json\" \\\r\n  --header \"X-XFERS-USER-API-KEY: {{user-api-token}}\" \\\r\n  --form \"status=completed\""
+        source: "curl --location --request POST \"{base_url}/loans_mock/loan_457d2959cff448a1951c589f8c841946/repayments/loan_repayment_ab442a2957a2468f9df4c6fe9f6b40f6/mock\" \\\n  --header \"Content-Type: application/json\" \\\n  --header \"X-XFERS-USER-API-KEY: {{user-api-token}}\" \\\n  --form \"status=completed\""
       security:
       - user-api-token: []
       parameters:
@@ -283,7 +312,12 @@ paths:
                   failurereason: null
                   paymentid: '1.31'
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/sandbox/reject_user:
     post:
       tags:
@@ -291,7 +325,7 @@ paths:
       operationId: mockKYCRejection
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request POST \"{base_url}/sandbox/reject_user\" \\\r\n  --header \"X-XFERS-USER-API-KEY: ARsxJCk3htNfy8ym1gKvuqQeFYgrFzXF8YpsSCL_Gnz\" \\\r\n  --data \"{\\\"reason\\\": \\\"{\"selfieQualityUnclear\":true,\"selfieQualityDark\":true}\\\"}\""
+        source: "curl --location --request POST \"{base_url}/sandbox/reject_user\" \\\n  --header \"X-XFERS-USER-API-KEY: ARsxJCk3htNfy8ym1gKvuqQeFYgrFzXF8YpsSCL_Gnz\" \\\n  --data \"{\\\"reason\\\": \\\"{\"selfieQualityUnclear\":true,\"selfieQualityDark\":true}\\\"}\""
       summary: Mock KYC Rejection
       description: This API rejects the user with corresponding API KEY. This API can only be called from sandbox.
       security:
@@ -317,7 +351,12 @@ paths:
                 verification_status: rejected
                 reject_reason: '{"selfieQualityUnclear":true,"selfieQualityDark":true}'
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
   /v3/sandbox/mock_user_with_ocr:
     post:
       tags:
@@ -325,7 +364,7 @@ paths:
       operationId: mockUserWithOCR
       x-code-samples:
       - lang: Shell
-        source: "curl --location --request POST \"{base_url}/sandbox/mock_user_with_ocr\" \\\r\n  --header \"Content-Type: application/json\" \\\r\n  --header \"X-XFERS-APP-API-KEY: ARsxJCk3htNfy8ym1gKvuqQeFYgrFzXF8YpsSCL_Gnz\" \\\r\n  --data \"{\\\"email\\\": \\\"081234567891@xfers.io\\\", \\\"facial_recognition_percentage\\\": 70.2, \\\"ktp_ocr_valid\\\": true}\r\n\r\n\""
+        source: "curl --location --request POST \"{base_url}/sandbox/mock_user_with_ocr\" \\\n  --header \"Content-Type: application/json\" \\\n  --header \"X-XFERS-APP-API-KEY: ARsxJCk3htNfy8ym1gKvuqQeFYgrFzXF8YpsSCL_Gnz\" \\\n  --data \"{\\\"email\\\": \\\"081234567891@xfers.io\\\", \\\"facial_recognition_percentage\\\": 70.2, \\\"ktp_ocr_valid\\\": true}\n\n\""
       summary: Mock User with OCR
       description: This API mocks a user creation with OCR and FR data. This API can only be called from sandbox.
       security:
@@ -393,56 +432,85 @@ paths:
                   user_wallet_id: null
                   account_id: 1749950
         4XX:
-          $ref: '#/components/responses/v3Error:4XX'
+          $ref: '#/components/responses/v3Error_4XX'
+    servers:
+    - description: Indonesia Production
+      url: https://id.xfers.com/api
+    - description: Indonesia Sandbox for testing
+      url: https://sandbox-id.xfers.com/api
 components:
   examples:
-    XFE403:
-      summary: XFE403 - ...
+    XFE303:
+      summary: XFE303 - Account terminated
       value:
         error: string
-        error_code: XFE403
-        error_handling: '...'
-    XFE111:
-      summary: XFE1 - Duplicate credentials
+        error_code: XFE303
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE406:
+      summary: XFE406 - Cannot refund prepaid transaction
       value:
         error: string
-        error_code: XFE111
-        error_handling: Particulars already exist. Please make sure you entered the correct parameters.
-    XFE3:
-      summary: XFE3 - Internal Error
+        error_code: XFE406
+        error_handling: Please choose another transaction to refund.
+    XFE6:
+      summary: XFE6 - Invalid signature
       value:
         error: string
-        error_code: XFE3
-        error_handling: Unexpected error. Try again later or contact customer support at https://bit.ly/XfersSupport.
-    XFE312:
-      summary: XFE312 - Conditions not met to close account
+        error_code: XFE6
+        error_handling: Follow instructions in the response.
+    XFE401:
+      summary: XFE401 - Cannot refund charge
       value:
         error: string
-        error_code: XFE312
-        error_handling: Invalid request to close account. Follow instruction in the response.
-    XFE1:
-      summary: XFE1 - Server busy
+        error_code: XFE401
+        error_handling: Invalid request. Please call another API or Contact customer support at https://bit.ly/XfersSupport.
+    XFE10:
+      summary: XFE10 - Invalid environment
+      value:
+        error: string
+        error_code: XFE10
+        error_handling: Request not supported for this environment.
+    XFE13:
+      summary: XFE13 - Record not found
+      value:
+        error: string
+        error_code: XFE13
+        error_handling: Please check that you provided the correct API Key and the correct parameters.
+    XFE603:
+      summary: XFE603 - Not allowed to carry out request
+      value:
+        error: string
+        error_code: XFE603
+        error_handling: Invalid request. Please call another API or contact customer support at https://bit.ly/XfersSupport.
+    XFE402:
+      summary: XFE402 - Cannot use placeholder account
+      value:
+        error: string
+        error_code: XFE402
+        error_handling: Follow instructions in response.
+    XFE505:
+      summary: XFE505 - Bank abbrev provided invalid
+      value:
+        error: string
+        error_code: XFE505
+        error_handling: Use GET {{base-api-url}}api/v3/banks to get the correct bank abbrev.
+    XFE503:
+      summary: XFE503 - Failed name check
+      value:
+        error: string
+        error_code: XFE503
+        error_handling: Bank account name and name provided have to be similar.
+    XFE302:
+      summary: XFE302 - Account deleted
+      value:
+        error: string
+        error_code: XFE302
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE105:
+      summary: XFE105 - Captcha error
       value:
         error: string
         error_code: XFE1
-        error_handling: Follow instructions in the response.
-    XFE311:
-      summary: XFE311 - Cannot be different wallet type
-      value:
-        error: string
-        error_code: XFE311
-        error_handling: Follow instruction in response or contact customer support at https://bit.ly/XfersSupport.
-    XFE301:
-      summary: XFE301 - Account locked
-      value:
-        error: string
-        error_code: XFE301
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE108:
-      summary: XFE108 - More user information required
-      value:
-        error: string
-        error_code: XFE108
         error_handling: Follow instructions in the response.
     XFE107:
       summary: XFE107 - Only enter one auth_code
@@ -450,312 +518,288 @@ components:
         error: string
         error_code: XFE107
         error_handling: Do not enter both OTP or Google Auth OTP. Only need to enter one.
-    XFE402:
-      summary: XFE402 - Cannot use placeholder account
-      value:
-        error: string
-        error_code: XFE402
-        error_handling: Follow instructions in response.
-    XFE502:
-      summary: XFE502 - Unexpected BANK API error
-      value:
-        error: string
-        error_code: XFE502
-        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
-    XFE106:
-      summary: XFE106 - No auth_code provided
-      value:
-        error: string
-        error_code: XFE106
-        error_handling: Enter either phone OTP or Google Auth OTP
-    XFE407:
-      summary: XFE407 - Conditions to charge card not met
-      value:
-        error: string
-        error_code: XFE407
-        error_handling: Invalid request for this transaction. Make sure you entered the correct txn_id.
-    XFE409:
-      summary: XFE409 - Order id exist
-      value:
-        error: string
-        error_code: XFE409
-        error_handling: Please enter another order_id.
-    XFE105:
-      summary: XFE105 - Captcha error
-      value:
-        error: string
-        error_code: XFE1
-        error_handling: Follow instructions in the response.
-    XFE404:
-      summary: XFE404 - Forex not supported
-      value:
-        error: string
-        error_code: XFE404
-        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
-    XFE102:
-      summary: XFE102 - Entered value is less than minimum
-      value:
-        error: string
-        error_code: XFE102
-        error_handling: Make sure you entered the correct number.
-    XFE109:
-      summary: XFE109 - Invalid credentials
-      value:
-        error: string
-        error_code: XFE109
-        error_handling: Make sure you entered the correct credentials.
-    XFE104:
-      summary: XFE104 - Media provided too large
-      value:
-        error: string
-        error_code: XFE104
-        error_handling: Media too big. Follow the guidelines in the response.
-    XFE15:
-      summary: XFE15 - Required parameter empty
-      value:
-        error: string
-        error_code: XFE15
-        error_handling: Make sure you entered the correct required parameter.
-    XFE14:
-      summary: XFE14 - API only allowed for fully verified user
-      value:
-        error: string
-        error_code: XFE14
-        error_handling: Please submit KYC data to get your account fully verified.
-    XFE2:
-      summary: XFE2 - Access denied
-      value:
-        error: string
-        error_code: XFE2
-        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
-    XFE506:
-      summary: XFE506 - Bank account already taken
-      value:
-        error: string
-        error_code: XFE506
-        error_handling: Please use another bank account.
-    XFE309:
-      summary: XFE309 - Cannot use same account
-      value:
-        error: string
-        error_code: XFE309
-        error_handling: Follow instructions in the response.
-    XFE13:
-      summary: XFE13 - Record not found
-      value:
-        error: string
-        error_code: XFE13
-        error_handling: Please check that you provided the correct API Key and the correct parameters.
-    XFE8:
-      summary: XFE8 - Cannot retrieve media
-      value:
-        error: string
-        error_code: XFE8
-        error_handling: Cannot retrieve media. Please enter a new URL or try again later.
-    XFE7:
-      summary: XFE7 - Database error
-      value:
-        error: string
-        error_code: XFE7
-        error_handling: Follow instructions in the response.
-    XFE408:
-      summary: XFE408 - Invalid charge request
-      value:
-        error: string
-        error_code: XFE408
-        error_handling: Invalid request. Please follow instructions in response or contact customer support at https://bit.ly/XfersSupport.
-    XFE302:
-      summary: XFE302 - Account deleted
-      value:
-        error: string
-        error_code: XFE302
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE201:
-      summary: XFE201 - Not yet a merchant
-      value:
-        error: string
-        error_code: XFE201
-        error_handling: Please verify your merchant or business account.
-    XFE103:
-      summary: XFE103 - ...
-      value:
-        error: string
-        error_code: XFE103
-        error_handling: Follow instructions in the response.
-    XFE406:
-      summary: XFE406 - Cannot refund prepaid transaction
-      value:
-        error: string
-        error_code: XFE406
-        error_handling: Please choose another transaction to refund.
-    XFE401:
-      summary: XFE401 - Cannot refund charge
-      value:
-        error: string
-        error_code: XFE401
-        error_handling: Invalid request. Please call another API or Contact customer support at https://bit.ly/XfersSupport.
-    XFE503:
-      summary: XFE503 - Failed name check
-      value:
-        error: string
-        error_code: XFE503
-        error_handling: Bank account name and name provided have to be similar.
-    XFE410:
-      summary: XFE410 - Invalid application fee
-      value:
-        error: string
-        error_code: XFE410
-        error_handling: Invalid request. Please make changes to the parameters as stated in the response.
-    XFE304:
-      summary: XFE304- Account closed
-      value:
-        error: string
-        error_code: XFE304
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE110:
-      summary: XFE110 - Cannot sign up twice
-      value:
-        error: string
-        error_code: XFE110
-        error_handling: Please sign in instead
-    XFE504:
-      summary: XFE504 - Maximum number of bank account
-      value:
-        error: string
-        error_code: XFE504
-        error_handling: Delete existing bank accounts.
     XFE16:
       summary: XFE16 - Invalid request
       value:
         error: string
         error_code: XFE16
         error_handling: API request not supported. Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport.
-    XFE310:
-      summary: XFE310 - Cannot use same account
+    XFE2:
+      summary: XFE2 - Access denied
       value:
         error: string
-        error_code: XFE310
-        error_handling: Follow instructions in the response.
-    XFE9:
-      summary: XFE9 - ....
-      value:
-        error: string
-        error_code: XFE9
-        error_handling: '...'
-    XFE601:
-      summary: XFE601 - Conditions to withdraw not met. Can be solved by changing amount
-      value:
-        error: string
-        error_code: XFE601
-        error_handling: Your withdrawal does not meet the conditions required. Please follow the instructions in the response.
-    XFE10:
-      summary: XFE10 - Invalid environment
-      value:
-        error: string
-        error_code: XFE10
-        error_handling: Request not supported for this environment.
-    XFE4:
-      summary: XFE4 - Authentication field empty
-      value:
-        error: string
-        error_code: XFE4
-        error_handling: Follow instructions in the response.
-    XFE307:
-      summary: XFE307 - ...
-      value:
-        error: string
-        error_code: XFE307
-        error_handling: '...'
-    XFE303:
-      summary: XFE303 - Account terminated
-      value:
-        error: string
-        error_code: XFE303
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE101:
-      summary: XFE101 - Not local number
-      value:
-        error: string
-        error_code: XFE101
-        error_handling: Follow instructions in the response.
-    XFE405:
-      summary: XFE405 - Charge cannot be refunded
-      value:
-        error: string
-        error_code: XFE405
-        error_handling: Only completed contract can be refunded.
-    XFE505:
-      summary: XFE505 - Bank abbrev provided invalid
-      value:
-        error: string
-        error_code: XFE505
-        error_handling: Use GET {{base-api-url}}api/v3/banks to get the correct bank abbrev.
-    XFE6:
-      summary: XFE6 - Invalid signature
-      value:
-        error: string
-        error_code: XFE6
-        error_handling: Follow instructions in the response.
+        error_code: XFE2
+        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
     XFE5:
       summary: XFE5 - Api key is invalid
       value:
         error: string
         error_code: XFE5
         error_handling: Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport
-    XFE603:
-      summary: XFE603 - Not allowed to carry out request
+    XFE103:
+      summary: XFE103 - ...
       value:
         error: string
-        error_code: XFE603
-        error_handling: Invalid request. Please call another API or contact customer support at https://bit.ly/XfersSupport.
-    XFE12:
-      summary: XFE12 - Invalid parameter
+        error_code: XFE103
+        error_handling: Follow instructions in the response.
+    XFE312:
+      summary: XFE312 - Conditions not met to close account
       value:
         error: string
-        error_code: XFE12
-        error_handling: Make sure you entered the correct parameters.
-    XFE306:
-      summary: XFE306 - ...
+        error_code: XFE312
+        error_handling: Invalid request to close account. Follow instruction in the response.
+    XFE108:
+      summary: XFE108 - More user information required
       value:
         error: string
-        error_code: XFE306
-        error_handling: '...'
-    XFE602:
-      summary: XFE602 - Server busy
+        error_code: XFE108
+        error_handling: Follow instructions in the response.
+    XFE301:
+      summary: XFE301 - Account locked
       value:
         error: string
-        error_code: XFE602
-        error_handling: Your withdrawal exceeds the limit for the time period. Please change the amount or verify your account.
-    XFE11:
-      summary: XFE11 - Timeout
+        error_code: XFE301
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE1:
+      summary: XFE1 - Server busy
       value:
         error: string
-        error_code: XFE11
-        error_handling: Please try again later.
-    XFE308:
-      summary: XFE308 - ...
-      value:
-        error: string
-        error_code: XFE308
-        error_handling: '...'
-    XFE501:
-      summary: XFE501 - Expected Bank API error
-      value:
-        error: string
-        error_code: XFE501
-        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
+        error_code: XFE1
+        error_handling: Follow instructions in the response.
     XFE112:
       summary: XFE112 - Repeat request
       value:
         error: string
         error_code: XFE112
         error_handling: API request has already been made. Please follow the instructions in the response or call aother API.
+    XFE501:
+      summary: XFE501 - Expected Bank API error
+      value:
+        error: string
+        error_code: XFE501
+        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE110:
+      summary: XFE110 - Cannot sign up twice
+      value:
+        error: string
+        error_code: XFE110
+        error_handling: Please sign in instead
+    XFE408:
+      summary: XFE408 - Invalid charge request
+      value:
+        error: string
+        error_code: XFE408
+        error_handling: Invalid request. Please follow instructions in response or contact customer support at https://bit.ly/XfersSupport.
+    XFE405:
+      summary: XFE405 - Charge cannot be refunded
+      value:
+        error: string
+        error_code: XFE405
+        error_handling: Only completed contract can be refunded.
+    XFE311:
+      summary: XFE311 - Cannot be different wallet type
+      value:
+        error: string
+        error_code: XFE311
+        error_handling: Follow instruction in response or contact customer support at https://bit.ly/XfersSupport.
+    XFE14:
+      summary: XFE14 - API only allowed for fully verified user
+      value:
+        error: string
+        error_code: XFE14
+        error_handling: Please submit KYC data to get your account fully verified.
+    XFE12:
+      summary: XFE12 - Invalid parameter
+      value:
+        error: string
+        error_code: XFE12
+        error_handling: Make sure you entered the correct parameters.
+    XFE3:
+      summary: XFE3 - Internal Error
+      value:
+        error: string
+        error_code: XFE3
+        error_handling: Unexpected error. Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE306:
+      summary: XFE306 - ...
+      value:
+        error: string
+        error_code: XFE306
+        error_handling: '...'
+    XFE7:
+      summary: XFE7 - Database error
+      value:
+        error: string
+        error_code: XFE7
+        error_handling: Follow instructions in the response.
+    XFE506:
+      summary: XFE506 - Bank account already taken
+      value:
+        error: string
+        error_code: XFE506
+        error_handling: Please use another bank account.
+    XFE601:
+      summary: XFE601 - Conditions to withdraw not met. Can be solved by changing amount
+      value:
+        error: string
+        error_code: XFE601
+        error_handling: Your withdrawal does not meet the conditions required. Please follow the instructions in the response.
+    XFE407:
+      summary: XFE407 - Conditions to charge card not met
+      value:
+        error: string
+        error_code: XFE407
+        error_handling: Invalid request for this transaction. Make sure you entered the correct txn_id.
+    XFE9:
+      summary: XFE9 - ....
+      value:
+        error: string
+        error_code: XFE9
+        error_handling: '...'
+    XFE304:
+      summary: XFE304- Account closed
+      value:
+        error: string
+        error_code: XFE304
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE109:
+      summary: XFE109 - Invalid credentials
+      value:
+        error: string
+        error_code: XFE109
+        error_handling: Make sure you entered the correct credentials.
+    XFE602:
+      summary: XFE602 - Server busy
+      value:
+        error: string
+        error_code: XFE602
+        error_handling: Your withdrawal exceeds the limit for the time period. Please change the amount or verify your account.
+    XFE106:
+      summary: XFE106 - No auth_code provided
+      value:
+        error: string
+        error_code: XFE106
+        error_handling: Enter either phone OTP or Google Auth OTP
+    XFE101:
+      summary: XFE101 - Not local number
+      value:
+        error: string
+        error_code: XFE101
+        error_handling: Follow instructions in the response.
+    XFE309:
+      summary: XFE309 - Cannot use same account
+      value:
+        error: string
+        error_code: XFE309
+        error_handling: Follow instructions in the response.
+    XFE11:
+      summary: XFE11 - Timeout
+      value:
+        error: string
+        error_code: XFE11
+        error_handling: Please try again later.
+    XFE111:
+      summary: XFE1 - Duplicate credentials
+      value:
+        error: string
+        error_code: XFE111
+        error_handling: Particulars already exist. Please make sure you entered the correct parameters.
+    XFE15:
+      summary: XFE15 - Required parameter empty
+      value:
+        error: string
+        error_code: XFE15
+        error_handling: Make sure you entered the correct required parameter.
     XFE305:
       summary: XFE305 - ....
       value:
         error: string
         error_code: XFE305
         error_handling: '...'
+    XFE308:
+      summary: XFE308 - ...
+      value:
+        error: string
+        error_code: XFE308
+        error_handling: '...'
+    XFE4:
+      summary: XFE4 - Authentication field empty
+      value:
+        error: string
+        error_code: XFE4
+        error_handling: Follow instructions in the response.
+    XFE104:
+      summary: XFE104 - Media provided too large
+      value:
+        error: string
+        error_code: XFE104
+        error_handling: Media too big. Follow the guidelines in the response.
+    XFE404:
+      summary: XFE404 - Forex not supported
+      value:
+        error: string
+        error_code: XFE404
+        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
+    XFE410:
+      summary: XFE410 - Invalid application fee
+      value:
+        error: string
+        error_code: XFE410
+        error_handling: Invalid request. Please make changes to the parameters as stated in the response.
+    XFE409:
+      summary: XFE409 - Order id exist
+      value:
+        error: string
+        error_code: XFE409
+        error_handling: Please enter another order_id.
+    XFE403:
+      summary: XFE403 - ...
+      value:
+        error: string
+        error_code: XFE403
+        error_handling: '...'
+    XFE8:
+      summary: XFE8 - Cannot retrieve media
+      value:
+        error: string
+        error_code: XFE8
+        error_handling: Cannot retrieve media. Please enter a new URL or try again later.
+    XFE201:
+      summary: XFE201 - Not yet a merchant
+      value:
+        error: string
+        error_code: XFE201
+        error_handling: Please verify your merchant or business account.
+    XFE102:
+      summary: XFE102 - Entered value is less than minimum
+      value:
+        error: string
+        error_code: XFE102
+        error_handling: Make sure you entered the correct number.
+    XFE504:
+      summary: XFE504 - Maximum number of bank account
+      value:
+        error: string
+        error_code: XFE504
+        error_handling: Delete existing bank accounts.
+    XFE307:
+      summary: XFE307 - ...
+      value:
+        error: string
+        error_code: XFE307
+        error_handling: '...'
+    XFE502:
+      summary: XFE502 - Unexpected BANK API error
+      value:
+        error: string
+        error_code: XFE502
+        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE310:
+      summary: XFE310 - Cannot use same account
+      value:
+        error: string
+        error_code: XFE310
+        error_handling: Follow instructions in the response.
   schemas:
     error_response:
       type: object
@@ -770,7 +814,7 @@ components:
           description: Instruction on how to handle error. Refer to Error Codes tag for more information.
           type: string
   responses:
-    v3Error:4XX:
+    v3Error_4XX:
       description: List of possible errors
       content:
         application/json:
@@ -898,14 +942,31 @@ components:
             XFE603:
               $ref: '#/components/examples/XFE603'
   securitySchemes:
+    X-XFERS-APP-API-KEY:
+      type: apiKey
+      name: X-XFERS-APP-API-KEY
+      in: header
+      description: You can retrieve this from your merchant's dashboard
     X-XFERS-USER-API-KEY:
       type: apiKey
       name: X-XFERS-USER-API-KEY
       in: header
       description: You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)
-externalDocs:
-  description: Find out more about Xfers
-  url: https://id.xfers.com
+    user-api-token:
+      type: apiKey
+      name: X-XFERS-USER-API-KEY
+      in: query
+      description: You can retrieve this by using [get_token API](../sg/api/cutting-edge#operation/getToken)
+    v4XfersAuth:
+      name: v4XfersAuth
+      type: http
+      scheme: bearer
+      in: header
+      bearerFormat: xfers_api_token
+      description: "You can retrieve this from the dashboard. For instance: \n\n```\n\nAuthorization: Bearer <xfers_api_token>\n\n```\n\n"
+x-refined-from:
+- xfers-indonesia-openapi.json
+- xfers-singapore-openapi.json
 x-tagGroups:
 - name: User Management
   tags:
