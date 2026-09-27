@@ -113,7 +113,7 @@ apis:
   - type: Documentation
     url: https://docs.xfers.io/indonesia/payment-gateway
 - aid: xfers:xfers-cutting-edge-api
-  name: Xfers cutting_edge API
+  name: Xfers Cutting Edge API
   description: The cutting_edge API from Xfers — 2 operation(s) for cutting_edge.
   humanURL: https://docs.xfers.io/Singapore
   baseURL: https://www.xfers.io/api
@@ -402,8 +402,6 @@ apis:
   humanURL: https://docs.xfers.io/Singapore
   baseURL: https://www.xfers.io/api
   tags:
-  - E-Signature
-  tags_raw:
   - ESignature
   properties:
   - type: OpenAPI

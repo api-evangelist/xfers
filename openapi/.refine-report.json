@@ -28,7 +28,9 @@
     "xfers-fixed-virtual-account-bank-transfers-api-openapi.yml",
     "xfers-cutting-edge-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -59,7 +61,8 @@
     "tag 'Withdraw' spans 2 source specs (xfers-indonesia-openapi.json, xfers-singapore-openapi.json): per-path servers applied",
     "tag 'Modify Payments' spans 2 source specs (xfers-indonesia-payment-gateway-unique-amount-openapi.json, xfers-indonesia-payment-gateway-va-cvs-openapi.json): per-path servers applied",
     "tag 'Payment Queries' spans 2 source specs (xfers-indonesia-payment-gateway-unique-amount-openapi.json, xfers-indonesia-payment-gateway-va-cvs-openapi.json): per-path servers applied",
-    "apis.yml register: already-registered"
+    "superseded outputs removed: xfers-esignature-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 20 total)"
   ],
   "skipped": [
     "xfers-bank-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -68,7 +71,7 @@
     "xfers-cutting-edge-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "xfers-direct-bank-transfer-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "xfers-disbursements-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "xfers-e-signature-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "xfers-esignature-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "xfers-fixed-virtual-account-bank-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "xfers-intents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "xfers-loans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
