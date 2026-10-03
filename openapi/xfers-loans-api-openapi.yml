@@ -297,139 +297,267 @@ paths:
         4XX:
           $ref: '#/components/responses/v3Error_4XX'
 components:
+  responses:
+    v3Error_4XX:
+      description: List of possible errors
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error_response'
+          examples:
+            XFE1:
+              $ref: '#/components/examples/XFE1'
+            XFE2:
+              $ref: '#/components/examples/XFE2'
+            XFE3:
+              $ref: '#/components/examples/XFE3'
+            XFE4:
+              $ref: '#/components/examples/XFE4'
+            XFE5:
+              $ref: '#/components/examples/XFE5'
+            XFE6:
+              $ref: '#/components/examples/XFE6'
+            XFE7:
+              $ref: '#/components/examples/XFE7'
+            XFE8:
+              $ref: '#/components/examples/XFE8'
+            XFE9:
+              $ref: '#/components/examples/XFE9'
+            XFE10:
+              $ref: '#/components/examples/XFE10'
+            XFE11:
+              $ref: '#/components/examples/XFE11'
+            XFE12:
+              $ref: '#/components/examples/XFE12'
+            XFE13:
+              $ref: '#/components/examples/XFE13'
+            XFE14:
+              $ref: '#/components/examples/XFE14'
+            XFE15:
+              $ref: '#/components/examples/XFE15'
+            XFE16:
+              $ref: '#/components/examples/XFE16'
+            XFE101:
+              $ref: '#/components/examples/XFE101'
+            XFE102:
+              $ref: '#/components/examples/XFE102'
+            XFE103:
+              $ref: '#/components/examples/XFE103'
+            XFE104:
+              $ref: '#/components/examples/XFE104'
+            XFE105:
+              $ref: '#/components/examples/XFE105'
+            XFE106:
+              $ref: '#/components/examples/XFE106'
+            XFE107:
+              $ref: '#/components/examples/XFE107'
+            XFE108:
+              $ref: '#/components/examples/XFE108'
+            XFE109:
+              $ref: '#/components/examples/XFE109'
+            XFE110:
+              $ref: '#/components/examples/XFE110'
+            XFE111:
+              $ref: '#/components/examples/XFE111'
+            XFE112:
+              $ref: '#/components/examples/XFE112'
+            XFE201:
+              $ref: '#/components/examples/XFE201'
+            XFE301:
+              $ref: '#/components/examples/XFE301'
+            XFE302:
+              $ref: '#/components/examples/XFE302'
+            XFE303:
+              $ref: '#/components/examples/XFE303'
+            XFE304:
+              $ref: '#/components/examples/XFE304'
+            XFE305:
+              $ref: '#/components/examples/XFE305'
+            XFE306:
+              $ref: '#/components/examples/XFE306'
+            XFE307:
+              $ref: '#/components/examples/XFE307'
+            XFE308:
+              $ref: '#/components/examples/XFE308'
+            XFE309:
+              $ref: '#/components/examples/XFE309'
+            XFE310:
+              $ref: '#/components/examples/XFE310'
+            XFE311:
+              $ref: '#/components/examples/XFE311'
+            XFE312:
+              $ref: '#/components/examples/XFE312'
+            XFE401:
+              $ref: '#/components/examples/XFE401'
+            XFE402:
+              $ref: '#/components/examples/XFE402'
+            XFE403:
+              $ref: '#/components/examples/XFE403'
+            XFE404:
+              $ref: '#/components/examples/XFE404'
+            XFE405:
+              $ref: '#/components/examples/XFE405'
+            XFE406:
+              $ref: '#/components/examples/XFE406'
+            XFE407:
+              $ref: '#/components/examples/XFE407'
+            XFE408:
+              $ref: '#/components/examples/XFE408'
+            XFE409:
+              $ref: '#/components/examples/XFE409'
+            XFE410:
+              $ref: '#/components/examples/XFE410'
+            XFE501:
+              $ref: '#/components/examples/XFE501'
+            XFE502:
+              $ref: '#/components/examples/XFE502'
+            XFE503:
+              $ref: '#/components/examples/XFE503'
+            XFE504:
+              $ref: '#/components/examples/XFE504'
+            XFE505:
+              $ref: '#/components/examples/XFE505'
+            XFE506:
+              $ref: '#/components/examples/XFE506'
+            XFE601:
+              $ref: '#/components/examples/XFE601'
+            XFE602:
+              $ref: '#/components/examples/XFE602'
+            XFE603:
+              $ref: '#/components/examples/XFE603'
   examples:
-    XFE2:
-      summary: XFE2 - Access denied
-      value:
-        error: string
-        error_code: XFE2
-        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
-    XFE112:
-      summary: XFE112 - Repeat request
-      value:
-        error: string
-        error_code: XFE112
-        error_handling: API request has already been made. Please follow the instructions in the response or call aother API.
-    XFE101:
-      summary: XFE101 - Not local number
-      value:
-        error: string
-        error_code: XFE101
-        error_handling: Follow instructions in the response.
-    XFE6:
-      summary: XFE6 - Invalid signature
-      value:
-        error: string
-        error_code: XFE6
-        error_handling: Follow instructions in the response.
-    XFE312:
-      summary: XFE312 - Conditions not met to close account
-      value:
-        error: string
-        error_code: XFE312
-        error_handling: Invalid request to close account. Follow instruction in the response.
-    XFE4:
-      summary: XFE4 - Authentication field empty
-      value:
-        error: string
-        error_code: XFE4
-        error_handling: Follow instructions in the response.
-    XFE603:
-      summary: XFE603 - Not allowed to carry out request
-      value:
-        error: string
-        error_code: XFE603
-        error_handling: Invalid request. Please call another API or contact customer support at https://bit.ly/XfersSupport.
-    XFE309:
-      summary: XFE309 - Cannot use same account
-      value:
-        error: string
-        error_code: XFE309
-        error_handling: Follow instructions in the response.
-    XFE306:
-      summary: XFE306 - ...
-      value:
-        error: string
-        error_code: XFE306
-        error_handling: '...'
-    XFE301:
-      summary: XFE301 - Account locked
-      value:
-        error: string
-        error_code: XFE301
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE102:
-      summary: XFE102 - Entered value is less than minimum
-      value:
-        error: string
-        error_code: XFE102
-        error_handling: Make sure you entered the correct number.
-    XFE403:
-      summary: XFE403 - ...
-      value:
-        error: string
-        error_code: XFE403
-        error_handling: '...'
-    XFE5:
-      summary: XFE5 - Api key is invalid
-      value:
-        error: string
-        error_code: XFE5
-        error_handling: Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport
-    XFE7:
-      summary: XFE7 - Database error
-      value:
-        error: string
-        error_code: XFE7
-        error_handling: Follow instructions in the response.
-    XFE501:
-      summary: XFE501 - Expected Bank API error
-      value:
-        error: string
-        error_code: XFE501
-        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
-    XFE410:
-      summary: XFE410 - Invalid application fee
-      value:
-        error: string
-        error_code: XFE410
-        error_handling: Invalid request. Please make changes to the parameters as stated in the response.
-    XFE111:
-      summary: XFE1 - Duplicate credentials
-      value:
-        error: string
-        error_code: XFE111
-        error_handling: Particulars already exist. Please make sure you entered the correct parameters.
-    XFE8:
-      summary: XFE8 - Cannot retrieve media
-      value:
-        error: string
-        error_code: XFE8
-        error_handling: Cannot retrieve media. Please enter a new URL or try again later.
-    XFE601:
-      summary: XFE601 - Conditions to withdraw not met. Can be solved by changing amount
-      value:
-        error: string
-        error_code: XFE601
-        error_handling: Your withdrawal does not meet the conditions required. Please follow the instructions in the response.
-    XFE506:
-      summary: XFE506 - Bank account already taken
-      value:
-        error: string
-        error_code: XFE506
-        error_handling: Please use another bank account.
     XFE502:
       summary: XFE502 - Unexpected BANK API error
       value:
         error: string
         error_code: XFE502
         error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
-    XFE602:
-      summary: XFE602 - Server busy
+    XFE108:
+      summary: XFE108 - More user information required
       value:
         error: string
-        error_code: XFE602
-        error_handling: Your withdrawal exceeds the limit for the time period. Please change the amount or verify your account.
+        error_code: XFE108
+        error_handling: Follow instructions in the response.
+    XFE2:
+      summary: XFE2 - Access denied
+      value:
+        error: string
+        error_code: XFE2
+        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
+    XFE4:
+      summary: XFE4 - Authentication field empty
+      value:
+        error: string
+        error_code: XFE4
+        error_handling: Follow instructions in the response.
+    XFE406:
+      summary: XFE406 - Cannot refund prepaid transaction
+      value:
+        error: string
+        error_code: XFE406
+        error_handling: Please choose another transaction to refund.
+    XFE14:
+      summary: XFE14 - API only allowed for fully verified user
+      value:
+        error: string
+        error_code: XFE14
+        error_handling: Please submit KYC data to get your account fully verified.
+    XFE303:
+      summary: XFE303 - Account terminated
+      value:
+        error: string
+        error_code: XFE303
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE304:
+      summary: XFE304- Account closed
+      value:
+        error: string
+        error_code: XFE304
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE501:
+      summary: XFE501 - Expected Bank API error
+      value:
+        error: string
+        error_code: XFE501
+        error_handling: Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE408:
+      summary: XFE408 - Invalid charge request
+      value:
+        error: string
+        error_code: XFE408
+        error_handling: Invalid request. Please follow instructions in response or contact customer support at https://bit.ly/XfersSupport.
+    XFE13:
+      summary: XFE13 - Record not found
+      value:
+        error: string
+        error_code: XFE13
+        error_handling: Please check that you provided the correct API Key and the correct parameters.
+    XFE306:
+      summary: XFE306 - ...
+      value:
+        error: string
+        error_code: XFE306
+        error_handling: '...'
+    XFE3:
+      summary: XFE3 - Internal Error
+      value:
+        error: string
+        error_code: XFE3
+        error_handling: Unexpected error. Try again later or contact customer support at https://bit.ly/XfersSupport.
+    XFE401:
+      summary: XFE401 - Cannot refund charge
+      value:
+        error: string
+        error_code: XFE401
+        error_handling: Invalid request. Please call another API or Contact customer support at https://bit.ly/XfersSupport.
+    XFE404:
+      summary: XFE404 - Forex not supported
+      value:
+        error: string
+        error_code: XFE404
+        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
+    XFE305:
+      summary: XFE305 - ....
+      value:
+        error: string
+        error_code: XFE305
+        error_handling: '...'
+    XFE12:
+      summary: XFE12 - Invalid parameter
+      value:
+        error: string
+        error_code: XFE12
+        error_handling: Make sure you entered the correct parameters.
+    XFE409:
+      summary: XFE409 - Order id exist
+      value:
+        error: string
+        error_code: XFE409
+        error_handling: Please enter another order_id.
+    XFE9:
+      summary: XFE9 - ....
+      value:
+        error: string
+        error_code: XFE9
+        error_handling: '...'
+    XFE603:
+      summary: XFE603 - Not allowed to carry out request
+      value:
+        error: string
+        error_code: XFE603
+        error_handling: Invalid request. Please call another API or contact customer support at https://bit.ly/XfersSupport.
+    XFE6:
+      summary: XFE6 - Invalid signature
+      value:
+        error: string
+        error_code: XFE6
+        error_handling: Follow instructions in the response.
+    XFE104:
+      summary: XFE104 - Media provided too large
+      value:
+        error: string
+        error_code: XFE104
+        error_handling: Media too big. Follow the guidelines in the response.
     XFE402:
       summary: XFE402 - Cannot use placeholder account
       value:
@@ -442,186 +570,78 @@ components:
         error: string
         error_code: XFE407
         error_handling: Invalid request for this transaction. Make sure you entered the correct txn_id.
-    XFE106:
-      summary: XFE106 - No auth_code provided
+    XFE301:
+      summary: XFE301 - Account locked
       value:
         error: string
-        error_code: XFE106
-        error_handling: Enter either phone OTP or Google Auth OTP
-    XFE404:
-      summary: XFE404 - Forex not supported
-      value:
-        error: string
-        error_code: XFE404
-        error_handling: Make sure you call the correct API or contact customer support at https://bit.ly/XfersSupport.
+        error_code: XFE301
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
     XFE103:
       summary: XFE103 - ...
       value:
         error: string
         error_code: XFE103
         error_handling: Follow instructions in the response.
-    XFE305:
-      summary: XFE305 - ....
+    XFE506:
+      summary: XFE506 - Bank account already taken
       value:
         error: string
-        error_code: XFE305
-        error_handling: '...'
-    XFE409:
-      summary: XFE409 - Order id exist
-      value:
-        error: string
-        error_code: XFE409
-        error_handling: Please enter another order_id.
-    XFE107:
-      summary: XFE107 - Only enter one auth_code
-      value:
-        error: string
-        error_code: XFE107
-        error_handling: Do not enter both OTP or Google Auth OTP. Only need to enter one.
-    XFE11:
-      summary: XFE11 - Timeout
-      value:
-        error: string
-        error_code: XFE11
-        error_handling: Please try again later.
-    XFE1:
-      summary: XFE1 - Server busy
-      value:
-        error: string
-        error_code: XFE1
-        error_handling: Follow instructions in the response.
-    XFE504:
-      summary: XFE504 - Maximum number of bank account
-      value:
-        error: string
-        error_code: XFE504
-        error_handling: Delete existing bank accounts.
-    XFE406:
-      summary: XFE406 - Cannot refund prepaid transaction
-      value:
-        error: string
-        error_code: XFE406
-        error_handling: Please choose another transaction to refund.
-    XFE105:
-      summary: XFE105 - Captcha error
-      value:
-        error: string
-        error_code: XFE1
-        error_handling: Follow instructions in the response.
-    XFE104:
-      summary: XFE104 - Media provided too large
-      value:
-        error: string
-        error_code: XFE104
-        error_handling: Media too big. Follow the guidelines in the response.
-    XFE303:
-      summary: XFE303 - Account terminated
-      value:
-        error: string
-        error_code: XFE303
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE9:
-      summary: XFE9 - ....
-      value:
-        error: string
-        error_code: XFE9
-        error_handling: '...'
-    XFE15:
-      summary: XFE15 - Required parameter empty
-      value:
-        error: string
-        error_code: XFE15
-        error_handling: Make sure you entered the correct required parameter.
-    XFE405:
-      summary: XFE405 - Charge cannot be refunded
-      value:
-        error: string
-        error_code: XFE405
-        error_handling: Only completed contract can be refunded.
-    XFE308:
-      summary: XFE308 - ...
-      value:
-        error: string
-        error_code: XFE308
-        error_handling: '...'
-    XFE110:
-      summary: XFE110 - Cannot sign up twice
-      value:
-        error: string
-        error_code: XFE110
-        error_handling: Please sign in instead
-    XFE311:
-      summary: XFE311 - Cannot be different wallet type
-      value:
-        error: string
-        error_code: XFE311
-        error_handling: Follow instruction in response or contact customer support at https://bit.ly/XfersSupport.
-    XFE505:
-      summary: XFE505 - Bank abbrev provided invalid
-      value:
-        error: string
-        error_code: XFE505
-        error_handling: Use GET {{base-api-url}}api/v3/banks to get the correct bank abbrev.
-    XFE401:
-      summary: XFE401 - Cannot refund charge
-      value:
-        error: string
-        error_code: XFE401
-        error_handling: Invalid request. Please call another API or Contact customer support at https://bit.ly/XfersSupport.
-    XFE12:
-      summary: XFE12 - Invalid parameter
-      value:
-        error: string
-        error_code: XFE12
-        error_handling: Make sure you entered the correct parameters.
-    XFE503:
-      summary: XFE503 - Failed name check
-      value:
-        error: string
-        error_code: XFE503
-        error_handling: Bank account name and name provided have to be similar.
-    XFE310:
-      summary: XFE310 - Cannot use same account
-      value:
-        error: string
-        error_code: XFE310
-        error_handling: Follow instructions in the response.
-    XFE307:
-      summary: XFE307 - ...
-      value:
-        error: string
-        error_code: XFE307
-        error_handling: '...'
-    XFE302:
-      summary: XFE302 - Account deleted
-      value:
-        error: string
-        error_code: XFE302
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE13:
-      summary: XFE13 - Record not found
-      value:
-        error: string
-        error_code: XFE13
-        error_handling: Please check that you provided the correct API Key and the correct parameters.
-    XFE408:
-      summary: XFE408 - Invalid charge request
-      value:
-        error: string
-        error_code: XFE408
-        error_handling: Invalid request. Please follow instructions in response or contact customer support at https://bit.ly/XfersSupport.
+        error_code: XFE506
+        error_handling: Please use another bank account.
     XFE201:
       summary: XFE201 - Not yet a merchant
       value:
         error: string
         error_code: XFE201
         error_handling: Please verify your merchant or business account.
-    XFE3:
-      summary: XFE3 - Internal Error
+    XFE310:
+      summary: XFE310 - Cannot use same account
       value:
         error: string
-        error_code: XFE3
-        error_handling: Unexpected error. Try again later or contact customer support at https://bit.ly/XfersSupport.
+        error_code: XFE310
+        error_handling: Follow instructions in the response.
+    XFE111:
+      summary: XFE1 - Duplicate credentials
+      value:
+        error: string
+        error_code: XFE111
+        error_handling: Particulars already exist. Please make sure you entered the correct parameters.
+    XFE312:
+      summary: XFE312 - Conditions not met to close account
+      value:
+        error: string
+        error_code: XFE312
+        error_handling: Invalid request to close account. Follow instruction in the response.
+    XFE504:
+      summary: XFE504 - Maximum number of bank account
+      value:
+        error: string
+        error_code: XFE504
+        error_handling: Delete existing bank accounts.
+    XFE309:
+      summary: XFE309 - Cannot use same account
+      value:
+        error: string
+        error_code: XFE309
+        error_handling: Follow instructions in the response.
+    XFE16:
+      summary: XFE16 - Invalid request
+      value:
+        error: string
+        error_code: XFE16
+        error_handling: API request not supported. Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport.
+    XFE1:
+      summary: XFE1 - Server busy
+      value:
+        error: string
+        error_code: XFE1
+        error_handling: Follow instructions in the response.
+    XFE503:
+      summary: XFE503 - Failed name check
+      value:
+        error: string
+        error_code: XFE503
+        error_handling: Bank account name and name provided have to be similar.
     create_loan:
       value:
         customer_data:
@@ -762,172 +782,151 @@ components:
           principal: '1000000.0'
           interest: '10000000.0'
           installfee: '50000.0'
-    XFE304:
-      summary: XFE304- Account closed
+    XFE403:
+      summary: XFE403 - ...
       value:
         error: string
-        error_code: XFE304
-        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
-    XFE16:
-      summary: XFE16 - Invalid request
+        error_code: XFE403
+        error_handling: '...'
+    XFE5:
+      summary: XFE5 - Api key is invalid
       value:
         error: string
-        error_code: XFE16
-        error_handling: API request not supported. Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport.
-    XFE14:
-      summary: XFE14 - API only allowed for fully verified user
+        error_code: XFE5
+        error_handling: Make sure you entered the correct API key or contact customer support at https://bit.ly/XfersSupport
+    XFE410:
+      summary: XFE410 - Invalid application fee
       value:
         error: string
-        error_code: XFE14
-        error_handling: Please submit KYC data to get your account fully verified.
+        error_code: XFE410
+        error_handling: Invalid request. Please make changes to the parameters as stated in the response.
+    XFE107:
+      summary: XFE107 - Only enter one auth_code
+      value:
+        error: string
+        error_code: XFE107
+        error_handling: Do not enter both OTP or Google Auth OTP. Only need to enter one.
+    XFE7:
+      summary: XFE7 - Database error
+      value:
+        error: string
+        error_code: XFE7
+        error_handling: Follow instructions in the response.
+    XFE307:
+      summary: XFE307 - ...
+      value:
+        error: string
+        error_code: XFE307
+        error_handling: '...'
+    XFE311:
+      summary: XFE311 - Cannot be different wallet type
+      value:
+        error: string
+        error_code: XFE311
+        error_handling: Follow instruction in response or contact customer support at https://bit.ly/XfersSupport.
+    XFE101:
+      summary: XFE101 - Not local number
+      value:
+        error: string
+        error_code: XFE101
+        error_handling: Follow instructions in the response.
     XFE10:
       summary: XFE10 - Invalid environment
       value:
         error: string
         error_code: XFE10
         error_handling: Request not supported for this environment.
-    XFE108:
-      summary: XFE108 - More user information required
+    XFE302:
+      summary: XFE302 - Account deleted
       value:
         error: string
-        error_code: XFE108
-        error_handling: Follow instructions in the response.
+        error_code: XFE302
+        error_handling: Request not available. Please contact customer support at https://bit.ly/XfersSupport.
+    XFE112:
+      summary: XFE112 - Repeat request
+      value:
+        error: string
+        error_code: XFE112
+        error_handling: API request has already been made. Please follow the instructions in the response or call aother API.
+    XFE110:
+      summary: XFE110 - Cannot sign up twice
+      value:
+        error: string
+        error_code: XFE110
+        error_handling: Please sign in instead
+    XFE602:
+      summary: XFE602 - Server busy
+      value:
+        error: string
+        error_code: XFE602
+        error_handling: Your withdrawal exceeds the limit for the time period. Please change the amount or verify your account.
+    XFE601:
+      summary: XFE601 - Conditions to withdraw not met. Can be solved by changing amount
+      value:
+        error: string
+        error_code: XFE601
+        error_handling: Your withdrawal does not meet the conditions required. Please follow the instructions in the response.
+    XFE405:
+      summary: XFE405 - Charge cannot be refunded
+      value:
+        error: string
+        error_code: XFE405
+        error_handling: Only completed contract can be refunded.
+    XFE106:
+      summary: XFE106 - No auth_code provided
+      value:
+        error: string
+        error_code: XFE106
+        error_handling: Enter either phone OTP or Google Auth OTP
+    XFE102:
+      summary: XFE102 - Entered value is less than minimum
+      value:
+        error: string
+        error_code: XFE102
+        error_handling: Make sure you entered the correct number.
+    XFE8:
+      summary: XFE8 - Cannot retrieve media
+      value:
+        error: string
+        error_code: XFE8
+        error_handling: Cannot retrieve media. Please enter a new URL or try again later.
+    XFE11:
+      summary: XFE11 - Timeout
+      value:
+        error: string
+        error_code: XFE11
+        error_handling: Please try again later.
+    XFE308:
+      summary: XFE308 - ...
+      value:
+        error: string
+        error_code: XFE308
+        error_handling: '...'
     XFE109:
       summary: XFE109 - Invalid credentials
       value:
         error: string
         error_code: XFE109
         error_handling: Make sure you entered the correct credentials.
+    XFE15:
+      summary: XFE15 - Required parameter empty
+      value:
+        error: string
+        error_code: XFE15
+        error_handling: Make sure you entered the correct required parameter.
+    XFE505:
+      summary: XFE505 - Bank abbrev provided invalid
+      value:
+        error: string
+        error_code: XFE505
+        error_handling: Use GET {{base-api-url}}api/v3/banks to get the correct bank abbrev.
+    XFE105:
+      summary: XFE105 - Captcha error
+      value:
+        error: string
+        error_code: XFE1
+        error_handling: Follow instructions in the response.
   schemas:
-    collateral_data:
-      type: object
-      properties:
-        productcode:
-          type: string
-        merkcode:
-          type: string
-        modelcode:
-          type: string
-        collateralno:
-          type: string
-        collateraldate:
-          type: string
-        collateraladdress:
-          type: string
-        collateralcityid:
-          type: integer
-        collateralname:
-          type: string
-        collateralownerid:
-          type: string
-        collateraldesctype:
-          type: string
-        engineno:
-          type: string
-        chassisno:
-          type: string
-        collateralyear:
-          type: integer
-        buildyear:
-          type: integer
-        condition:
-          type: integer
-        color:
-          type: string
-        collateralkind:
-          type: string
-        collateralpurpose:
-          type: string
-        policeno:
-          type: string
-        stnkexpired:
-          type: string
-        surveydate:
-          type: string
-        bindtypecode:
-          type: string
-        collateraltypecode:
-          type: integer
-        sbrankcode:
-          type: string
-        collateralvalue:
-          type: integer
-        dealercode:
-          type: integer
-    installment_data:
-      type: object
-      properties:
-        period:
-          type: string
-        duedate:
-          type: string
-        principal:
-          type: string
-        interest:
-          type: string
-        installfee:
-          type: string
-    error_response:
-      type: object
-      properties:
-        error:
-          description: Error Message
-          type: string
-        error_code:
-          description: Xfers' error code XFEXXX
-          type: string
-        error_handling:
-          description: Instruction on how to handle error. Refer to Error Codes tag for more information.
-          type: string
-    loan_data:
-      type: object
-      properties:
-        refno:
-          type: string
-        objectvalue:
-          type: string
-        principaltotal:
-          type: string
-        tenor:
-          type: integer
-        loantype:
-          type: integer
-        effectiverate:
-          type: string
-        installment:
-          type: string
-        firstinstdate:
-          type: string
-        admfee:
-          type: string
-        inscode:
-          type: string
-        inspremi:
-          type: string
-        insonloan:
-          type: string
-        installmenttype:
-          type: integer
-        branchcode:
-          type: integer
-        typeofuseid:
-          type: integer
-        orientationofuseid:
-          type: integer
-        debiturcatid:
-          type: integer
-        portfoliocatid:
-          type: string
-        credittypeid:
-          type: integer
-        creditattributeid:
-          type: integer
-        creditcategoryid:
-          type: integer
-        fincat:
-          type: integer
-        installfeeaccount:
-          type: string
     customer_data:
       type: object
       properties:
@@ -1091,134 +1090,135 @@ components:
           type: string
         branchcode:
           type: string
-  responses:
-    v3Error_4XX:
-      description: List of possible errors
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error_response'
-          examples:
-            XFE1:
-              $ref: '#/components/examples/XFE1'
-            XFE2:
-              $ref: '#/components/examples/XFE2'
-            XFE3:
-              $ref: '#/components/examples/XFE3'
-            XFE4:
-              $ref: '#/components/examples/XFE4'
-            XFE5:
-              $ref: '#/components/examples/XFE5'
-            XFE6:
-              $ref: '#/components/examples/XFE6'
-            XFE7:
-              $ref: '#/components/examples/XFE7'
-            XFE8:
-              $ref: '#/components/examples/XFE8'
-            XFE9:
-              $ref: '#/components/examples/XFE9'
-            XFE10:
-              $ref: '#/components/examples/XFE10'
-            XFE11:
-              $ref: '#/components/examples/XFE11'
-            XFE12:
-              $ref: '#/components/examples/XFE12'
-            XFE13:
-              $ref: '#/components/examples/XFE13'
-            XFE14:
-              $ref: '#/components/examples/XFE14'
-            XFE15:
-              $ref: '#/components/examples/XFE15'
-            XFE16:
-              $ref: '#/components/examples/XFE16'
-            XFE101:
-              $ref: '#/components/examples/XFE101'
-            XFE102:
-              $ref: '#/components/examples/XFE102'
-            XFE103:
-              $ref: '#/components/examples/XFE103'
-            XFE104:
-              $ref: '#/components/examples/XFE104'
-            XFE105:
-              $ref: '#/components/examples/XFE105'
-            XFE106:
-              $ref: '#/components/examples/XFE106'
-            XFE107:
-              $ref: '#/components/examples/XFE107'
-            XFE108:
-              $ref: '#/components/examples/XFE108'
-            XFE109:
-              $ref: '#/components/examples/XFE109'
-            XFE110:
-              $ref: '#/components/examples/XFE110'
-            XFE111:
-              $ref: '#/components/examples/XFE111'
-            XFE112:
-              $ref: '#/components/examples/XFE112'
-            XFE201:
-              $ref: '#/components/examples/XFE201'
-            XFE301:
-              $ref: '#/components/examples/XFE301'
-            XFE302:
-              $ref: '#/components/examples/XFE302'
-            XFE303:
-              $ref: '#/components/examples/XFE303'
-            XFE304:
-              $ref: '#/components/examples/XFE304'
-            XFE305:
-              $ref: '#/components/examples/XFE305'
-            XFE306:
-              $ref: '#/components/examples/XFE306'
-            XFE307:
-              $ref: '#/components/examples/XFE307'
-            XFE308:
-              $ref: '#/components/examples/XFE308'
-            XFE309:
-              $ref: '#/components/examples/XFE309'
-            XFE310:
-              $ref: '#/components/examples/XFE310'
-            XFE311:
-              $ref: '#/components/examples/XFE311'
-            XFE312:
-              $ref: '#/components/examples/XFE312'
-            XFE401:
-              $ref: '#/components/examples/XFE401'
-            XFE402:
-              $ref: '#/components/examples/XFE402'
-            XFE403:
-              $ref: '#/components/examples/XFE403'
-            XFE404:
-              $ref: '#/components/examples/XFE404'
-            XFE405:
-              $ref: '#/components/examples/XFE405'
-            XFE406:
-              $ref: '#/components/examples/XFE406'
-            XFE407:
-              $ref: '#/components/examples/XFE407'
-            XFE408:
-              $ref: '#/components/examples/XFE408'
-            XFE409:
-              $ref: '#/components/examples/XFE409'
-            XFE410:
-              $ref: '#/components/examples/XFE410'
-            XFE501:
-              $ref: '#/components/examples/XFE501'
-            XFE502:
-              $ref: '#/components/examples/XFE502'
-            XFE503:
-              $ref: '#/components/examples/XFE503'
-            XFE504:
-              $ref: '#/components/examples/XFE504'
-            XFE505:
-              $ref: '#/components/examples/XFE505'
-            XFE506:
-              $ref: '#/components/examples/XFE506'
-            XFE601:
-              $ref: '#/components/examples/XFE601'
-            XFE602:
-              $ref: '#/components/examples/XFE602'
-            XFE603:
-              $ref: '#/components/examples/XFE603'
+    collateral_data:
+      type: object
+      properties:
+        productcode:
+          type: string
+        merkcode:
+          type: string
+        modelcode:
+          type: string
+        collateralno:
+          type: string
+        collateraldate:
+          type: string
+        collateraladdress:
+          type: string
+        collateralcityid:
+          type: integer
+        collateralname:
+          type: string
+        collateralownerid:
+          type: string
+        collateraldesctype:
+          type: string
+        engineno:
+          type: string
+        chassisno:
+          type: string
+        collateralyear:
+          type: integer
+        buildyear:
+          type: integer
+        condition:
+          type: integer
+        color:
+          type: string
+        collateralkind:
+          type: string
+        collateralpurpose:
+          type: string
+        policeno:
+          type: string
+        stnkexpired:
+          type: string
+        surveydate:
+          type: string
+        bindtypecode:
+          type: string
+        collateraltypecode:
+          type: integer
+        sbrankcode:
+          type: string
+        collateralvalue:
+          type: integer
+        dealercode:
+          type: integer
+    loan_data:
+      type: object
+      properties:
+        refno:
+          type: string
+        objectvalue:
+          type: string
+        principaltotal:
+          type: string
+        tenor:
+          type: integer
+        loantype:
+          type: integer
+        effectiverate:
+          type: string
+        installment:
+          type: string
+        firstinstdate:
+          type: string
+        admfee:
+          type: string
+        inscode:
+          type: string
+        inspremi:
+          type: string
+        insonloan:
+          type: string
+        installmenttype:
+          type: integer
+        branchcode:
+          type: integer
+        typeofuseid:
+          type: integer
+        orientationofuseid:
+          type: integer
+        debiturcatid:
+          type: integer
+        portfoliocatid:
+          type: string
+        credittypeid:
+          type: integer
+        creditattributeid:
+          type: integer
+        creditcategoryid:
+          type: integer
+        fincat:
+          type: integer
+        installfeeaccount:
+          type: string
+    installment_data:
+      type: object
+      properties:
+        period:
+          type: string
+        duedate:
+          type: string
+        principal:
+          type: string
+        interest:
+          type: string
+        installfee:
+          type: string
+    error_response:
+      type: object
+      properties:
+        error:
+          description: Error Message
+          type: string
+        error_code:
+          description: Xfers' error code XFEXXX
+          type: string
+        error_handling:
+          description: Instruction on how to handle error. Refer to Error Codes tag for more information.
+          type: string
   securitySchemes:
     X-XFERS-APP-API-KEY:
       type: apiKey
