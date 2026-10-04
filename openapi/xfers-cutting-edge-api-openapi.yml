@@ -165,6 +165,12 @@ paths:
         4XX:
           $ref: '#/components/responses/v4Error_4XX'
 components:
+  responses:
+    v4Error_4XX:
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/jsonApi_errorResponse'
   schemas:
     jsonApi_errorResponse:
       _comment: https://jsonapi.org/format/#errors
@@ -232,12 +238,6 @@ components:
                 type: integer
               limitations:
                 type: object
-  responses:
-    v4Error_4XX:
-      content:
-        application/vnd.api+json:
-          schema:
-            $ref: '#/components/schemas/jsonApi_errorResponse'
   securitySchemes:
     X-XFERS-APP-API-KEY:
       type: apiKey
