@@ -402,6 +402,8 @@ apis:
   humanURL: https://docs.xfers.io/Singapore
   baseURL: https://www.xfers.io/api
   tags:
+  - E-Signature
+  tags_raw:
   - ESignature
   properties:
   - type: OpenAPI
