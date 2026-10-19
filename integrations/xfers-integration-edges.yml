@@ -27,6 +27,36 @@ edges:
     identity_source: institution e-mail domain stated in the register (labelled provenance step)
   detected_by: sweep-gulf-asean-open-finance.py
   first_seen: '2026-10-18'
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.xfers/xfers-java
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.xfers:xfers-java
+      version: 1.19.0
+      released: '2019-07-08'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.xfers/xfers-java
+      repo_leg: domain:xfers.com
+      publisher_leg: groupId:xfers.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 generated: '2026-10-18'
 method: searched
 source:
@@ -35,7 +65,14 @@ source:
 - https://www.bnm.gov.my/list-of-regulatees
 - https://www.ojk.go.id/id/kanal/iknb/data-dan-statistik/direktori/fintech/Default.aspx
 checked:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
 - https://eservices.mas.gov.sg/fid
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
 - https://www.bnm.gov.my/list-of-regulatees
 - https://www.ojk.go.id/id/kanal/iknb/data-dan-statistik/direktori/fintech/Default.aspx
