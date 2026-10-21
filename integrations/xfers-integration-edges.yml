@@ -1,32 +1,4 @@
 edges:
-- partner_name: Bank Indonesia payment-system licence register
-  partner: null
-  partner_match: register
-  type: register
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
-  category: open finance / payments (Indonesia)
-  contract_reference:
-    register: Bank Indonesia payment-system licence register
-    spec_file: null
-    standard: Bank Indonesia payment-system licensing (PBI 22/23/2020; SNAP applies to licensees)
-    role: licensed-participant
-    registrations:
-    - registered_name: PT Xfers Indonesia Teknologi
-      licences:
-      - Payment Service Provider - License Category 2
-      matched_domain: xfers.com
-      matched_by: domain
-      evidence: https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
-      identity: institution e-mail domain in the BI register (indoadmin@xfers.com)
-    signal_note: 'participation only: a regulator licence; no API conformance is published by this register'
-    detected_by: sweep-gulf-asean-open-finance.py
-    detected: '2026-10-18'
-    identity_source: institution e-mail domain stated in the register (labelled provenance step)
-  detected_by: sweep-gulf-asean-open-finance.py
-  first_seen: '2026-10-18'
 - partner_name: Maven Central
   partner: maven-central
   partner_match: register
@@ -57,13 +29,71 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: Bank Indonesia payment-system licence register
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
+  category: open finance / payments (Indonesia)
+  contract_reference:
+    register: Bank Indonesia payment-system licence register
+    spec_file: null
+    standard: Bank Indonesia payment-system licensing (PBI 22/23/2020; SNAP applies to licensees)
+    role: licensed-participant
+    registrations:
+    - registered_name: PT Xfers Indonesia Teknologi
+      licences:
+      - Payment Service Provider - License Category 2
+      matched_domain: xfers.com
+      matched_by: domain
+      evidence: https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
+      identity: institution e-mail domain in the BI register (indoadmin@xfers.com)
+    signal_note: 'participation only: a regulator licence; no API conformance is published by this register'
+    detected_by: sweep-gulf-asean-open-finance.py
+    detected: '2026-10-18'
+    identity_source: institution e-mail domain stated in the register (labelled provenance step)
+  detected_by: sweep-gulf-asean-open-finance.py
+  first_seen: '2026-10-18'
+- partner_name: 500 Global
+  partner: 500-global
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://500.co/companies
+  category: accelerator portfolio participation
+  contract_reference:
+    register: 500 Global portfolio (500.co/companies; the page's own JSON 500.co/api/startups)
+    standard: null
+    spec_file: null
+    role: accelerator-portfolio-company
+    registered_name: Xfers
+    register_id: https://500.co/companies
+    register_country: Singapore
+    register_website: www.xfers.com
+    matched_domain: xfers.com
+    matched_by: domain
+    signal_note: 'participation only: the accelerator''s own portfolio register lists the company (cohort / investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-accelerator-portfolios.py
+    detected: '2026-10-21'
+    year: '2015'
+  detected_by: sweep-accelerator-portfolios.py
+  first_seen: '2026-10-21'
 generated: '2026-10-18'
 method: searched
 source:
-- https://eservices.mas.gov.sg/fid
-- https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
-- https://www.bnm.gov.my/list-of-regulatees
-- https://www.ojk.go.id/id/kanal/iknb/data-dan-statistik/direktori/fintech/Default.aspx
+- https://registry.npmjs.org
+- https://pypi.org/pypi
+- https://rubygems.org/api/v1
+- https://crates.io/api/v1
+- https://repo1.maven.org/maven2
+- https://api.nuget.org/v3
+- https://proxy.golang.org
 checked:
 - https://api.nuget.org/v3
 - https://crates.io/api/v1
@@ -76,3 +106,8 @@ checked:
 - https://www.bi.go.id/id/layanan/informasi-perizinan/sistem-pembayaran/default.aspx
 - https://www.bnm.gov.my/list-of-regulatees
 - https://www.ojk.go.id/id/kanal/iknb/data-dan-statistik/direktori/fintech/Default.aspx
+- https://500.co/api/startups
+- https://500.co/companies
+- https://www.antler.co/portfolio
+- https://www.techstars.com/portfolio
+- https://www.ycombinator.com/companies
